@@ -1,0 +1,32 @@
+{
+  "name": "hcmus-webfinal-assignment",
+  "version": "1.0.0",
+  "description": "This is the final basic web developement project ",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lhoaibao/HCMUS-webfinal-assignment.git"
+  },
+  "keywords": [
+    "no dejs",
+    "expressjs",
+    "handlebar"
+  ],
+  "author": "HungTrinh and HoaiBaoLe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lhoaibao/HCMUS-webfinal-assignment/issues"
+  },
+  "homepage": "https://github.com/lhoaibao/HCMUS-webfinal-assignment#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
