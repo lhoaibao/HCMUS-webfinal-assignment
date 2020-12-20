@@ -4,6 +4,7 @@ const exphbs = require("express-handlebars");
 const routing = require("./routing");
 const path = require("path");
 const app = express();
+require("express-async-errors");
 
 // Static file setup
 app.use(express.static(path.join(__dirname, "/public")));

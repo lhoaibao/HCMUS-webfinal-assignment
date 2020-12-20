@@ -4,15 +4,11 @@ const db = require("../utils/db");
 const categoryModel = require("../models/categories.model");
 
 router.get("/", async (request, response) => {
-  try {
-    const result = await categoryModel.all();
-    response.render("categories", {
-      categories: result,
-      empty: result.length === 0,
-    });
-  } catch (err) {
-    response.send("View error log at server console");
-  }
+  const result = await categoryModel.all();
+  response.render("categories", {
+    categories: result,
+    empty: result.length === 0,
+  });
 });
 
 module.exports = router;
