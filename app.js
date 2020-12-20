@@ -1,31 +1,20 @@
+// Import module
 const express = require("express");
 const exphbs = require("express-handlebars");
-const mysql = require("mysql");
-
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "password",
-  database: "elearning",
-});
-
+const routing = require("./routing");
+const path = require("path");
 const app = express();
-app.use(express.static(__dirname + "/public"));
 
-app.engine("hbs", exphbs({ extname: ".hbs", defaultLayout: "main.hbs" }));
+// Static file setup
+app.use(express.static(path.join(__dirname, "/public")));
+
+// view engine setup
+app.engine("hbs", exphbs({ extname: ".hbs", defaultLayout: "layout.hbs" }));
 app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
 
-app.get("/", (req, res) => {
-  db.connect();
-
-  db.query("select * from users", function (error, results, fields) {
-    if (error) throw error;
-    console.log(results);
-  });
-
-  db.end();
-  res.render("home");
-});
+// App main
+app.use("/", routing);
 
 const PORT = 3000;
 app.listen(PORT, () => {
