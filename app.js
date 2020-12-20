@@ -13,7 +13,7 @@ app.engine("hbs", exphbs({ extname: ".hbs", defaultLayout: "layout.hbs" }));
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 
-// App main
+// Middleware
 app.use("/", routing);
 
 const PORT = 3000;
