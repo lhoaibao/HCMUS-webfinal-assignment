@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>404 Not found</title>
+
+    <!-- Prevent the demo from appearing in search engines -->
+    <meta name="robots" content="noindex">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CRoboto:400,500%7CExo+2:600&display=swap"
+        rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="vendor/spinkit.css" rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="css/preloader.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="css/404.css" rel="stylesheet">
+    <script>
+        //based on https://dribbble.com/shots/3913847-404-page
+
+        var pageX = $(document).width();
+        var pageY = $(document).height();
+        var mouseY = 0;
+        var mouseX = 0;
+
+        $(document).mousemove(function (event) {
+            //verticalAxis
+            mouseY = event.pageY;
+            yAxis = (pageY / 2 - mouseY) / pageY * 300;
+            //horizontalAxis
+            mouseX = event.pageX / -pageX;
+            xAxis = -mouseX * 100 - 100;
+
+            $('.box__ghost-eyes').css({ 'transform': 'translate(' + xAxis + '%,-' + yAxis + '%)' });
+
+            //console.log('X: ' + xAxis);
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+
+        <div class="box__ghost">
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+            <div class="symbol"></div>
+
+            <div class="box__ghost-container">
+                <div class="box__ghost-eyes">
+                    <div class="box__eye-left"></div>
+                    <div class="box__eye-right"></div>
+                </div>
+                <div class="box__ghost-bottom">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="box__ghost-shadow"></div>
+        </div>
+
+        <div class="box__description">
+            <div class="box__description-container">
+                <div class="box__description-title">505 Internal Server Error!</div>
+                <div class="box__description-text">It seems like we couldn't find the page you were looking for</div>
+            </div>
+
+            <a href="http://localhost:3000/" class="box__button">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                Go Homepage
+            </a>
+            <a href="http://localhost:3000/" class="box__button btn-success">
+                <i class="fas fa-redo"></i>
+                Go back
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
