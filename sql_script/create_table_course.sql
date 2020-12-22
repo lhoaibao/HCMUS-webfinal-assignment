@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS `course`;
 create table if not exists course (
     id int auto_increment not null,
     category_id int not null,

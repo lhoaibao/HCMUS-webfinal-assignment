@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS `user`;
 create table if not exists user (
     id int auto_increment not null,
     username varchar(100) not null,
