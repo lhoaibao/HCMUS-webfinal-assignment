@@ -1,0 +1,584 @@
+<!-- partial:partials/_head.html -->
+<!-- partial -->
+<script>
+    /*
+     *  Add sidebar classes (sidebar-mini sidebar-collapse sidebar-expanded-on-hover) in body tag
+     *  you can remove this script tag and add classes directly to body
+     *  this is only for demo
+     */
+    document.body.className += ' sidebar-mini' + ' sidebar-collapse' + ' sidebar-expanded-on-hover' + ' sidebar-top-offset';
+</script>
+<!-- partial:partials/_sidebar4.html -->
+<!-- partial -->
+<div class="sticky">
+    <div class="navbar navbar-expand d-flex justify-content-between bd-navbar white b-b">
+        <div class="relative">
+            <div class="d-flex">
+                <div>
+                    <a href="#" data-toggle="push-menu" class="paper-nav-toggle pp-nav-toggle">
+                        <i></i>
+                    </a>
+                </div>
+                <ul class="nav responsive-tab nav-material nav-material-white mt-1 ml-3" id="v-pills-tab">
+                    <li>
+                        <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                            <i class="mr-3 icon-code2"></i>Data Analysis</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"><i
+                                class="icon icon-plus-circle mb-3"></i>Yesterday</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3"><i
+                                class="icon icon-calendar"></i>By Date</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Top Menu Start -->
+        <div class="navbar-custom-menu d-flex align-items-center">
+            <ul class="nav navbar-nav">
+                <!-- Messages-->
+                <li class="dropdown custom-dropdown messages-menu">
+                    <a href="#" class="nav-link pl-lg-3 pr-lg-3 b-l" data-toggle="dropdown">
+                        <i class="icon-message "></i>
+                        <span class="badge badge-success badge-mini rounded-circle">4</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu pl-2 pr-2">
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u4.png" alt="">
+                                            <span class="avatar-badge busy"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u1.png" alt="">
+                                            <span class="avatar-badge online"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u2.png" alt="">
+                                            <span class="avatar-badge idle"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u3.png" alt="">
+                                            <span class="avatar-badge busy"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                            </ul>
+                        </li>
+                        <li class="footer s-12 p-2 text-center"><a href="#">See All Messages</a></li>
+                    </ul>
+                </li>
+                <!-- Notifications -->
+                <li class="dropdown custom-dropdown notifications-menu">
+                    <a href="#" class="nav-link  b-r b-l pl-lg-3 pr-lg-3" data-toggle="dropdown" aria-expanded="false">
+                        <i class="icon-notifications "></i>
+                        <span class="badge badge-danger badge-mini rounded-circle">4</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="header">You have 10 notifications</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon icon-data_usage text-success"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon icon-data_usage text-danger"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon icon-data_usage text-yellow"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer p-2 text-center"><a href="#">View all</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- Button -->
+            <div>
+                <a href="#" class="btn btn-primary btn-sm ml-3 d-none d-sm-block">Add New Project</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="page has-sidebar-left">
+    <header class="relative pt-4">
+        <div class="container-fluid ">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-money-1"></i>
+                        Dues
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid relative animatedParent animateOnce p-0">
+        <div class="row no-gutters">
+            <div class="col-md-12">
+                <div class="pl-3 pr-3 my-3">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3 my-3">
+                            <div class="card r-0 no-b shadow2">
+                                <div class="shadow p-4 bg-light">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <div>
+                                          <h5>3 days Overdue</h5>
+                                        <small>  Rent for Jaunary</small>
+                                      </div>
+                                      <div>
+                                            <div class="float-right">
+                                                <i class="icon-check_circle s-36 text-success text-right"></i>
+                                            </div>
+                                      </div>
+                                  </div>
+                                  <div class="d-flex align-items-center justify-content-between s-12">
+                                      <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                          <i class="icon-building-o mr-1 text-primary s-14"></i><strong> Flat - 425</strong>
+                                      </div>
+                                      <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                          <i class="icon-money-bag mr-1 text-danger s-14"></i> <strong>$300 - Month</strong>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="card-body text-center p-5">
+                                    <div class="avatar avatar-xl mb-3">
+                                        <img  src="assets/img/dummy/u8.png" alt="User Image">
+                                    </div>
+                                    <div>
+                                        <h6 class="p-t-10">Alexander Pierce</h6>
+                                        <a href="#">alexander@paper.com</a>
+                                    </div>
+                                    <div class="my-4">
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u6.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters d-flex b-t justify-content-around text-center">
+                                    <div class="b-r col-6">
+                                        <a class="pt-3 pb-3 btn btn-secondary btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-message mr-2"></i>Message</a>
+                                    </div>
+                                    <div  class="col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-user-circle-o mr-2"></i>View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 my-3">
+                            <div class="card r-0 no-b shadow2">
+                                <div class="shadow p-4 bg-light">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <div>
+                                          <h5>3 days Overdue</h5>
+                                        <small>  Rent for Jaunary</small>
+                                      </div>
+                                      <div>
+                                            <div class="float-right">
+                                                <i class="icon-error_outline s-36 text-warning text-right"></i>
+                                            </div>
+                                      </div>
+                                  </div>
+                                  <div class="d-flex align-items-center justify-content-between s-12">
+                                      <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                          <i class="icon-building-o mr-1 text-primary s-14"></i><strong> Flat - 425</strong>
+                                      </div>
+                                      <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                          <i class="icon-money-bag mr-1 text-danger s-14"></i> <strong>$300 - Month</strong>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="card-body text-center p-5">
+                                    <div class="avatar avatar-xl mb-3">
+                                        <img  src="assets/img/dummy/u6.png" alt="User Image">
+                                    </div>
+                                    <div>
+                                        <h6 class="p-t-10">Alexander Pierce</h6>
+                                        <a href="#">alexander@paper.com</a>
+                                    </div>
+                                    <div class="my-4">
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u6.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters d-flex b-t justify-content-around text-center">
+                                    <div class="b-r col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-message mr-2"></i>Message</a>
+                                    </div>
+                                    <div  class="col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-user-circle-o mr-2"></i>View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 my-3">
+                            <div class="card r-0 no-b shadow2">
+                                <div class="shadow p-4 pink lighten-2">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <div class="text-white">
+                                          <h5>3 days Overdue</h5>
+                                        <small>  Rent for Jaunary</small>
+                                      </div>
+                                      <div>
+                                            <div class="float-right">
+                                                <i class="icon-bubble_chart s-36 text-white text-right"></i>
+                                            </div>
+                                      </div>
+                                  </div>
+                                  <div class="d-flex align-items-center justify-content-between s-12">
+                                      <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                          <i class="icon-building-o mr-1 text-primary s-14"></i><strong> Flat - 425</strong>
+                                      </div>
+                                      <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                          <i class="icon-money-bag mr-1 text-danger s-14"></i> <strong>$300 - Month</strong>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="card-body text-center p-5">
+                                    <div class="avatar avatar-xl mb-3">
+                                        <img  src="assets/img/dummy/u12.png" alt="User Image">
+                                    </div>
+                                    <div>
+                                        <h6 class="p-t-10">Alexander Pierce</h6>
+                                        <a href="#">alexander@paper.com</a>
+                                    </div>
+                                    <div class="my-4">
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u6.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters d-flex b-t justify-content-around text-center">
+                                    <div class="b-r col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-message mr-2"></i>Message</a>
+                                    </div>
+                                    <div  class="col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-user-circle-o mr-2"></i>View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 my-3">
+                            <div class="card r-0 no-b shadow2">
+                                <div class="shadow p-4 bg-light">
+                                  <div class="d-flex align-items-center justify-content-between">
+                                      <div>
+                                          <h5>3 days Overdue</h5>
+                                        <small>  Rent for Jaunary</small>
+                                      </div>
+                                      <div>
+                                            <div class="float-right">
+                                                <i class="icon-error_outline s-36 text-warning text-right"></i>
+                                            </div>
+                                      </div>
+                                  </div>
+                                  <div class="d-flex align-items-center justify-content-between s-12">
+                                      <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                          <i class="icon-building-o mr-1 text-primary s-14"></i><strong> Flat - 425</strong>
+                                      </div>
+                                      <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                          <i class="icon-money-bag mr-1 text-danger s-14"></i> <strong>$300 - Month</strong>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class="card-body text-center p-5">
+                                    <div class="avatar avatar-xl mb-3">
+                                        <img  src="assets/img/dummy/u9.png" alt="User Image">
+                                    </div>
+                                    <div>
+                                        <h6 class="p-t-10">Alexander Pierce</h6>
+                                        <a href="#">alexander@paper.com</a>
+                                    </div>
+                                    <div class="my-4">
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u6.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters d-flex b-t justify-content-around text-center">
+                                    <div class="b-r col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-message mr-2"></i>Message</a>
+                                    </div>
+                                    <div  class="col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-user-circle-o mr-2"></i>View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3 my-3">
+                            <div class="card r-0 no-b shadow2">
+                                <div class="shadow p-4 bg-light">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <h5>3 days Overdue</h5>
+                                            <small>  Rent for Jaunary</small>
+                                        </div>
+                                        <div>
+                                            <div class="float-right">
+                                                <i class="icon-error_outline s-36 text-warning text-right"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between s-12">
+                                        <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                            <i class="icon-building-o mr-1 text-primary s-14"></i><strong> Flat - 425</strong>
+                                        </div>
+                                        <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                            <i class="icon-money-bag mr-1 text-danger s-14"></i> <strong>$300 - Month</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center p-5">
+                                    <div class="avatar avatar-xl mb-3">
+                                        <img  src="assets/img/dummy/u6.png" alt="User Image">
+                                    </div>
+                                    <div>
+                                        <h6 class="p-t-10">Alexander Pierce</h6>
+                                        <a href="#">alexander@paper.com</a>
+                                    </div>
+                                    <div class="my-4">
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u6.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters d-flex b-t justify-content-around text-center">
+                                    <div class="b-r col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-message mr-2"></i>Message</a>
+                                    </div>
+                                    <div  class="col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-user-circle-o mr-2"></i>View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 my-3">
+                            <div class="card r-0 no-b shadow2">
+                                <div class="shadow p-4 bg-light">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <h5>3 days Overdue</h5>
+                                            <small>  Rent for Jaunary</small>
+                                        </div>
+                                        <div>
+                                            <div class="float-right">
+                                                <i class="icon-error_outline s-36 text-warning text-right"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between s-12">
+                                        <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                            <i class="icon-building-o mr-1 text-primary s-14"></i><strong> Flat - 425</strong>
+                                        </div>
+                                        <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                            <i class="icon-money-bag mr-1 text-danger s-14"></i> <strong>$300 - Month</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center p-5">
+                                    <div class="avatar avatar-xl mb-3">
+                                        <img  src="assets/img/dummy/u7.png" alt="User Image">
+                                    </div>
+                                    <div>
+                                        <h6 class="p-t-10">Alexander Pierce</h6>
+                                        <a href="#">alexander@paper.com</a>
+                                    </div>
+                                    <div class="my-4">
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u6.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters d-flex b-t justify-content-around text-center">
+                                    <div class="b-r col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-message mr-2"></i>Message</a>
+                                    </div>
+                                    <div  class="col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-user-circle-o mr-2"></i>View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 my-3">
+                            <div class="card r-0 no-b shadow2">
+                                <div class="shadow p-4 bg-light">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <h5>3 days Overdue</h5>
+                                            <small>  Rent for Jaunary</small>
+                                        </div>
+                                        <div>
+                                            <div class="float-right">
+                                                <i class="icon-error_outline s-36 text-warning text-right"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between s-12">
+                                        <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                            <i class="icon-building-o mr-1 text-primary s-14"></i><strong> Flat - 425</strong>
+                                        </div>
+                                        <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                            <i class="icon-money-bag mr-1 text-danger s-14"></i> <strong>$300 - Month</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center p-5">
+                                    <div class="avatar avatar-xl mb-3">
+                                        <img  src="assets/img/dummy/u4.png" alt="User Image">
+                                    </div>
+                                    <div>
+                                        <h6 class="p-t-10">Alexander Pierce</h6>
+                                        <a href="#">alexander@paper.com</a>
+                                    </div>
+                                    <div class="my-4">
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u6.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters d-flex b-t justify-content-around text-center">
+                                    <div class="b-r col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-message mr-2"></i>Message</a>
+                                    </div>
+                                    <div  class="col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-user-circle-o mr-2"></i>View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 my-3">
+                            <div class="card r-0 no-b shadow2">
+                                <div class="shadow p-4 bg-primary">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="text-white">
+                                            <h5>3 days Overdue</h5>
+                                            <small>  Rent for Jaunary</small>
+                                        </div>
+                                        <div>
+                                            <div class="float-right">
+                                                <i class="icon-alarm_on s-36 text-white text-right"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between s-12">
+                                        <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                            <i class="icon-building-o mr-1 text-primary s-14"></i><strong> Flat - 425</strong>
+                                        </div>
+                                        <div class="border pt-2 pb-2 pl-3 pr-3 r-3 mt-3 white">
+                                            <i class="icon-money-bag mr-1 text-danger s-14"></i> <strong>$300 - Month</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-center p-5">
+                                    <div class="avatar avatar-xl mb-3">
+                                        <img  src="assets/img/dummy/u6.png" alt="User Image">
+                                    </div>
+                                    <div>
+                                        <h6 class="p-t-10">Alexander Pierce</h6>
+                                        <a href="#">alexander@paper.com</a>
+                                    </div>
+                                    <div class="my-4">
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u6.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                        <figure class="avatar">
+                                            <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                    </div>
+                                </div>
+                                <div class="row no-gutters d-flex b-t justify-content-around text-center">
+                                    <div class="b-r col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-message mr-2"></i>Message</a>
+                                    </div>
+                                    <div  class="col-6">
+                                        <a class="pt-3 pb-3 btn btn-default btn-block r-0 b-0 s-12 font-weight-normal" href="#"><i class="icon-user-circle-o mr-2"></i>View Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- partial:partials/_foot.html -->
+<!-- partial -->

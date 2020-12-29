@@ -1,0 +1,31 @@
+.theme-dark{
+  background: $body-dark;
+  .card,.main-sidebar,&.card,&.main-sidebar,&.body,.navbar,&.navbar,.list-group-item{
+    background: $sidebar-dark-bg !important;
+  }
+  .list-group-item,.b-b,.b-r,.b-l,.b-t,&.b-b,&.b-r,&.b-l,&.b-t,.table tr,.table th, .table td,.card,.card-header,.card-footer,.form-material .form-group .form-line{
+    border-color: $brand-border-dark !important;
+  }
+  .form-control{
+    border-color: $brand-border-dark;
+    &:focus{
+      border-color: $brand-primary;
+    }
+  }
+
+  // Hovers
+  .sidebar-menu li a:hover,.table-hover tbody tr:hover,.light,.card-header .white{
+      background: $sidebar-dark-hover-bg;
+  }
+  .sidebar-tabs,.tab-content, &.offcanvas .sidebar-menu > li,.offcanvas .sidebar-menu > li{
+    border-color: $brand-border-dark !important;
+    a{
+      &.active{
+        color:$brand-primary;
+      }
+      &.nav-link{
+        color:$white;
+      }
+    }
+  }
+}

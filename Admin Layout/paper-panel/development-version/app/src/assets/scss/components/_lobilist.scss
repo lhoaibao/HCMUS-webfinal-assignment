@@ -1,0 +1,351 @@
+.lobilists {
+  .lobilist {
+    border-radius:3px;
+    display: inline-block;
+    float: left;
+    margin-bottom: 20px;
+    width: 360px;
+    background-color: #fff;
+    margin-right: 10px;
+    -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    &:last-child {
+      margin-right: 0;
+    }
+    &.ui-sortable-helper {
+      -webkit-transform: rotate(2deg);
+      -ms-transform: rotate(2deg);
+      -o-transform: rotate(2deg);
+      transform: rotate(2deg);
+    }
+    &:hover .lobilist-actions {
+      opacity: 1;
+    }
+    .lobilist-header {
+      border-radius: 3px 3px 0 0;
+    }
+    &.lobilist-default {
+      .lobilist-header {
+        border-bottom: 1px solid #eee;
+        background-color: #eee;
+        input {
+          background-color: transparent;
+          border-color: #555;
+        }
+      }
+      .btn-show-form, .lobilist-actions .btn, .lobilist-title {
+        color: #555;
+      }
+    }
+    &.lobilist-danger {
+      .lobilist-header {
+        border-bottom: 1px solid $brand-danger;
+        background-color: $brand-danger;
+        border-radius: 3px 3px 0 0;
+        input {
+          background-color: transparent;
+          border-color: #fff;
+        }
+      }
+      .btn-show-form, .lobilist-actions .btn, .lobilist-title {
+        color: #fff;
+      }
+    }
+    &.lobilist-success {
+      .lobilist-header {
+        border-bottom: 1px solid $brand-success;
+        background-color: $brand-success;
+        input {
+          background-color: transparent;
+          border-color: #fff;
+        }
+      }
+      .btn-show-form, .lobilist-actions .btn, .lobilist-title {
+        color: #fff;
+      }
+    }
+    &.lobilist-warning {
+      .lobilist-header {
+        border-bottom: 1px solid $brand-warning;
+        background-color: $brand-warning;
+        input {
+          background-color: transparent;
+          border-color: #fff;
+        }
+      }
+      .btn-show-form, .lobilist-actions .btn, .lobilist-title {
+        color: #fff;
+      }
+    }
+    &.lobilist-info {
+      .lobilist-header {
+        border-bottom: 1px solid $brand-primary;
+        background-color: $brand-primary;
+        input {
+          background-color: transparent;
+          border-color: #fff;
+        }
+      }
+      .btn-show-form, .lobilist-actions .btn, .lobilist-title {
+        color: #fff;
+      }
+    }
+    &.lobilist-primary {
+      .lobilist-header {
+        border-bottom: 1px solid #003260;
+        background-color: #004484;
+        input {
+          background-color: transparent;
+          border-color: #fff;
+        }
+      }
+      .btn-show-form, .lobilist-actions .btn, .lobilist-title {
+        color: #fff;
+      }
+    }
+  }
+  .btn-cancel-title-editing, .btn-finish-title-editing {
+    display: none;
+  }
+  .lobilist-header {
+    position: relative;
+    min-height: 38px;
+    padding: 6px 8px;
+    input {
+      background-color: transparent;
+      height: 30px;
+    }
+    &.title-editing .lobilist-actions {
+      opacity: 1;
+      .btn {
+        display: none;
+      }
+      .btn-cancel-title-editing, .btn-finish-title-editing {
+        display: inline-block;
+        font-size: 18px;
+        line-height: 30px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+    &:after, &:before {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+  }
+  .lobilist-actions {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    opacity: 0;
+    > .dropdown {
+      display: inline-block;
+    }
+    .dropdown-menu {
+      height: 70px;
+      width: 100px;
+      box-sizing: content-box;
+      min-width: 0;
+      padding: 0;
+      margin: 0;
+      .lobilist-danger, .lobilist-default, .lobilist-info, .lobilist-primary, .lobilist-success, .lobilist-warning {
+        display: inline-block;
+        cursor: pointer;
+        margin: 4px;
+        width: 25px;
+        height: 25px;
+      }
+      .lobilist-default {
+        background-color: #eee;
+        &:hover {
+          background-color: #e2e2e2;
+        }
+      }
+      .lobilist-danger {
+        background-color: #e56441;
+        &:hover {
+          background-color: #e2522a;
+        }
+      }
+      .lobilist-success {
+        background-color: $brand-success;
+        &:hover {
+          background-color: #24b46e;
+        }
+      }
+      .lobilist-warning {
+        background-color: #e2993f;
+        &:hover {
+          background-color: #df8d29;
+        }
+      }
+      .lobilist-info {
+        background-color: $brand-primary;
+        &:hover {
+          background-color: #337bb2;
+        }
+      }
+      .lobilist-primary {
+        background-color: #004484;
+        &:hover {
+          background-color: #00376b;
+        }
+      }
+    }
+    .btn {
+      background-color: transparent;
+      border-color: transparent;
+      width: 26px;
+      height: 26px;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+    }
+  }
+  .lobilist-title {
+    padding-left: 15px;
+    font-size: 18px;
+  }
+  .lobilist-items {
+    list-style: none;
+    margin-bottom: -1px;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 10px;
+  }
+  .lobilist-item {
+    margin-bottom: 5px;
+    padding: 5px 0 5px 35px;
+    border-bottom: 1px solid #eee;
+    -webkit-transition: background-color .2s;
+    -o-transition: background-color .2s;
+    transition: background-color .2s;
+    .delete-todo, .edit-todo {
+      position: absolute;
+      top: 8px;
+      opacity: 0;
+      text-align: center;
+      font-size: 10px;
+      color: #9d9d9d;
+      line-height: 16px;
+      width: 16px;
+      height: 16px;
+    }
+    .delete-todo:hover, .edit-todo:hover {
+      cursor: pointer;
+      color: #5e5e5e;
+    }
+    .delete-todo {
+      right: 5px;
+    }
+    .edit-todo {
+      right: 21px;
+    }
+    .drag-handler {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+      border-left: 2px dotted #ddd;
+      border-right: 2px dotted #ddd;
+      &:hover {
+        cursor: move;
+      }
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.02);
+      .delete-todo, .edit-todo {
+        opacity: 1;
+      }
+    }
+  }
+  .lobilist-item-title {
+    font-weight: 400;
+    font-size: 14px;
+  }
+  .lobilist-item-description {
+    font-style: italic;
+  }
+  .lobilist-item-duedate {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    font-style: italic;
+    color: #777;
+    font-size: 85%;
+  }
+  .lobilist-check {
+    position: absolute;
+    left: 12px;
+    top: 5px;
+    &.lobicheck {
+      margin-top: 3px;
+    }
+  }
+  .lobilist-item {
+    position: relative;
+    &.item-done {
+      text-decoration: line-through;
+    }
+  }
+  .btn-show-form {
+    outline: 0;
+  }
+  .lobilist-footer {
+    padding: 6px 8px;
+  }
+  .lobilist-form-footer {
+    padding: 6px 8px;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-bottom: -10px;
+  }
+  .lobilist-add-todo-form {
+    padding: 10px;
+    .form-group {
+      margin-bottom: 5px;
+    }
+    .btn-add-todo {
+      margin-right: 5px;
+    }
+  }
+  .lobilist-placeholder {
+    display: inline-block;
+    float: left;
+    width: 360px;
+    margin-right: 10px;
+    background-color: #f9f5d1;
+    border: 1px dashed #777;
+  }
+  .lobilist-item-placeholder {
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px dashed #ddd;
+    margin-bottom: 5px;
+    padding: 5px 0 5px 35px;
+  }
+  &:after, &:before {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@media (max-width: 480px) {
+  .lobilists .lobilist {
+    width: 100%;
+  }
+}
+
+//custom
+
+
+.lobilist-add-todo-form{
+  &.hide{
+    display: none;
+  }
+}

@@ -1,0 +1,92 @@
+html[dir="rtl"],[dir="rtl"] {
+
+    body{
+        text-align: right;
+    }
+    //sidebar
+    .main-sidebar{
+        right: 0 !important;
+    }
+    .has-sidebar-right {
+        margin-right: 270px;
+        @include tablet-and-phone {
+            margin-right: 0;
+        }
+        transition: transform 0.5s ease-in-out, margin 0.5s ease-in-out;
+        &.page{
+            overflow: hidden;
+        }
+    }
+    .sidebar-collapse {
+        .main-sidebar{
+            transform: translate(330px, 0);
+        }
+        .has-sidebar-right {
+            margin-right: 0;
+        }
+    }
+
+    .control-sidebar.control-sidebar-open, .control-sidebar.control-sidebar-open + .control-sidebar-bg {
+        right: auto;
+        left: 0 !important;
+    }
+    .control-sidebar-bg, .control-sidebar {
+        left: -350px;
+        transition: left .3s ease-in-out !important;
+    }
+    .sidebar-menu li > a{
+        padding: 10px 24px 10px 15px;
+    }
+    .sidebar-menu li  a .icon-angle-left{
+        right: auto;
+
+    }
+    .sidebar-menu li > a > .pull-left {
+        margin-top: -7px;
+        position: absolute;
+        left: 20px;
+        top: 42%;
+    }
+    //nav
+    .navbar-nav > .user-menu .user-image {
+        float: right;
+        width: 25px;
+        height: 25px;
+        margin-left: 10px;
+        margin-top: -2px;
+    }
+    .paper-nav-toggle {
+        left: 0;
+        right: auto;
+    }
+
+
+    //preloader
+    .circle-clipper.right .circle {
+        right: -100%;
+    }
+
+    //forms
+    .form-material .form-group {
+        .form-line .form-label {
+            left: auto;
+            right: 0;
+        }
+        .help-info {
+            float: left;
+        }
+    }
+    .form-group.has-icon {
+        i {
+            margin-right: 20px;
+            &::after {
+                border-left: solid 1px #e1e8ee;
+                right: 30px;
+            }
+        }
+        input {
+            padding-right: 68px;
+        }
+    }
+    
+}
