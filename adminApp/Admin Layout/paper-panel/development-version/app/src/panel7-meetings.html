@@ -1,0 +1,563 @@
+<!-- partial:partials/_head.html -->
+<!-- partial -->
+<script>
+    /*
+     *  Add sidebar classes (sidebar-mini sidebar-collapse sidebar-expanded-on-hover) in body tag
+     *  you can remove this script tag and add classes directly to body
+     *  this is only for demo
+     */
+    document.body.className += ' sidebar-mini' + ' sidebar-collapse' + ' sidebar-expanded-on-hover' + ' sidebar-top-offset';
+</script>
+<!-- partial:partials/_sidebar4.html -->
+<!-- partial -->
+<div class="sticky">
+    <div class="navbar navbar-expand d-flex justify-content-between bd-navbar white b-b">
+        <div class="relative">
+            <div class="d-flex">
+                <div>
+                    <a href="#" data-toggle="push-menu" class="paper-nav-toggle pp-nav-toggle">
+                        <i></i>
+                    </a>
+                </div>
+                <ul class="nav responsive-tab nav-material nav-material-white mt-1 ml-3" id="v-pills-tab">
+                    <li>
+                        <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                            <i class="mr-3 icon-code2"></i>Data Analysis</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"><i
+                                class="icon icon-plus-circle mb-3"></i>Yesterday</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3"><i
+                                class="icon icon-calendar"></i>By Date</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Top Menu Start -->
+        <div class="navbar-custom-menu d-flex align-items-center">
+            <ul class="nav navbar-nav">
+                <!-- Messages-->
+                <li class="dropdown custom-dropdown messages-menu">
+                    <a href="#" class="nav-link pl-lg-3 pr-lg-3 b-l" data-toggle="dropdown">
+                        <i class="icon-message "></i>
+                        <span class="badge badge-success badge-mini rounded-circle">4</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu pl-2 pr-2">
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u4.png" alt="">
+                                            <span class="avatar-badge busy"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u1.png" alt="">
+                                            <span class="avatar-badge online"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u2.png" alt="">
+                                            <span class="avatar-badge idle"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u3.png" alt="">
+                                            <span class="avatar-badge busy"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                            </ul>
+                        </li>
+                        <li class="footer s-12 p-2 text-center"><a href="#">See All Messages</a></li>
+                    </ul>
+                </li>
+                <!-- Notifications -->
+                <li class="dropdown custom-dropdown notifications-menu">
+                    <a href="#" class="nav-link  b-r b-l pl-lg-3 pr-lg-3" data-toggle="dropdown" aria-expanded="false">
+                        <i class="icon-notifications "></i>
+                        <span class="badge badge-danger badge-mini rounded-circle">4</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="header">You have 10 notifications</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon icon-data_usage text-success"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon icon-data_usage text-danger"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon icon-data_usage text-yellow"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer p-2 text-center"><a href="#">View all</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- Button -->
+            <div>
+                <a href="#" class="btn btn-primary btn-sm ml-3 d-none d-sm-block">Add New Project</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="page has-sidebar-left">
+    <header class="indigo lighten-1 relative pt-4">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-box"></i>
+                        Meetings
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <ul class="nav responsive-tab nav-material nav-material-white" id="v-pills-tab">
+                    <li>
+                        <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                            <i class="icon icon-home2"></i>Today</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"><i
+                                class="icon icon-plus-circle mb-3"></i>Yesterday</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3"><i
+                                class="icon icon-calendar"></i>By Date</a>
+                    </li>
+                </ul>
+                <a class="btn-fab absolute fab-right-bottom btn-primary" data-toggle="control-sidebar">
+                    <i class="icon icon-menu"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid relative animatedParent animateOnce p-0">
+        <div class="row no-gutters">
+            <div class="col-md-12">
+                <div class="pl-3 pr-3 my-3">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card shadow my-3 no-b">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-lg avatar mr-3">
+                                            <img  src="assets/img/dummy/u11.png" alt="">
+                                        </div>
+                                        <div>
+                                            <h6 class="">WordPress MeetUp</h6>
+                                            <span>meetup@wp.com</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-around s-12">
+                                        <strong><i class="icon-clock-o mr-2"></i>10:30 AM </strong>
+                                        <strong><i class="icon-map-marker mr-2"></i>New York</strong>
+                                    </div>
+                                </div>
+                                <div class="card-body b-t">
+                                    <div class="d-flex align-items-center justify-content-around my-3 s-12">
+                                        <strong class="text-primary">
+                                            5 Members going
+                                        </strong>
+                                        <strong class="ml-2 s-12 text-warning">2 Pending</strong>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-around my-3">
+                                        <div class="avatar-group">
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u6.png" alt=""></figure>
+
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                        </div>
+                                        <div class="s-12"><strong>+5 More</strong></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer white text-center">
+                                    <strong class="s-12 my-1"><a  href="#">View Details</a></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card shadow my-3 no-b">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-lg avatar mr-3">
+                                            <img  src="assets/img/dummy/u8.png" alt="">
+                                        </div>
+                                        <div>
+                                            <h6 class="">WordPress MeetUp</h6>
+                                            <span>meetup@wp.com</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-around s-12">
+                                        <strong><i class="icon-clock-o mr-2"></i>10:30 AM </strong>
+                                        <strong><i class="icon-map-marker mr-2"></i>New York</strong>
+                                    </div>
+                                </div>
+                                <div class="card-body b-t">
+                                    <div class="d-flex align-items-center justify-content-around my-3 s-12">
+                                        <strong class="text-primary">
+                                            5 Members going
+                                        </strong>
+                                        <strong class="ml-2 s-12 text-warning">2 Pending</strong>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-around my-3">
+                                        <div class="avatar-group">
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u6.png" alt=""></figure>
+
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                        </div>
+                                        <div class="s-12"><strong>+5 More</strong></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer white text-center">
+                                    <strong class="s-12 my-1"><a  href="#">View Details</a></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card shadow my-3 no-b">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-lg avatar mr-3">
+                                            <img  src="assets/img/dummy/u11.png" alt="">
+                                        </div>
+                                        <div>
+                                            <h6 class="">WordPress MeetUp</h6>
+                                            <span>meetup@wp.com</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-around s-12">
+                                        <strong><i class="icon-clock-o mr-2"></i>10:30 AM </strong>
+                                        <strong><i class="icon-map-marker mr-2"></i>New York</strong>
+                                    </div>
+                                </div>
+                                <div class="card-body b-t">
+                                    <div class="d-flex align-items-center justify-content-around my-3 s-12">
+                                        <strong class="text-primary">
+                                            5 Members going
+                                        </strong>
+                                        <strong class="ml-2 s-12 text-warning">2 Pending</strong>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-around my-3">
+                                        <div class="avatar-group">
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u6.png" alt=""></figure>
+
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                        </div>
+                                        <div class="s-12"><strong>+5 More</strong></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer white text-center">
+                                    <strong class="s-12 my-1"><a  href="#">View Details</a></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card shadow my-3 no-b">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-lg avatar mr-3">
+                                            <img  src="assets/img/dummy/u8.png" alt="">
+                                        </div>
+                                        <div>
+                                            <h6 class="">WordPress MeetUp</h6>
+                                            <span>meetup@wp.com</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-around s-12">
+                                        <strong><i class="icon-clock-o mr-2"></i>10:30 AM </strong>
+                                        <strong><i class="icon-map-marker mr-2"></i>New York</strong>
+                                    </div>
+                                </div>
+                                <div class="card-body b-t">
+                                    <div class="d-flex align-items-center justify-content-around my-3 s-12">
+                                        <strong class="text-primary">
+                                            5 Members going
+                                        </strong>
+                                        <strong class="ml-2 s-12 text-warning">2 Pending</strong>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-around my-3">
+                                        <div class="avatar-group">
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u6.png" alt=""></figure>
+
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                        </div>
+                                        <div class="s-12"><strong>+5 More</strong></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer white text-center">
+                                    <strong class="s-12 my-1"><a  href="#">View Details</a></strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card shadow my-3 no-b">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-lg avatar mr-3">
+                                            <img  src="assets/img/dummy/bootstrap.png" alt="">
+                                        </div>
+                                        <div>
+                                            <h6 class="">Bootstrap MeetUp</h6>
+                                            <span>meetup@wp.com</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-around s-12">
+                                        <strong><i class="icon-clock-o mr-2"></i>10:30 AM </strong>
+                                        <strong><i class="icon-map-marker mr-2"></i>New York</strong>
+                                    </div>
+                                </div>
+                                <div class="card-body b-t">
+                                    <div class="d-flex align-items-center justify-content-around my-3 s-12">
+                                        <strong class="text-primary">
+                                            5 Members going
+                                        </strong>
+                                        <strong class="ml-2 s-12 text-warning">2 Pending</strong>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-around my-3">
+                                        <div class="avatar-group">
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u6.png" alt=""></figure>
+
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                        </div>
+                                        <div class="s-12"><strong>+5 More</strong></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer white text-center">
+                                    <strong class="s-12 my-1"><a  href="#">View Details</a></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card shadow my-3 no-b">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-lg avatar mr-3">
+                                            <img  src="assets/img/dummy/u8.png" alt="">
+                                        </div>
+                                        <div>
+                                            <h6 class="">WordPress MeetUp</h6>
+                                            <span>meetup@wp.com</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-around s-12">
+                                        <strong><i class="icon-clock-o mr-2"></i>10:30 AM </strong>
+                                        <strong><i class="icon-map-marker mr-2"></i>New York</strong>
+                                    </div>
+                                </div>
+                                <div class="card-body b-t">
+                                    <div class="d-flex align-items-center justify-content-around my-3 s-12">
+                                        <strong class="text-primary">
+                                            5 Members going
+                                        </strong>
+                                        <strong class="ml-2 s-12 text-warning">2 Pending</strong>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-around my-3">
+                                        <div class="avatar-group">
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u6.png" alt=""></figure>
+
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                        </div>
+                                        <div class="s-12"><strong>+5 More</strong></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer white text-center">
+                                    <strong class="s-12 my-1"><a  href="#">View Details</a></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card shadow my-3 no-b">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-lg avatar mr-3">
+                                            <img  src="assets/img/dummy/bootstrap-social-logo.png" alt="">
+                                        </div>
+                                        <div>
+                                            <h6 class="">WordPress MeetUp</h6>
+                                            <span>meetup@wp.com</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-around s-12">
+                                        <strong><i class="icon-clock-o mr-2"></i>10:30 AM </strong>
+                                        <strong><i class="icon-map-marker mr-2"></i>New York</strong>
+                                    </div>
+                                </div>
+                                <div class="card-body b-t">
+                                    <div class="d-flex align-items-center justify-content-around my-3 s-12">
+                                        <strong class="text-primary">
+                                            5 Members going
+                                        </strong>
+                                        <strong class="ml-2 s-12 text-warning">2 Pending</strong>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-around my-3">
+                                        <div class="avatar-group">
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u6.png" alt=""></figure>
+
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                        </div>
+                                        <div class="s-12"><strong>+5 More</strong></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer white text-center">
+                                    <strong class="s-12 my-1"><a  href="#">View Details</a></strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card shadow my-3 no-b">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-lg avatar mr-3">
+                                            <img  src="assets/img/dummy/u8.png" alt="">
+                                        </div>
+                                        <div>
+                                            <h6 class="">WordPress MeetUp</h6>
+                                            <span>meetup@wp.com</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center justify-content-around s-12">
+                                        <strong><i class="icon-clock-o mr-2"></i>10:30 AM </strong>
+                                        <strong><i class="icon-map-marker mr-2"></i>New York</strong>
+                                    </div>
+                                </div>
+                                <div class="card-body b-t">
+                                    <div class="d-flex align-items-center justify-content-around my-3 s-12">
+                                        <strong class="text-primary">
+                                            5 Members going
+                                        </strong>
+                                        <strong class="ml-2 s-12 text-warning">2 Pending</strong>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-around my-3">
+                                        <div class="avatar-group">
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u6.png" alt=""></figure>
+
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u7.png" alt=""></figure>
+                                            <figure class="avatar">
+                                                <img src="assets/img/dummy/u8.png" alt=""></figure>
+                                        </div>
+                                        <div class="s-12"><strong>+5 More</strong></div>
+                                    </div>
+                                </div>
+                                <div class="card-footer white text-center">
+                                    <strong class="s-12 my-1"><a  href="#">View Details</a></strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- partial:partials/_foot.html -->
+<!-- partial -->

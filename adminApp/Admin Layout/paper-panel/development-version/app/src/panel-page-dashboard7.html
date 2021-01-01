@@ -1,0 +1,472 @@
+<!-- partial:partials/_head.html -->
+<!-- partial -->
+<script>
+    /*
+     *  Add sidebar classes (sidebar-mini sidebar-collapse sidebar-expanded-on-hover) in body tag
+     *  you can remove this script tag and add classes directly to body
+     *  this is only for demo
+     */
+    document.body.className += ' sidebar-mini' + ' sidebar-collapse' + ' sidebar-expanded-on-hover' + ' sidebar-top-offset';
+</script>
+<!-- partial:partials/_sidebar4.html -->
+<!-- partial -->
+<div class="sticky">
+    <div class="navbar navbar-expand d-flex justify-content-between bd-navbar white b-b">
+        <div class="relative">
+            <div class="d-flex">
+                <div>
+                    <a href="#" data-toggle="push-menu" class="paper-nav-toggle pp-nav-toggle">
+                        <i></i>
+                    </a>
+                </div>
+                <ul class="nav responsive-tab nav-material nav-material-white mt-1 ml-3" id="v-pills-tab">
+                    <li>
+                        <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                            <i class="mr-3 icon-code2"></i>Data Analysis</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"><i
+                                class="icon icon-plus-circle mb-3"></i>Yesterday</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3"><i
+                                class="icon icon-calendar"></i>By Date</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--Top Menu Start -->
+        <div class="navbar-custom-menu d-flex align-items-center">
+            <ul class="nav navbar-nav">
+                <!-- Messages-->
+                <li class="dropdown custom-dropdown messages-menu">
+                    <a href="#" class="nav-link pl-lg-3 pr-lg-3 b-l" data-toggle="dropdown">
+                        <i class="icon-message "></i>
+                        <span class="badge badge-success badge-mini rounded-circle">4</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu pl-2 pr-2">
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u4.png" alt="">
+                                            <span class="avatar-badge busy"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u1.png" alt="">
+                                            <span class="avatar-badge online"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u2.png" alt="">
+                                            <span class="avatar-badge idle"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                                <!-- start message -->
+                                <li>
+                                    <a href="#">
+                                        <div class="avatar float-left">
+                                            <img src="assets/img/dummy/u3.png" alt="">
+                                            <span class="avatar-badge busy"></span>
+                                        </div>
+                                        <h4>
+                                            Support Team
+                                            <small><i class="icon icon-clock-o"></i> 5 mins</small>
+                                        </h4>
+                                        <p>Why not buy a new awesome theme?</p>
+                                    </a>
+                                </li>
+                                <!-- end message -->
+                            </ul>
+                        </li>
+                        <li class="footer s-12 p-2 text-center"><a href="#">See All Messages</a></li>
+                    </ul>
+                </li>
+                <!-- Notifications -->
+                <li class="dropdown custom-dropdown notifications-menu">
+                    <a href="#" class="nav-link  b-r b-l pl-lg-3 pr-lg-3" data-toggle="dropdown" aria-expanded="false">
+                        <i class="icon-notifications "></i>
+                        <span class="badge badge-danger badge-mini rounded-circle">4</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li class="header">You have 10 notifications</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon icon-data_usage text-success"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon icon-data_usage text-danger"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon icon-data_usage text-yellow"></i> 5 new members joined today
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer p-2 text-center"><a href="#">View all</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- Button -->
+            <div>
+                <a href="#" class="btn btn-primary btn-sm ml-3 d-none d-sm-block">Add New Project</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="page has-sidebar-left height-full">
+    <div class="container-fluid relative animatedParent animateOnce p-lg-5">
+        <div class="row mb-5">
+            <div class="col-md-8">
+                <div class="pt-2 pb-lg-5 relative">
+                    <h3>
+                        Workplace Overview
+                    </h3>
+                    <strong>Current Job Summary</strong>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 my-3">
+                        <div class="d-flex">
+                            <img class="mr-3  r-3" src="assets/img/demo/portfolio/p8.jpg"
+                                 alt="Generic placeholder image" width="50" height="50">
+                            <div>
+                                <h6 class="mt-0 mb-1">Project Name</h6>
+                                <div class="mt-1 text-dark-heading">Food Application Development</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 my-3">
+                        <div class="d-flex">
+                            <img class="mr-3 r-3" src="assets/img/dummy/bootstrap.png" alt="" width="50" height="50">
+                            <div>
+                                <h6 class="mt-0 mb-1">Company</h6>
+                                <h5 class="mt-1 text-dark-heading">Bootstrap Paper Co</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 my-3">
+                        <div class="d-flex">
+                            <img class="mr-3 r-3 circle" src="assets/img/dummy/u12.png" alt="" width="50" height="50">
+                            <div>
+                                <h6 class="mt-0 mb-1">Team Leader</h6>
+                                <div class="mt-1 text-dark-heading">Salman Khan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="mr-3">
+                                         <span class="easy-pie-chart" data-percent="55"
+                                               data-options='{"lineWidth": 10, "barColor": "#7dc855"}'>
+                                    <span class="percent">55%</span>
+                                     </span>
+                            </div>
+                            <div>
+                                <h6> Your Progress <br>
+                                    <small>Where you stand in project</small>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="icon icon-schedule text-yellow"></i>Design New Layout
+                            <div class="float-right">
+                                <span class="badge badge-warning">Incomplete</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card-group my-4">
+            <div class="card">
+                <div class="card-body pl-5 pr-5 pt-5">
+                    <div class="d-lg-flex align-items-center">
+                        <div>
+                            <h4>Design Phase</h4>
+                            <div class="avatar-group mt-3">
+                                <figure class="avatar">
+                                    <img src="assets/img/dummy/u4.png" alt=""></figure>
+                                <figure class="avatar">
+                                    <span class="avatar-letter avatar-letter-l circle"></span>
+                                </figure>
+                                <figure class="avatar">
+                                    <img src="assets/img/dummy/u5.png" alt=""></figure>
+                                <figure class="avatar">
+                                    <img src="assets/img/dummy/u6.png" alt=""></figure>
+                            </div>
+                        </div>
+                        <div class="ml-auto mt-sm-3">
+                                         <span class="easy-pie-chart " data-percent="90"
+                                               data-options='{"lineWidth": 10, "barColor": "#03a9f4","trackColor":"#f6f8fb"}'>
+                                    <span class="percent s-24">4/5</span>
+                                     </span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <i class="icon icon-schedule text-yellow"></i>Design New Layout
+                        <div class="float-right">
+                            <span class="badge badge-warning">Incomplete</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="icon icon-check-circle text-success"></i>Design New Layout
+                        <div class="float-right">
+                            <span class="badge badge-success">Completed</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="icon icon-schedule text-yellow"></i>Design New Layout
+                        <div class="float-right">
+                            <span class="badge badge-warning">Incomplete</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="card ">
+                <div class="card-body p-5">
+                    <div class="d-lg-flex align-items-center">
+                        <div>
+                            <h4>Project Development</h4>
+                            <div class="avatar-group mt-3">
+                                <figure class="avatar">
+                                    <img src="assets/img/dummy/u5.png" alt=""></figure>
+                                <figure class="avatar">
+                                    <img src="assets/img/dummy/u6.png" alt=""></figure>
+                                <figure class="avatar">
+                                    <img src="assets/img/dummy/u7.png" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="ml-auto">
+                                         <span class="easy-pie-chart " data-percent="55"
+                                               data-options='{"lineWidth": 10, "barColor": "#03a9f4","trackColor":"#f6f8fb"}'>
+                                    <span class="percent s-24">2/5</span>
+                                     </span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <i class="icon icon-schedule text-yellow"></i>Test Software
+                        <div class="float-right">
+                            <span class="badge badge-danger">Bugs</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="icon icon-check-circle text-success"></i>Design New Layout
+                        <div class="float-right">
+                            <span class="badge badge-success">Completed</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="icon icon-schedule text-yellow"></i>Design New Layout
+                        <div class="float-right">
+                            <span class="badge badge-warning">Incomplete</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="card ">
+                <div class="card-body p-5">
+                    <div class="d-lg-flex align-items-center">
+                        <div>
+                            <h4>Testing Phase</h4>
+                            <div class="avatar-group mt-3">
+                                <figure class="avatar">
+                                    <img src="assets/img/dummy/u4.png" alt=""></figure>
+                                <figure class="avatar">
+                                    <span class="avatar-letter avatar-letter-l circle"></span>
+                                </figure>
+                                <figure class="avatar">
+                                    <img src="assets/img/dummy/u5.png" alt=""></figure>
+                                <figure class="avatar">
+                                    <img src="assets/img/dummy/u6.png" alt=""></figure>
+                                <figure class="avatar">
+                                    <img src="assets/img/dummy/u7.png" alt="">
+                                </figure>
+                                <figure class="avatar">
+                                    <span class="avatar-letter avatar-letter-a circle"></span>
+                                </figure>
+                                <figure class="avatar">
+                                    <span class="avatar-letter avatar-letter-b circle"></span>
+                                </figure>
+                            </div>
+                        </div>
+                        <div class="ml-auto mt-sm-3">
+                                         <span class="easy-pie-chart " data-percent="55"
+                                               data-options='{"lineWidth": 10, "barColor": "#03a9f4","trackColor":"#f6f8fb"}'>
+                                    <span class="percent s-24">2/5</span>
+                                     </span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <i class="icon icon-schedule text-yellow"></i>Design New Layout
+                        <div class="float-right">
+                            <span class="badge badge-warning">Incomplete</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="icon icon-check-circle text-success"></i>Design New Layout
+                        <div class="float-right">
+                            <span class="badge badge-success">Completed</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <i class="icon icon-developer_board text-primary"></i>Design New Layout
+                        <div class="float-right">
+                            <span class="badge badge-primary">Delivered</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card pt-2 pb-2">
+            <div class="card-header white no-b pl-5 pr-5 pt-4 d-flex justify-content-between ">
+                <h4>Activity Feed</h4>
+                <div class="dropdown">
+                    <a class="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-more_vert p-0"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">View
+                            Profile </a>
+                        <a class="dropdown-item" href="#">Account
+                            Settings </a>
+                        <a class="dropdown-item" href="#">
+                            Earning Reports </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex pl-5 pr-5 pb-4 pt-4">
+                        <img class="mr-3 r-3" src="assets/img/dummy/u6.png" alt="Generic placeholder image" width="50"
+                             height="50">
+                        <div>
+                            <h6 class="mt-0 mb-1">Fatima Hussain Ibrar</h6>
+                            Senior Front End Developer
+                        </div>
+                        <div class="ml-auto">
+                            18
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex pl-5 pr-5 pb-4 pt-4">
+                        <img class="mr-3 r-3" src="assets/img/dummy/u8.png" alt="Generic placeholder image" width="50"
+                             height="50">
+                        <div>
+                            <h6 class="mt-0 mb-1">Hassan Ibrar</h6>
+                            Developer Lead Operator
+                        </div>
+                        <div class="ml-auto">
+                            18
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="card pt-2 pb-2 my-4">
+            <div class="card-header white no-b pl-5 pr-5 pt-4 d-flex justify-content-between ">
+                <h4>Your Team <span class="badge badge-warning badge-pill s-12">4 Members</span></h4>
+                <div class="dropdown">
+                    <a class="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-more_vert p-0"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">View
+                            Profile </a>
+                        <a class="dropdown-item" href="#">Account
+                            Settings </a>
+                        <a class="dropdown-item" href="#">
+                            Earning Reports </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-5">
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr class="no-b">
+                            <th class="w-25"><h4>E-mail</h4></th>
+                            <th><h4>Role</h4></th>
+                        </tr>
+                        <tr class="no-b">
+                            <td>sosus_rdl@gmail.com</td>
+                            <td>Developer</td>
+                        </tr>
+                        <tr>
+                            <td>bus_ake5@gmail.com</td>
+                            <td>Team Leader</td>
+                        </tr>
+                        <tr>
+                            <td>dcs_akrl155@gmail.com</td>
+                            <td>Accountant</td>
+                        </tr>
+                        <tr>
+                            <td>disosus_akrl155@gmail.com</td>
+                            <td>Designer</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- partial:partials/_foot.html -->
+<!-- partial -->

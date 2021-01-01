@@ -1,0 +1,507 @@
+<!-- partial:partials/_head.html -->
+<!-- partial -->
+<script>
+    /*
+     *  Add sidebar classes (sidebar-mini sidebar-collapse sidebar-expanded-on-hover) in body tag
+     *  you can remove this script tag and add classes directly to body
+     *  this is only for demo
+     */
+    document.body.className += ' sidebar-mini' + ' sidebar-collapse' + ' sidebar-expanded-on-hover' + ' sidebar-top-offset';
+</script>
+<!-- partial:partials/_sidebar3.html -->
+<!-- partial -->
+<!-- partial:partials/_searchBar.html -->
+<!-- partial -->
+<div class="sticky">
+    <div class="navbar navbar-expand d-flex justify-content-between bd-navbar white shadow">
+        <div class="relative">
+            <div class="d-flex">
+                <div>
+                    <a href="#" data-toggle="push-menu" class="paper-nav-toggle pp-nav-toggle">
+                        <i></i>
+                    </a>
+                </div>
+                <ul class="nav responsive-tab nav-material nav-material-white mt-1" id="v-pills-tab">
+                    <li>
+                        <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1">
+                            <i class="mr-3 icon-code2"></i>Data Analysis</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2"><i
+                                class="icon icon-plus-circle mb-3"></i>Yesterday</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3"><i
+                                class="icon icon-calendar"></i>By Date</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- partial:partials/_navbar.html -->
+        <!-- partial -->
+    </div>
+</div>
+<div class="page has-sidebar-left">
+    <div class="animatedParent animateOnce p-0">
+        <div class="animated fadeInUpShort">
+            <div class="row no-gutters">
+                <div class="col-md-12">
+                    <div class="card no-b ">
+                        <div class="card-header white">
+                            <h6> CPU LIVE STATUS </h6>
+                        </div>
+                        <div id="interactive" style="height: 350px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row white b-t shadow">
+                    <div class="col-md-5 b-r my-3">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <h6>Recently Online Users</h6>
+                                <div>Users currently had an activity</div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="avatar-group">
+                                    <a href="#" class="avatar avatar-lg">
+                                        <img src="assets/img/dummy/u4.png" alt="">
+                                    </a>
+                                    <a href="#" class="avatar avatar-lg">
+                                        <img src="assets/img/dummy/u5.png" alt="">
+                                    </a>
+                                    <a href="#" class="avatar avatar-lg">
+                                        <img src="assets/img/dummy/u6.png" alt="">
+                                    </a>
+                                    <a href="#" class="avatar avatar-lg">
+                                        <img src="assets/img/dummy/u7.png" alt="">
+                                    </a>
+                                    <a href="#" class="avatar avatar-lg">
+                                        <span class="avatar-letter avatar-letter-a circle avatar-lg"></span>
+                                    </a>
+                                    <a href="#" class="avatar avatar-lg">
+                                        <img src="assets/img/dummy/u12.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 my-3">
+                        <div class="row box justify-content-around ">
+                            <div class="col">
+                                <a href="#">
+                                    <i class="icon-apps purple lighten-2 avatar circle"></i>
+                                    <div class="pt-1">Apps</div>
+                                </a>
+                            </div>
+                            <div class="col"><a href="#">
+                                <i class="icon-beach_access pink lighten-1 avatar circle"></i>
+                                <div class="pt-1">Profile</div>
+                            </a></div>
+                            <div class="col">
+                                <a href="#">
+                                    <i class="icon-perm_data_setting indigo lighten-2 avatar circle"></i>
+                                    <div class="pt-1">Settings</div>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="#">
+                                    <i class="icon-star light-green lighten-1 avatar circle"></i>
+                                    <div class="pt-1">Favourites</div>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="#">
+                                    <i class="icon-save2 orange accent-1 avatar circle"></i>
+                                    <div class="pt-1">Saved</div>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a href="#">
+                                    <i class="icon-perm_data_setting grey darken-3 avatar circle"></i>
+                                    <div class="pt-1">Settings</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-deck my-3">
+                    <div class="card r-0 b-0 shadow bg-primary">
+                        <div>
+                            <div class=" text-white lighten-2">
+                                <div class="d-flex align-items-center p-5">
+                                    <i class="icon-bar-chart-1 s-48 light-blue-text pr-3"></i>
+                                    <h6 class="mt-2"> NUMBER OF NEW <br>
+                                        <small>NOTIFICATIONS</small>
+                                    </h6>
+                                </div>
+                                <canvas width="378" height="124" data-chart="spark" data-chart-type="bar"
+                                        data-dataset="[[28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100,]]"
+                                        data-labels="['a','b','c','d','e','f','g','h','i','j','k','l','m','n','a','b','c','d','e','f','g','h','i','j','k','l','m','n','a','b','c','d','e','f','g','h','i','j','k','l','m','n','a','b','c','d','e','f','g','h','i','j','k','l','m','n',]">
+                                </canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card r-0 b-0 shadow">
+                        <div class="card-header  white d-flex justify-content-between ">
+                            <h6>CURRENT TASK</h6>
+                            <div class="dropdown">
+                                <a class="" href="#" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <i class="icon-more_vert p-0"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="#">View
+                                        Profile </a>
+                                    <a class="dropdown-item" href="#">Account
+                                        Settings </a>
+                                    <a class="dropdown-item" href="#">
+                                        Earning Reports </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div class="mr-3">
+                                         <span class="easy-pie-chart" data-percent="55"
+                                               data-options='{"lineWidth": 10, "barColor": "#7dc855"}'>
+                                    <span class="percent">55</span>
+                                     </span>
+                                </div>
+                                <div>
+                                    <h6> SEND EMAILS <br>
+                                        <small>TO ALL NEW USERS</small>
+                                    </h6>
+                                </div>
+                                <div class="ml-auto"><a href="#" class="btn btn-primary btn-sm">Check Progress</a></div>
+                            </div>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <i class="icon icon-check3 text-blue"></i>Delete Spam Emails
+                                <div class="float-right">
+                                    <span class="badge badge-success">Done</span>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="icon icon-schedule text-yellow"></i>System Cache Clear
+                                <div class="float-right">
+                                    <span class="badge badge-warning">Incomplete</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card r-0 no-b shadow">
+                        <div class="card-header no-b white "><h6>Alarm</h6></div>
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <i class="icon-notifications s-64 light-blue-text"></i>
+                                <h6 class="mt-2"> NUMBER OF NEW <br>
+                                    <small>NOTIFICATIONS</small>
+                                </h6>
+                            </div>
+                            <div class="row text-center b-t mt-3 pt-3">
+                                <div class="col-md-3 col-xs-6">
+                                    <small><strong>ENABLED</strong></small>
+                                    <div class="s-36">1</div>
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+                                    <small><strong>DISABLED</strong></small>
+                                    <div class="s-36">0</div>
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+                                    <small><strong>MAPPED</strong></small>
+                                    <div class="s-36">1</div>
+                                </div>
+                                <div class="col-md-3 col-xs-6">
+                                    <small><strong>NOT MAPPED</strong></small>
+                                    <div class="s-36">0</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer white">
+                            <div class="float-right"><a href="#" class="btn btn-secondary btn-sm">All Notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-7">
+                        <div class="card r-0 b-0 shadow">
+                            <div class="card-header white">
+                                <i class="icon-clipboard-edit blue-text"></i>
+                                <strong> CONTACTS </strong>
+                            </div>
+                            <div class="card-body p-0 bg-light slimScroll" data-height="355">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <!-- Table heading -->
+                                        <tbody>
+                                        <tr class="no-b">
+                                            <th width="10">
+                                                <input type="checkbox">
+                                            </th>
+                                            <th>Page Title</th>
+                                            <th>File Size</th>
+                                            <th>Status</th>
+                                            <th>Sort</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        <tr>
+                                            <!-- Check box -->
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                            <!-- Page name -->
+                                            <td>
+                                                <a href="#">About Us</a>
+                                            </td>
+                                            <!-- Page size -->
+                                            <td>253.4 KB</td>
+                                            <!-- Status -->
+                                            <td>
+                                                <span class="badge badge-danger r-5">R</span>
+                                            </td>
+                                            <!-- Sort -->
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-chevron-up text-success"></i>
+                                                </a>
+                                            </td>
+                                            <!-- Actions -->
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-edit"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-share-square-o text-success"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-close2 text-danger-o text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                            <td>
+                                                <a href="#">Contact Us</a>
+                                            </td>
+                                            <td>213 KB</td>
+                                            <td>
+                                                <span class="badge badge-success r-5">A</span>
+                                            </td>
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-chevron-up text-danger"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-edit lblue-text"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-share-square-o text-success"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-close2 text-danger-o text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                            <td>
+                                                <a href="#">Dashboard</a>
+                                            </td>
+                                            <td>1.24 MB</td>
+                                            <td>
+                                                <span class="badge badge-warning r-5">P</span>
+                                            </td>
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-chevron-up text-success"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-edit lblue"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-share-square-o text-success"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-close2 text-danger-o text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                            <td>
+                                                <a href="#">Download</a>
+                                            </td>
+                                            <td>30.00 MB</td>
+                                            <td>
+                                                <span class="badge badge-warning r-5 yellow">R</span>
+                                            </td>
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-chevron-up text-danger"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-edit lblue"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-share-square-o text-success"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-close2 text-danger-o text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                            <td>
+                                                <a href="#">Portfolio</a>
+                                            </td>
+                                            <td>140 MB</td>
+                                            <td>
+                                                <span class="badge badge-warning r-5 purple">A</span>
+                                            </td>
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-chevron-up text-success"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-edit lblue"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-share-square-o text-success"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-close2 text-danger-o text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox">
+                                            </td>
+                                            <td>
+                                                <a href="#">Contact Us</a>
+                                            </td>
+                                            <td>213 KB</td>
+                                            <td>
+                                                <span class="badge badge-primary r-5">P</span>
+                                            </td>
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-chevron-up text-success"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="#">
+                                                    <i class="icon-edit lblue"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-share-square-o text-success"></i>
+                                                </a> &nbsp;
+                                                <a href="#">
+                                                    <i class="icon-close2 text-danger-o text-danger"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="card-footer white">
+                                <a href="#" class="btn btn-outline-primary btn-xs">Add New Contact</a>
+                                <a href="#" class="btn btn-outline-danger btn-xs">Delete All</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card r-0 b-0 shadow">
+                            <div class="card-header  white d-flex justify-content-between ">
+                                <h6>Latest Posts</h6>
+                                <div class="dropdown">
+                                    <a class="" href="#" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-more_vert p-0"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item" href="#">View
+                                            Profile </a>
+                                        <a class="dropdown-item" href="#">Account
+                                            Settings </a>
+                                        <a class="dropdown-item" href="#">
+                                            Earning Reports </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Logout
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex">
+                                        <img class="mr-3 mt-1 r-3" src="assets/img/demo/portfolio/p8.jpg" width="50"
+                                             height="50" alt="Generic placeholder image">
+                                        <div>
+                                            <h6 class="mt-0 mb-1">Final Day is Coming Soon</h6>
+                                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                                            ante sollicitudin.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item d-flex">
+                                        <img class="mr-3 mt-1 r-3" src="assets/img/demo/portfolio/p6.jpg" width="50"
+                                             height="50" alt="Generic placeholder image">
+                                        <div>
+                                            <h6 class="mt-0 mb-1">Final Day is Coming Soon</h6>
+                                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                                            ante sollicitudin.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item d-flex">
+                                        <img class="mr-3 mt-1 r-3" src="assets/img/demo/portfolio/p3.jpg" width="50"
+                                             height="50" alt="Generic placeholder image">
+                                        <div>
+                                            <h6 class="mt-0 mb-1">Final Day is Coming Soon</h6>
+                                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                                            ante sollicitudin.
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item d-flex">
+                                        <img class="mr-3 mt-1 r-3" src="assets/img/demo/portfolio/p4.jpg" width="50"
+                                             height="50" alt="Generic placeholder image">
+                                        <div>
+                                            <h6 class="mt-0 mb-1">Final Day is Coming Soon</h6>
+                                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                                            ante sollicitudin.
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- partial:partials/_foot.html -->
+<!-- partial -->
