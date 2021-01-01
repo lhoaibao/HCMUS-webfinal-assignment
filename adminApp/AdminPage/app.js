@@ -1,13 +1,17 @@
-const express = require("express");
+const express = require('express');
+require('express-async-errors');
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("<h1>THIS IS ADMIN PAGE</h1>");
-});
+app.use(express.urlencoded({
+  extended: true
+}));
+// app.use('/public', express.static('public'));
+
+require('./controllers/view.controller')(app);
+require('./controllers/routes.controller')(app);
 
 const PORT = 3001;
-
-app.listen(PORT, () => {
-  console.log(`The admin page is running at port ${PORT}`);
+app.listen(PORT, function () {
+  console.log(`Example app listening at http://localhost:${PORT}`);
 });
