@@ -6,5 +6,6 @@ module.exports = function (app) {
             user: req.session.authUser
         });
     });
-    app.use('/account', require('../routes/front/account.route'));
+    app.use('/account', require('../routes/account.route'));
+    app.use('/course', require('../routes/course.route'));
 };
