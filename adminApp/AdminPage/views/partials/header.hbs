@@ -1,7 +1,7 @@
 <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
     <section class="sidebar">
         <div class="w-80px mt-3 mb-3 ml-3">
-            <img src="img/basic/logo.png" alt="">
+            MClass
         </div>
         <div class="relative">
             <a data-toggle="collapse" href="#userSettingsCollapse" role="button" aria-expanded="false"
@@ -12,10 +12,10 @@
             <div class="user-panel p-3 light mb-2">
                 <div>
                     <div class="float-left image">
-                        <img class="user_avatar" src="img/dummy/u2.png" alt="User Image">
+                        <img class="user_avatar" src="img/dummy/u1.png" alt="User Image">
                     </div>
                     <div class="float-left info">
-                        <h6 class="font-weight-light mt-2 mb-1">Alexander Pierce</h6>
+                        <h6 class="font-weight-light mt-2 mb-1">{{{this.user.firstName}}}</h6>
                         <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
                     </div>
                 </div>
@@ -26,9 +26,7 @@
                             <i class="mr-2 icon-umbrella text-blue"></i>Profile
                         </a>
                         <a href="#" class="list-group-item list-group-item-action"><i
-                                class="mr-2 icon-cogs text-yellow"></i>Settings</a>
-                        <a href="#" class="list-group-item list-group-item-action"><i
-                                class="mr-2 icon-security text-purple"></i>Change Password</a>
+                                class="mr-2 icon-cogs text-yellow"></i>Logout</a>
                     </div>
                 </div>
             </div>
@@ -95,66 +93,16 @@
                     <!-- User Account-->
                     <li class="dropdown custom-dropdown user user-menu ">
                         <a href="#" class="nav-link" data-toggle="dropdown">
-                            <img src="img/dummy/u8.png" class="user-image" alt="User Image">
+                            <img src="img/dummy/u1.png" class="user-image" alt="User Image">
                             <i class="icon-more_vert "></i>
                         </a>
                         <div class="dropdown-menu p-4 dropdown-menu-right">
-                            <div class="row box justify-content-between my-4">
-                                <div class="col">
-                                    <a href="#">
-                                        <i class="icon-apps purple lighten-2 avatar  r-5"></i>
-                                        <div class="pt-1">Apps</div>
-                                    </a>
-                                </div>
-                                <div class="col"><a href="#">
-                                        <i class="icon-beach_access pink lighten-1 avatar  r-5"></i>
-                                        <div class="pt-1">Profile</div>
-                                    </a></div>
-                                <div class="col">
-                                    <a href="#">
-                                        <i class="icon-perm_data_setting indigo lighten-2 avatar  r-5"></i>
-                                        <div class="pt-1">Settings</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row box justify-content-between my-4">
-                                <div class="col">
-                                    <a href="#">
-                                        <i class="icon-star light-green lighten-1 avatar  r-5"></i>
-                                        <div class="pt-1">Favourites</div>
-                                    </a>
-                                </div>
-                                <div class="col">
-                                    <a href="#">
-                                        <i class="icon-save2 orange accent-1 avatar  r-5"></i>
-                                        <div class="pt-1">Saved</div>
-                                    </a>
-                                </div>
-                                <div class="col">
-                                    <a href="#">
-                                        <i class="icon-perm_data_setting grey darken-3 avatar  r-5"></i>
-                                        <div class="pt-1">Settings</div>
-                                    </a>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row box justify-content-between my-4">
-                                <div class="col">
-                                    <a href="#">
-                                        <i class="icon-apps purple lighten-2 avatar  r-5"></i>
-                                        <div class="pt-1">Apps</div>
-                                    </a>
-                                </div>
-                                <div class="col"><a href="#">
-                                        <i class="icon-beach_access pink lighten-1 avatar  r-5"></i>
-                                        <div class="pt-1">Profile</div>
-                                    </a></div>
-                                <div class="col">
-                                    <a href="#">
-                                        <i class="icon-perm_data_setting indigo lighten-2 avatar  r-5"></i>
-                                        <div class="pt-1">Settings</div>
-                                    </a>
-                                </div>
+                            <div class="row justify-content-around my-4">
+                                <a href="index.html" class="list-group-item list-group-item-action ">
+                                    <i class="mr-2 icon-umbrella text-blue"></i>Profile
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action"><i
+                                        class="mr-2 icon-cogs text-yellow"></i>Logout</a>
                             </div>
                         </div>
                     </li>

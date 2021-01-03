@@ -7,10 +7,13 @@ const userModel = require('../../models/user.model');
 const router = express.Router();
 
 router.get('/login', async function (req, res) {
+    console.log(req.headers);
+    if (req.session.isAuth) {
+        res.redirect(req.session.retUrl)
+    }
     if (req.headers.referer) {
         req.session.retUrl = req.headers.referer;
     }
-
     res.render('vwAccount/login', {
         layout: false
     });
@@ -35,7 +38,6 @@ router.post('/login', async function (req, res) {
 
     req.session.isAuth = true;
     req.session.authUser = user;
-    // req.session.cart = [];
 
     let url = req.session.retUrl || '/';
     res.redirect(url);
