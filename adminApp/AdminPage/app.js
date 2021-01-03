@@ -1,15 +1,19 @@
-const express = require('express');
-require('express-async-errors');
+const express = require("express");
+require("express-async-errors");
 
 const app = express();
 
-app.use(express.urlencoded({
-  extended: true
-}));
-// app.use('/public', express.static('public'));
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
-require('./controllers/view.controller')(app);
-require('./controllers/routes.controller')(app);
+// Static file setup
+app.use(express.static("public"));
+
+require("./controllers/view.controller")(app);
+require("./controllers/routes.controller")(app);
 
 const PORT = 3001;
 app.listen(PORT, function () {
