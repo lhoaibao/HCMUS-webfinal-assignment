@@ -6,7 +6,7 @@ create table if not exists course (
     course_image LONGBLOB not null,
     tiny_desc varchar(100) not null,
     full_desc text not null,
-    rating_scoce decimal(2,2) not null,
+    rating_scoce decimal(2,1) not null,
     rating_students int not null default 0,
     enroll_number int not null default 0,
     course_fee int not null,

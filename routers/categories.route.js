@@ -11,24 +11,3 @@ router.get("/", async (request, response) => {
 });
 
 module.exports = router;
-
-// PROMISE
-// const p = db.load(sql);
-// p.then((result) => {
-//   console.log(result);
-//   res.render("categories", {
-//     categories: result,
-//     empty: result.length === 0,
-//   });
-// }).catch((error) => {
-//   res.send("View error log at server console");
-// });
-
-// CALLBACK function
-// db.load(sql, (result) => {
-//   console.log(result);
-//   res.render("categories", {
-//     categories: result,
-//     empty: result.length === 0,
-//   });
-// });
