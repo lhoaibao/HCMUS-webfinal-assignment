@@ -26,4 +26,12 @@ module.exports = {
     add(entity) {
         return db.add(entity, TBL_USERS)
     },
+
+    async del(condition) {
+        const rows = await db.load(`select * from ${TBL_USERS} where ${condition}`);
+        if (rows.length === 0) {
+            return null
+        }
+        return db.del(condition, TBL_USERS)
+    }
 };
