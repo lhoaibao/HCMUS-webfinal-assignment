@@ -17,7 +17,6 @@ router.get('/login', async function (req, res) {
 })
 
 router.post('/login', async function (req, res) {
-    console.log(req)
     const user = await userModel.singleByUserName(req.body.username);
     if (user === null) {
         return res.render('vwAccount/login', {

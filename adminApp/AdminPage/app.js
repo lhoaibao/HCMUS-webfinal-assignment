@@ -14,6 +14,7 @@ app.use(express.static("public"));
 
 require("./controllers/view.controller")(app);
 require("./controllers/routes.controller")(app);
+require("./controllers/session.controller")(app);
 
 const PORT = 3001;
 app.listen(PORT, function () {
