@@ -1,0 +1,22 @@
+////////////
+// RATING //
+////////////
+
+.rating {
+  display: flex;
+  align-items: center;
+  &__item {
+    color: $rating;
+    display: flex;
+    align-items: center;
+  }
+  .material-icons {
+    font-size: 1rem;
+  }
+  &-24 .material-icons {
+    font-size: 1.5rem;
+  }
+  &-32 .material-icons {
+    font-size: 2rem;
+  }
+}

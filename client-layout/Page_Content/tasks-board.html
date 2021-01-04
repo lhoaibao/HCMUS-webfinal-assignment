@@ -1,0 +1,673 @@
+<div class="container">
+    <div class="page-section">
+
+        <div class="page-separator">
+            <div class="page-separator__text">Overview</div>
+        </div>
+
+        <div class="row card-group-row mb-lg-8pt">
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card">
+                    <div class="card-body py-12pt d-flex align-items-center">
+                        <div class="position-relative mr-12pt">
+                            <div class="text-center fullbleed d-flex align-items-center justify-content-center flex-column z-0">
+                                <small>14%</small>
+                            </div>
+                            <canvas width="48"
+                                    height="48"
+                                    class="chart-canvas position-relative z-1"
+                                    id="openProgressChart"
+                                    data-chart-line-background-color="yellow;gray"
+                                    data-chart-disable-tooltips="true"></canvas>
+                        </div>
+                        <strong class="flex">Open</strong>
+                        <div class="text-50">4</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card">
+                    <div class="card-body py-12pt d-flex align-items-center">
+                        <div class="position-relative mr-12pt">
+                            <div class="text-center fullbleed d-flex align-items-center justify-content-center flex-column z-0">
+                                <small>35%</small>
+                            </div>
+                            <canvas width="48"
+                                    height="48"
+                                    class="chart-canvas position-relative z-1 js-update-chart-progress-accent"
+                                    id="inProgressChart"
+                                    data-chart-line-background-color="accent;gray"
+                                    data-chart-disable-tooltips="true"></canvas>
+                        </div>
+                        <strong class="flex">In Progress</strong>
+                        <div class="text-50">10</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card">
+                    <div class="card-body py-12pt d-flex align-items-center">
+                        <div class="position-relative mr-12pt">
+                            <div class="text-center fullbleed d-flex align-items-center justify-content-center flex-column z-0">
+                                <small>50%</small>
+                            </div>
+                            <canvas width="48"
+                                    height="48"
+                                    class="chart-canvas position-relative z-1 js-update-chart-progress-primary"
+                                    id="closedProgressChart"
+                                    data-chart-line-background-color="primary;gray"
+                                    data-chart-disable-tooltips="true"></canvas>
+                        </div>
+                        <strong class="flex">Closed</strong>
+                        <div class="text-50">14</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="page-separator">
+            <div class="page-separator__text">Tasks</div>
+        </div>
+
+        <div class="row card-group-row">
+
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card p-16pt">
+
+                    <div class="d-flex">
+                        <div class="d-flex flex-column flex">
+                            <a href="#"
+                               class="mb-8pt"><strong>Add Fluid Layout Featuring A Vertical Menu With Icons Only</strong></a>
+                            <div class="d-flex align-items-center mb-8pt">
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-primary"></span></a>
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-accent"></span></a>
+
+                            </div>
+                        </div>
+                        <a href="#"><i class="material-icons text-50">more_horiz</i></a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="flex d-flex align-items-center">
+                            <small class="text-50 mr-16pt">Today</small>
+
+                            <i class="material-icons icon-16pt text-20 mr-4pt">link</i>
+                            <small class="text-50">2</small>
+
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-group flex mr-8pt">
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_luke-porter-261779-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_michael-dam-258165-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_rsz_1andy-lee-642320-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                            </div>
+                            <a style="text-decoration: none;"
+                               class="rounded-circle d-flex align-items-center border align-items-center text-50"
+                               href=""><i class="material-icons icon-16pt m-1">add</i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card p-16pt">
+
+                    <div class="d-flex">
+                        <div class="d-flex flex-column flex">
+                            <a href="#"
+                               class="mb-8pt"><strong>Add Initial Documentation Covering Basic Features</strong></a>
+                            <div class="d-flex align-items-center mb-8pt">
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-primary"></span></a>
+
+                            </div>
+                        </div>
+                        <a href="#"><i class="material-icons text-50">more_horiz</i></a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="flex d-flex align-items-center">
+                            <small class="text-50 mr-16pt">Tomorrow</small>
+
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-group flex mr-8pt">
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_michael-dam-258165-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_luke-porter-261779-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                            </div>
+                            <a style="text-decoration: none;"
+                               class="rounded-circle d-flex align-items-center border align-items-center text-50"
+                               href=""><i class="material-icons icon-16pt m-1">add</i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card p-16pt">
+
+                    <div class="d-flex">
+                        <div class="d-flex flex-column flex">
+                            <a href="#"
+                               class="mb-8pt"><strong>Refactor HTML Markup To Be More SEO Friendly</strong></a>
+                            <div class="d-flex align-items-center mb-8pt">
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-primary"></span></a>
+
+                            </div>
+                        </div>
+                        <a href="#"><i class="material-icons text-50">more_horiz</i></a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="flex d-flex align-items-center">
+                            <small class="text-50 mr-16pt">11 Feb</small>
+
+                            <i class="material-icons icon-16pt text-20 mr-4pt">comment</i>
+                            <small class="text-50">1</small>
+
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-group flex mr-8pt">
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="LB">
+                                    <a href=""><span class="avatar-title bg-white border text-100 rounded-circle">LB</span></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="AD">
+                                    <a href=""><span class="avatar-title bg-white border text-100 rounded-circle">AD</span></a>
+                                </div>
+
+                            </div>
+                            <a style="text-decoration: none;"
+                               class="rounded-circle d-flex align-items-center border align-items-center text-50"
+                               href=""><i class="material-icons icon-16pt m-1">add</i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card p-16pt">
+
+                    <div class="d-flex">
+                        <div class="d-flex flex-column flex">
+                            <a href="#"
+                               class="mb-8pt"><strong>Add Documentation For JavaScript And CSS Components With Advanced Features Usage</strong></a>
+                            <div class="d-flex align-items-center mb-8pt">
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-primary"></span></a>
+
+                            </div>
+                        </div>
+                        <a href="#"><i class="material-icons text-50">more_horiz</i></a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="flex d-flex align-items-center">
+                            <small class="text-50 mr-16pt">Tomorrow</small>
+
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-group flex mr-8pt">
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_michael-dam-258165-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_luke-porter-261779-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                            </div>
+                            <a style="text-decoration: none;"
+                               class="rounded-circle d-flex align-items-center border align-items-center text-50"
+                               href=""><i class="material-icons icon-16pt m-1">add</i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card p-16pt">
+
+                    <a href=""
+                       class="d-block mb-16pt"><img src="public/images/stories/256_rsz_jared-rice-388260-unsplash.jpg"
+                             alt=""
+                             style="height: 64px;"
+                             class="card-img card-img-cover"></a>
+
+                    <div class="d-flex">
+                        <div class="d-flex flex-column flex">
+                            <a href="#"
+                               class="mb-8pt"><strong>Add Layout Options</strong></a>
+                            <div class="d-flex align-items-center mb-8pt">
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-primary"></span></a>
+
+                            </div>
+                        </div>
+                        <a href="#"><i class="material-icons text-50">more_horiz</i></a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="flex d-flex align-items-center">
+                            <small class="text-50 mr-16pt">Tomorrow</small>
+
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-group flex mr-8pt">
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_rsz_1andy-lee-642320-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_michael-dam-258165-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_luke-porter-261779-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                            </div>
+                            <a style="text-decoration: none;"
+                               class="rounded-circle d-flex align-items-center border align-items-center text-50"
+                               href=""><i class="material-icons icon-16pt m-1">add</i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card p-16pt">
+
+                    <div class="d-flex">
+                        <div class="d-flex flex-column flex">
+                            <a href="#"
+                               class="mb-8pt"><strong>Add Fluid Layout Featuring A Vertical Menu With Icons Only And A Compact Sidebar Menu</strong></a>
+                            <div class="d-flex align-items-center mb-8pt">
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-primary"></span></a>
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-accent"></span></a>
+
+                            </div>
+                        </div>
+                        <a href="#"><i class="material-icons text-50">more_horiz</i></a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="flex d-flex align-items-center">
+                            <small class="text-50 mr-16pt">Today</small>
+
+                            <i class="material-icons icon-16pt text-20 mr-4pt">link</i>
+                            <small class="text-50">2</small>
+
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-group flex mr-8pt">
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_luke-porter-261779-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_michael-dam-258165-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_rsz_1andy-lee-642320-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                            </div>
+                            <a style="text-decoration: none;"
+                               class="rounded-circle d-flex align-items-center border align-items-center text-50"
+                               href=""><i class="material-icons icon-16pt m-1">add</i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card p-16pt">
+
+                    <div class="d-flex">
+                        <div class="d-flex flex-column flex">
+                            <a href="#"
+                               class="mb-8pt"><strong>Refactor HTML Markup To Be Valid W3C And More Semantic And SEO Friendly</strong></a>
+                            <div class="d-flex align-items-center mb-8pt">
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-primary"></span></a>
+
+                            </div>
+                        </div>
+                        <a href="#"><i class="material-icons text-50">more_horiz</i></a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="flex d-flex align-items-center">
+                            <small class="text-50 mr-16pt">11 Feb</small>
+
+                            <i class="material-icons icon-16pt text-20 mr-4pt">comment</i>
+                            <small class="text-50">1</small>
+
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-group flex mr-8pt">
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="LB">
+                                    <a href=""><span class="avatar-title bg-white border text-100 rounded-circle">LB</span></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="AD">
+                                    <a href=""><span class="avatar-title bg-white border text-100 rounded-circle">AD</span></a>
+                                </div>
+
+                            </div>
+                            <a style="text-decoration: none;"
+                               class="rounded-circle d-flex align-items-center border align-items-center text-50"
+                               href=""><i class="material-icons icon-16pt m-1">add</i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card p-16pt">
+
+                    <div class="d-flex">
+                        <div class="d-flex flex-column flex">
+                            <a href="#"
+                               class="mb-8pt"><strong>Add Fluid Layout Featuring A Vertical Menu With Icons Only And A Compact Sidebar Menu</strong></a>
+                            <div class="d-flex align-items-center mb-8pt">
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-primary"></span></a>
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-accent"></span></a>
+
+                            </div>
+                        </div>
+                        <a href="#"><i class="material-icons text-50">more_horiz</i></a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="flex d-flex align-items-center">
+                            <small class="text-50 mr-16pt">Today</small>
+
+                            <i class="material-icons icon-16pt text-20 mr-4pt">link</i>
+                            <small class="text-50">2</small>
+
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-group flex mr-8pt">
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_luke-porter-261779-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_michael-dam-258165-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_rsz_1andy-lee-642320-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                            </div>
+                            <a style="text-decoration: none;"
+                               class="rounded-circle d-flex align-items-center border align-items-center text-50"
+                               href=""><i class="material-icons icon-16pt m-1">add</i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 card-group-row__col">
+
+                <div class="card card-group-row__card p-16pt">
+
+                    <a href=""
+                       class="d-block mb-16pt"><img src="public/images/stories/256_rsz_dex-ezekiel-761373-unsplash.jpg"
+                             alt=""
+                             style="height: 64px;"
+                             class="card-img card-img-cover"></a>
+
+                    <div class="d-flex">
+                        <div class="d-flex flex-column flex">
+                            <a href="#"
+                               class="mb-8pt"><strong>Add Layout Options</strong></a>
+                            <div class="d-flex align-items-center mb-8pt">
+
+                                <a href=""
+                                   class="mr-4pt"><span class="indicator-line rounded bg-primary"></span></a>
+
+                            </div>
+                        </div>
+                        <a href="#"><i class="material-icons text-50">more_horiz</i></a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="flex d-flex align-items-center">
+                            <small class="text-50 mr-16pt">Tomorrow</small>
+
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <div class="avatar-group flex mr-8pt">
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_rsz_1andy-lee-642320-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_michael-dam-258165-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                                <div class="avatar avatar-xs"
+                                     data-toggle="tooltip"
+                                     data-placement="top"
+                                     title="Janell D.">
+                                    <a href=""><img src="public/images/256_luke-porter-261779-unsplash.jpg"
+                                             alt="Avatar"
+                                             class="avatar-img rounded-circle"></a>
+                                </div>
+
+                            </div>
+                            <a style="text-decoration: none;"
+                               class="rounded-circle d-flex align-items-center border align-items-center text-50"
+                               href=""><i class="material-icons icon-16pt m-1">add</i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="card p-8pt mb-0 d-inline-block">
+
+            <ul class="pagination justify-content-start pagination-xsm m-0">
+                <li class="page-item disabled">
+                    <a class="page-link"
+                       href="#"
+                       aria-label="Previous">
+                        <span aria-hidden="true"
+                              class="material-icons">chevron_left</span>
+                        <span>Prev</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link"
+                       href="#"
+                       aria-label="Page 1">
+                        <span>1</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link"
+                       href="#"
+                       aria-label="Page 2">
+                        <span>2</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link"
+                       href="#"
+                       aria-label="Next">
+                        <span>Next</span>
+                        <span aria-hidden="true"
+                              class="material-icons">chevron_right</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</div>

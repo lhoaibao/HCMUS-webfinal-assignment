@@ -1,0 +1,229 @@
+<div class=" page-section pb-0">
+    <h1 class="h2 mb-0">Sweet Alert</h1>
+    <ol class="breadcrumb m-0 p-0">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item">Plugins</li>
+        <li class="breadcrumb-item active">Sweet Alert</li>
+    </ol>
+</div>
+
+<div class=" page-section">
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Sweet Alert</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0">
+                Sweet Alert automatically centers itself on the page and looks great no matter if you're using a desktop computer, mobile or tablet. It's even highly customizable, as you can see below. Please read the <a href="http://sweetalert.js.org/docs/"
+                   target="_blank">official plugin documentation</a> for a full list of options.
+            </p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <p>
+                    <button class="btn btn-outline-primary"
+                            data-toggle="swal"
+                            data-swal-title="Here's a message!">
+                        Try Basic
+                    </button>
+                </p>
+
+                <code class="highlight html  bg-transparent">&lt;button&nbsp;<br />
+                    &nbsp;&nbsp;class=&quot;btn&nbsp;btn-primary&quot;&nbsp;<br />
+                    &nbsp;&nbsp;data-toggle=&quot;swal&quot;&nbsp;<br />
+                    &nbsp;&nbsp;data-swal-title=&quot;Here&#39;s&nbsp;a&nbsp;message!&quot;&gt;<br />
+                    &nbsp;&nbsp;Basic<br />
+                    &lt;/button&gt;</code>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Title &amp; Subtitle</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0"></p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <p>
+                    <button class="btn btn-primary"
+                            data-toggle="swal"
+                            data-swal-title="Here's a message!"
+                            data-swal-text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam tenetur unde odio nam reiciendis cum maiores dicta vel officiis aliquid nesciunt enim incidunt ab qui, at quis beatae illum, error.">
+                        Title &amp; Subtitle
+                    </button>
+                </p>
+
+                <code class="highlight html  bg-transparent">&lt;button&nbsp;<br />
+                    &nbsp;&nbsp;class=&quot;btn&nbsp;btn-primary&quot;&nbsp;<br />
+                    &nbsp;&nbsp;data-toggle=&quot;swal&quot;&nbsp;<br />
+                    &nbsp;&nbsp;data-swal-title=&quot;Here&#39;s&nbsp;a&nbsp;message!&quot;<br />
+                    &nbsp;&nbsp;data-swal-text=&quot;Lorem&nbsp;ipsum&nbsp;dolor&nbsp;sit&nbsp;amet,&nbsp;consectetur&nbsp;adipisicing&nbsp;elit.&nbsp;Quam&nbsp;tenetur&nbsp;unde&nbsp;odio&nbsp;nam&nbsp;reiciendis&nbsp;cum&nbsp;maiores&nbsp;dicta&nbsp;vel&nbsp;officiis&nbsp;aliquid&nbsp;nesciunt&nbsp;enim&nbsp;incidunt&nbsp;ab&nbsp;qui,&nbsp;at&nbsp;quis&nbsp;beatae&nbsp;illum,&nbsp;error.&quot;&gt;<br />
+                    &nbsp;&nbsp;Title&nbsp;&amp;amp;&nbsp;Subtitle<br />
+                    &lt;/button&gt;</code>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Success</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0"></p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <p>
+                    <button class="btn btn-success"
+                            data-toggle="swal"
+                            data-swal-title="Good job!"
+                            data-swal-text="You clicked the button!"
+                            data-swal-type="success">
+                        Success
+                    </button>
+                </p>
+
+                <code class="highlight html  bg-transparent">&lt;button&nbsp;<br />
+                    &nbsp;&nbsp;class=&quot;btn&nbsp;btn-success&quot;&nbsp;<br />
+                    &nbsp;&nbsp;data-toggle=&quot;swal&quot;&nbsp;<br />
+                    &nbsp;&nbsp;data-swal-title=&quot;Good&nbsp;job!&quot;<br />
+                    &nbsp;&nbsp;data-swal-text=&quot;You&nbsp;clicked&nbsp;the&nbsp;button!&quot;<br />
+                    &nbsp;&nbsp;data-swal-type=&quot;success&quot;&gt;<br />
+                    &nbsp;&nbsp;Success<br />
+                    &lt;/button&gt;</code>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="swal-confirm-delete"
+         class="d-none"
+         data-swal-type="success"
+         data-swal-title="Deleted!"
+         data-swal-text="Your imaginary file has been deleted."></div>
+
+    <div id="swal-cancel-delete"
+         class="d-none"
+         data-swal-type="error"
+         data-swal-title="Cancelled"
+         data-swal-text="Your imaginary file is safe :)"></div>
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Confirm</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0">A warning message, with a function attached to the confirm button.</p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <p>
+                    <button class="btn btn-warning"
+                            data-toggle="swal"
+                            data-swal-title="Are you sure?"
+                            data-swal-text="You will not be able to recover this imaginary file!"
+                            data-swal-type="warning"
+                            data-swal-show-cancel-button="true"
+                            data-swal-confirm-button-text="Yes, delete it!"
+                            data-swal-confirm-cb="#swal-confirm-delete"
+                            data-swal-close-on-confirm="false">
+                        Confirm
+                    </button>
+                </p>
+
+                <code class="highlight html  bg-transparent">&lt;button&nbsp;<br />
+                    &nbsp;&nbsp;class=&quot;btn&nbsp;btn-warning&quot;&nbsp;<br />
+                    &nbsp;&nbsp;data-toggle=&quot;swal&quot;&nbsp;<br />
+                    &nbsp;&nbsp;data-swal-title=&quot;Are&nbsp;you&nbsp;sure?&quot;<br />
+                    &nbsp;&nbsp;data-swal-text=&quot;You&nbsp;will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;recover&nbsp;this&nbsp;imaginary&nbsp;file!&quot;<br />
+                    &nbsp;&nbsp;data-swal-type=&quot;warning&quot;<br />
+                    &nbsp;&nbsp;data-swal-show-cancel-button=&quot;true&quot;<br />
+                    &nbsp;&nbsp;data-swal-confirm-button-text=&quot;Yes,&nbsp;delete&nbsp;it!&quot;<br />
+                    &nbsp;&nbsp;data-swal-confirm-cb=&quot;#swal-confirm-delete&quot;<br />
+                    &nbsp;&nbsp;data-swal-close-on-confirm=&quot;false&quot;&gt;<br />
+                    &nbsp;&nbsp;Confirm<br />
+                    &lt;/button&gt;<br />
+                    <br />
+                    &lt;div&nbsp;<br />
+                    &nbsp;&nbsp;id=&quot;swal-confirm-delete&quot;&nbsp;<br />
+                    &nbsp;&nbsp;class=&quot;d-none&quot;<br />
+                    &nbsp;&nbsp;data-swal-type=&quot;success&quot;<br />
+                    &nbsp;&nbsp;data-swal-title=&quot;Deleted!&quot;<br />
+                    &nbsp;&nbsp;data-swal-text=&quot;Your&nbsp;imaginary&nbsp;file&nbsp;has&nbsp;been&nbsp;deleted.&quot;&gt;<br />
+                    &lt;/div&gt;</code>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Confirm and Cancel</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0">And by passing a parameter, you can execute something else for Cancel.</p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <p>
+                    <button class="btn btn-danger"
+                            data-toggle="swal"
+                            data-swal-title="Are you sure?"
+                            data-swal-text="You will not be able to recover this imaginary file!"
+                            data-swal-type="warning"
+                            data-swal-confirm-button-text="Yes, delete it!"
+                            data-swal-confirm-cb="#swal-confirm-delete"
+                            data-swal-show-cancel-button="true"
+                            data-swal-cancel-button-text="No, cancel please!"
+                            data-swal-cancel-cb="#swal-cancel-delete"
+                            data-swal-close-on-confirm="false"
+                            data-swal-close-on-cancel="false">
+                        Confirm and Cancel
+                    </button>
+                </p>
+
+                <code class="highlight html  bg-transparent">&lt;button&nbsp;<br />
+                    &nbsp;&nbsp;class=&quot;btn&nbsp;btn-danger&quot;&nbsp;<br />
+                    &nbsp;&nbsp;data-toggle=&quot;swal&quot;&nbsp;<br />
+                    &nbsp;&nbsp;data-swal-title=&quot;Are&nbsp;you&nbsp;sure?&quot;<br />
+                    &nbsp;&nbsp;data-swal-text=&quot;You&nbsp;will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;recover&nbsp;this&nbsp;imaginary&nbsp;file!&quot;<br />
+                    &nbsp;&nbsp;data-swal-type=&quot;warning&quot;<br />
+                    &nbsp;&nbsp;data-swal-confirm-button-text=&quot;Yes,&nbsp;delete&nbsp;it!&quot;<br />
+                    &nbsp;&nbsp;data-swal-confirm-cb=&quot;#swal-confirm-delete&quot;<br />
+                    &nbsp;&nbsp;data-swal-show-cancel-button=&quot;true&quot;<br />
+                    &nbsp;&nbsp;data-swal-cancel-button-text=&quot;No,&nbsp;cancel&nbsp;please!&quot;<br />
+                    &nbsp;&nbsp;data-swal-cancel-cb=&quot;#swal-cancel-delete&quot;<br />
+                    &nbsp;&nbsp;data-swal-close-on-confirm=&quot;false&quot;<br />
+                    &nbsp;&nbsp;data-swal-close-on-cancel=&quot;false&quot;&gt;<br />
+                    &nbsp;&nbsp;Confirm&nbsp;and&nbsp;Cancel<br />
+                    &lt;/button&gt;<br />
+                    <br />
+                    &lt;div&nbsp;<br />
+                    &nbsp;&nbsp;id=&quot;swal-cancel-delete&quot;&nbsp;<br />
+                    &nbsp;&nbsp;class=&quot;d-none&quot;<br />
+                    &nbsp;&nbsp;data-swal-type=&quot;error&quot;<br />
+                    &nbsp;&nbsp;data-swal-title=&quot;Cancelled&quot;<br />
+                    &nbsp;&nbsp;data-swal-text=&quot;Your&nbsp;imaginary&nbsp;file&nbsp;is&nbsp;safe&nbsp;:)&quot;&gt;<br />
+                    &lt;/div&gt;</code>
+
+            </div>
+        </div>
+    </div>
+
+</div>

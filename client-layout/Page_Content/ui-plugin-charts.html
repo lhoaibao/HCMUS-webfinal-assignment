@@ -1,0 +1,249 @@
+<div class=" page-section pb-0">
+    <h1 class="h2 mb-0">Charts</h1>
+    <ol class="breadcrumb m-0 p-0">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item">Plugins</li>
+        <li class="breadcrumb-item active">Charts</li>
+    </ol>
+</div>
+
+<div class=" page-section">
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Line</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0">A line chart is a way of plotting data points on a line. Often, it is used to show trend data, or the comparison of two data sets.</p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <div class="chart"
+                     style="height: 250px;">
+                    <canvas id="performanceChart"
+                            class="chart-canvas js-update-chart-line"
+                            data-chart-line-border-color="primary"
+                            data-chart-prefix="$"
+                            data-chart-suffix="k"
+                            data-chart-points="true"></canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Area</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0">An area chart or area graph displays graphically quantitative data. It is based on the line chart.</p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <div class="chart"
+                     style="height: 250px;">
+                    <canvas id="performanceAreaChart"
+                            class="chart-canvas js-update-chart-line js-update-chart-area"
+                            data-chart-line-border-color="primary"
+                            data-chart-line-background-color="gradient:primary"
+                            data-chart-line-background-opacity="0.24"
+                            data-chart-prefix="$"
+                            data-chart-suffix="k"></canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Doughnut</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0">Excellent at showing the relational proportions between data.</p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <div id="devicesChartLegend"
+                     class="chart-legend justify-content-start mt-0 mb-16pt w-100"></div>
+                <div class="position-relative"
+                     style="height: 200px; width: 200px;">
+                    <div class="text-center fullbleed d-flex align-items-center justify-content-center flex-column z-0">
+                        <h3 class="mb-0">38%</h3>
+                        <small class="text-uppercase">Desktop</small>
+                    </div>
+                    <canvas id="devicesChart"
+                            class="chart-canvas"
+                            data-chart-line-background-color="primary;accent.300;accent.100"
+                            data-chart-legend="#devicesChartLegend"
+                            data-chart-suffix="%"></canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Small progress</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0"></p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <div class="form-row">
+                    <div class="col-auto">
+                        <div class="position-relative">
+                            <div class="text-center fullbleed d-flex align-items-center justify-content-center flex-column z-0">
+                                <small>92%</small>
+                            </div>
+                            <canvas width="48"
+                                    height="48"
+                                    class="chart-canvas position-relative z-1 js-update-chart-progress"
+                                    id="inTimeProgressChart"
+                                    data-chart-line-background-color="primary;gray"
+                                    data-chart-disable-tooltips="true"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="position-relative">
+                            <div class="text-center fullbleed d-flex align-items-center justify-content-center flex-column z-0">
+                                <small>23%</small>
+                            </div>
+                            <canvas width="48"
+                                    height="48"
+                                    class="chart-canvas position-relative z-1 js-update-chart-progress-accent"
+                                    id="lateProgressChart"
+                                    data-chart-line-background-color="accent;gray"
+                                    data-chart-disable-tooltips="true"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="position-relative">
+                            <div class="text-center fullbleed d-flex align-items-center justify-content-center flex-column z-0">
+                                <small>6%</small>
+                            </div>
+                            <canvas width="48"
+                                    height="48"
+                                    class="chart-canvas position-relative z-1"
+                                    id="absentsProgressChart"
+                                    data-chart-line-background-color="yellow;gray"
+                                    data-chart-disable-tooltips="true"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="position-relative">
+                            <div class="text-center fullbleed d-flex align-items-center justify-content-center flex-column z-0">
+                                <small>1%</small>
+                            </div>
+                            <canvas width="48"
+                                    height="48"
+                                    class="chart-canvas position-relative z-1"
+                                    id="vacationProgressChart"
+                                    data-chart-line-background-color="yellow;gray"
+                                    data-chart-disable-tooltips="true"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Bar</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0">A bar chart provides a way of showing data values represented as vertical bars. It is sometimes used to show trend data, and the comparison of multiple data sets side by side.</p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <div class="chart">
+                    <canvas id="ordersChart"
+                            class="chart-canvas js-update-chart-bar"
+                            data-chart-line-background-color="gradient:primary"
+                            data-chart-prefix="$"
+                            data-chart-suffix="k"></canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Switch Toggle</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0">Easily toggle an additional set of data with a simple interface based on the <code>data</code> attributes.</p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <div class="form-group">
+                    <label class="form-label"
+                           for="chart-switch-toggle">Show affiliate:</label>
+                    <div class="custom-control custom-checkbox-toggle">
+                        <input id="chart-switch-toggle"
+                               type="checkbox"
+                               checked=""
+                               aria-checked="true"
+                               class="custom-control-input"
+                               role="switch"
+                               data-toggle="chart"
+                               data-target="#ordersChartSwitch"
+                               data-add='{"data":{"datasets":[{"data":[15,10,20,12,7,0,8,16,18,16,10,22],"backgroundColor":"#f75c7f","label":"Affiliate","barThickness":20}]}}'>
+                        <label class="custom-control-label"
+                               for="chart-switch-toggle"><span class="sr-only">Show affiliate</span></label>
+                    </div>
+                </div>
+                <div class="chart">
+                    <canvas id="ordersChartSwitch"
+                            class="chart-canvas js-update-chart-bar"
+                            data-chart-line-background-color="primary"
+                            data-chart-prefix="$"
+                            data-chart-suffix="k"></canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-32pt">
+        <div class="col-lg-4">
+            <div class="page-separator">
+                <div class="page-separator__text">Radar</div>
+            </div>
+            <p class="card-subtitle text-70 mb-16pt mb-lg-0">A radar chart provides a way of showing multiple data points and the variation between them. They are often useful for comparing the points of two or more different data sets.</p>
+        </div>
+        <div class="col-lg-8 d-flex align-items-center">
+            <div class="flex"
+                 style="max-width: 100%">
+
+                <div class="chart">
+                    <canvas id="topicIqChart"
+                            class="chart-canvas js-update-chart-line"
+                            data-chart-line-border-color="primary"
+                            data-chart-points="true"
+                            data-chart-suffix=" points"></canvas>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
