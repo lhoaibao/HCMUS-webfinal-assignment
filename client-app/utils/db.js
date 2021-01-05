@@ -9,4 +9,12 @@ const pool = mysql.createPool({
 });
 
 const poolQuery = util.promisify(pool.query.bind(pool));
-module.exports = { load: (sql) => poolQuery(sql) };
+module.exports = {
+  load: (sql) => poolQuery(sql),
+  add: (entity, tableName) =>
+    poolQuery(`insert into ${tableName} set ?`, entity),
+  del: (condition, tableName) =>
+    poolQuery(`delete from ${tableName} where ?`, condition),
+  patch: (entity, condition, tableName) =>
+    poolQuery(`update ${tableName} set ? where ?`, [entity, condition]),
+};
