@@ -43,4 +43,38 @@ router.get("/is-available", async function (req, res) {
   return res.json(false);
 });
 
+// Sign in
+router.get("/sign-in", async function (req, res) {
+  res.render("vwAccount/signin", {
+    layout: false,
+  });
+});
+
+router.post("/sign-in", async function (req, res) {
+  const { username, password } = req.body;
+  const user = await userModel.singleByUsername(username);
+  console.log(user);
+  // Check username
+  if (user === null) {
+    return res.render("vwAccount/signin", {
+      layout: false,
+      error_message: "Invalid username or password!",
+    });
+  }
+  
+  //Check password
+  if (bcrypt.compareSync(password, user.password) === false) {
+    return res.render("vwAccount/signin", {
+      layout: false,
+      error_message: "Password does not match!!!",
+    });
+  }
+
+  req.session.isAuth = true;
+  req.session.authUser = user;
+
+  let url = "/";
+  res.redirect(url);
+});
+
 module.exports = router;
