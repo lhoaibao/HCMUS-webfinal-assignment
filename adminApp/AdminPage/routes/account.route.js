@@ -7,7 +7,6 @@ const userModel = require('../models/user.model');
 const router = express.Router();
 
 router.get('/login', async function (req, res) {
-    console.log(req.headers);
     if (req.session.isAuth) {
         res.redirect(req.session.retUrl)
     }

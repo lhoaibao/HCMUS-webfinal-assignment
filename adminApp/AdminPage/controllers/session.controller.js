@@ -4,7 +4,7 @@ const MySQLStore = require('express-mysql-session')(session);
 const options = {
   host: 'localhost',
   user: 'root',
-  password: 'kaorikousei0208',
+  password: 'password',
   database: 'elearning',
   charset: 'utf8',
   schema: {
