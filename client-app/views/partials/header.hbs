@@ -97,6 +97,41 @@
                 </li>
             </ul>
 
+            {{!-- Check user da dang nhap chua --}}
+            {{#if isAuth}}
+            <div class="nav-item dropdown  ml-auto mr-0">
+                <a href="#" class="nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown"
+                    data-caret="false">
+
+                    <div class="avatar avatar-sm">
+                        <img src="images/people/256/256_rsz_sharina-mae-agellon-377466-unsplash.jpg" alt="Avatar"
+                            class="avatar-img rounded-circle">
+                    </div>
+
+                </a>
+                <form action="/account/log-out" id="frmLogout" method="POST"></form>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-item d-flex align">
+                        <div class="avatar avatar-lg">
+                            <img src="images/people/256/256_rsz_sharina-mae-agellon-377466-unsplash.jpg" alt="Avatar"
+                                class="avatar-img rounded-circle">
+                        </div>
+                        <div class="dropdown-header flex-column">
+                            <p class="mb-0"><strong>{{authUser.username}}</strong></p>
+                            <p class="text-secondary mb-0">{{authUser.email}}</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="edit-account.html">My learning</a>
+                    <a class="dropdown-item" href="edit-account.html">My cart</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="billing.html">Public profile</a>
+                    <a class="dropdown-item" href="billing-history.html">Edit profile</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">Logout</a>
+                </div>
+            </div>
+            {{else}}
             <ul class="nav navbar-nav ml-auto mr-0">
                 <li class="nav-item">
                     <a href="/account/sign-in" class="nav-link" data-toggle="tooltip" data-title="Login"
@@ -106,6 +141,9 @@
                     <a href="/account/sign-up" class="btn btn-outline-white">Get Started</a>
                 </li>
             </ul>
+            {{/if}}
+
+
         </div>
 
         <div class="hero container page__container text-center text-md-left py-112pt">

@@ -8,8 +8,9 @@ require("express-async-errors");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 
-
 require("./middlewares/view.mdw")(app);
+require("./middlewares/session.mdw")(app);
+require("./middlewares/locals.mdw")(app);
 require("./middlewares/routes.mdw")(app);
 require("./middlewares/error.mdw")(app);
 

@@ -1,6 +1,4 @@
 const db = require("../utils/db");
-const { single } = require("./categories.model");
-
 const TBL_USERS = "user";
 
 module.exports = {
@@ -20,11 +18,10 @@ module.exports = {
       `select * from ${TBL_USERS} where username='${username}'`
     );
     if (rows.length === 0) return null;
-
     return rows[0];
   },
 
-  add(entity){
-      return db.add(entity,TBL_USERS)
-  }
+  add(entity) {
+    return db.add(entity, TBL_USERS);
+  },
 };
