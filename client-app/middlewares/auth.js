@@ -3,6 +3,6 @@ module.exports = function auth(req, res, next) {
     req.session.retUrl = req.originalUrl;
     return res.redirect("accout/login");
   }
-
+ 
   next();
 };

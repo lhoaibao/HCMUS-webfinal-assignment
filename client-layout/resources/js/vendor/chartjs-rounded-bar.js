@@ -1,1 +1,0 @@
-import 'fm-plugin-chartjs/js/chartjs-rounded-bar'

@@ -9,4 +9,7 @@ module.exports = function (app) {
 
   // Account
   app.use("/account", require("../routers/account.route"));
+
+  // Courses
+  app.use("/courses", require("../routers/courses.route"));
 };
