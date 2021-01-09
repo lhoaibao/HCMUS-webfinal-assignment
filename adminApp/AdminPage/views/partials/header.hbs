@@ -12,7 +12,7 @@
             <div class="user-panel p-3 light mb-2">
                 <div>
                     <div class="float-left image">
-                        <img class="user_avatar" src="img/dummy/u1.png" alt="User Image">
+                        <img class="user_avatar" src="/img/dummy/u1.png" alt="User Image">
                     </div>
                     <div class="float-left info">
                         <h6 class="font-weight-light mt-2 mb-1">{{{this.user.firstName}}}</h6>
@@ -21,38 +21,51 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="collapse multi-collapse" id="userSettingsCollapse">
+                    <form action="/user/logout" method="post" id="frmLogout">
                     <div class="list-group mt-3 shadow">
                         <a href="index.html" class="list-group-item list-group-item-action ">
                             <i class="mr-2 icon-umbrella text-blue"></i>Profile
                         </a>
-                        <a href="#" class="list-group-item list-group-item-action"><i
+                        <a href="javascript: $('#frmLogout').submit();" class="list-group-item list-group-item-action"><i
                                 class="mr-2 icon-cogs text-yellow"></i>Logout</a>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
         <ul class="sidebar-menu">
             <li class="header"><strong>MAIN NAVIGATION</strong></li>
+            <li class="treeview"><a href="/">
+                    <i class="icon icon icon-home blue-text s-18"></i>Home
+                </a>
+            </li>
             <li class="treeview"><a href="#">
-                    <i class="icon icon icon-package blue-text s-18"></i>Products<i
+                    Courses<i
                         class="icon icon-angle-left s-18 pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="panel-page-products.html"><i class="icon icon-circle-o"></i>All Products</a>
+                    <li><a href="/course"><i class="icon icon-circle-o"></i>All Courses</a>
                     </li>
-                    <li><a href="panel-page-products-create.html"><i class="icon icon-add"></i>Add
-                            New </a>
+                    <li><a href="/course/add"><i class="icon icon-add"></i>Add
+                            New Course</a>
                     </li>
                 </ul>
             </li>
-            <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Users<i
+            <li class="treeview"><a href="#">Categorys<i
                         class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="panel-page-users.html"><i class="icon icon-circle-o"></i>All Users</a>
+                    <li><a href="/category"><i class="icon icon-circle-o"></i>All Categorys</a>
                     </li>
-                    <li><a href="panel-page-users-create.html"><i class="icon icon-add"></i>Add User</a>
+                    <li><a href="/category/add"><i class="icon icon-add"></i>Add New Category</a>
                     </li>
-                    <li><a href="panel-page-profile.html"><i class="icon icon-user"></i>User Profile </a>
+                </ul>
+            </li>
+            <li class="treeview"><a href="#">Users<i
+                        class="icon icon-angle-left s-18 pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="/user"><i class="icon icon-circle-o"></i>All Users</a>
+                    </li>
+                    <li><a href="/user/add"><i class="icon icon-add"></i>Add New User</a>
                     </li>
                 </ul>
             </li>
@@ -89,22 +102,6 @@
                             aria-label="Toggle navigation">
                             <i class=" icon-search3 "></i>
                         </a>
-                    </li>
-                    <!-- User Account-->
-                    <li class="dropdown custom-dropdown user user-menu ">
-                        <a href="#" class="nav-link" data-toggle="dropdown">
-                            <img src="img/dummy/u1.png" class="user-image" alt="User Image">
-                            <i class="icon-more_vert "></i>
-                        </a>
-                        <div class="dropdown-menu p-4 dropdown-menu-right">
-                            <div class="row justify-content-around my-4">
-                                <a href="index.html" class="list-group-item list-group-item-action ">
-                                    <i class="mr-2 icon-umbrella text-blue"></i>Profile
-                                </a>
-                                <a href="#" class="list-group-item list-group-item-action"><i
-                                        class="mr-2 icon-cogs text-yellow"></i>Logout</a>
-                            </div>
-                        </div>
                     </li>
                 </ul>
             </div>

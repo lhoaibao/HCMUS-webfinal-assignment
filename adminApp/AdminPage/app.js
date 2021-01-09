@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path');
 require("express-async-errors");
 
 const app = express();
@@ -10,7 +11,7 @@ app.use(
 );
 
 // Static file setup
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
 
 require("./controllers/view.controller")(app);
 require("./controllers/session.controller")(app);

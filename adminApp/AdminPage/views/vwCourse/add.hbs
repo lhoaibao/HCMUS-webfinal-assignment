@@ -5,19 +5,19 @@
                 <div class="col">
                     <h4>
                         <i class="icon-package"></i>
-                        Products
+                        Courses
                     </h4>
                 </div>
             </div>
             <div class="row">
                 <ul class="nav responsive-tab nav-material nav-material-white">
                     <li>
-                        <a class="nav-link" href="panel-page-products.html"><i class="icon icon-list"></i>All
-                            Products</a>
+                        <a class="nav-link" href="/course"><i class="icon icon-list"></i>All
+                            Courses</a>
                     </li>
                     <li>
-                        <a class="nav-link active" href="panel-page-products-create.html"><i
-                                class="icon icon-plus-circle"></i> Add New Product</a>
+                        <a class="nav-link active" href="/course/add"><i class="icon icon-plus-circle"></i> Add New
+                            Course</a>
                     </li>
                     <li>
                         <a class="nav-link" href="#"><i class="icon icon-trash-can"></i>Trash</a>
@@ -34,13 +34,11 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Product Name</label>
-                                <input type="text" class="form-control" id="validationCustom01"
-                                    placeholder="Product Name" value="Apple Iphone 8" required>
+                                <input type="text" class="form-control" id="validationCustom01" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom02">Product Brand</label>
-                                <input type="text" class="form-control" id="validationCustom02" placeholder="Last name"
-                                    value="Apple" required>
+                                <input type="text" class="form-control" id="validationCustom02" required>
                             </div>
                         </div>
                         <div class="row">
@@ -48,10 +46,6 @@
                                 <label for="category">Category</label>
                                 <!--<input type="text" class="form-control"  placeholder="Mobile Phones" required>-->
                                 <select id="category" class="custom-select form-control" required>
-                                    <option value="">Select Product Category</option>
-                                    <option value="1">Mobile Phone</option>
-                                    <option value="2">Laptop & Computers</option>
-                                    <option value="3">Accessories</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Please provide a valid category.
@@ -59,15 +53,14 @@
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="validationCustom04">Price</label>
-                                <input type="text" class="form-control" id="validationCustom04" placeholder="$ 250"
-                                    required>
+                                <input type="text" class="form-control" id="validationCustom04" required>
                                 <div class="invalid-feedback">
                                     Please provide a valid price.
                                 </div>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label for="sku">SKU</label>
-                                <input type="text" class="form-control" id="sku" placeholder="sku-1029-5998" required>
+                                <input type="text" class="form-control" id="sku" required>
                                 <div class="invalid-feedback">
                                     Please provide a valid sku.
                                 </div>
@@ -111,24 +104,6 @@
                                 }, false);
                             }());
                         </script>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card mt-4">
-                            <h6 class="card-header white">Publish Box</h6>
-                            <div class="card-body text-success">
-
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="customControlValidation1"
-                                        required>
-                                    <label class="custom-control-label" for="customControlValidation1">Check this custom
-                                        checkbox</label>
-                                    <div class="invalid-feedback">Example invalid feedback text</div>
-                                </div>
-                            </div>
-                            <div class="card-footer bg-transparent">
-                                <button class="btn btn-primary" type="submit">Publish</button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </form>
