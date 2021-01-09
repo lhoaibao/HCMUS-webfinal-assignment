@@ -5,7 +5,7 @@ module.exports = function (app) {
             user: req.session.authUser
         });
     });
-    app.use('/user',auth, require('../routes/user.route'));
+    app.use('/user', require('../routes/user.route'));
     app.use('/course',auth, require('../routes/course.route'));
     app.use('/category',auth, require('../routes/category.route'));
 };

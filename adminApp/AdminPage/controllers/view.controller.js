@@ -1,6 +1,8 @@
 const hbs = require('express-handlebars');
 const hbs_sections = require('express-handlebars-sections');
 const numeral = require('numeral');
+const Blob = require("cross-blob");
+const FileReader = require('filereader')
 
 module.exports = function (app) {
   app.engine('hbs', hbs({
@@ -16,4 +18,8 @@ module.exports = function (app) {
     }
   }));
   app.set('view engine', 'hbs');
+  var temp = hbs.create({});
+  temp.handlebars.registerHelper('encodeMyString', function (inputData) {
+    return inputData.toString('base64')
+  });
 }

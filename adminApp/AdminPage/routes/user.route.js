@@ -1,31 +1,32 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
+const auth = require('../controllers/auth.controller');
 
 const userModel = require('../models/user.model');
 
 const router = express.Router();
 
-router.get('/', async function (req, res) {
+router.get('/', auth, async function (req, res) {
     try {
         const rows = await userModel.all();
         res.render('vwUser/index', {
-          users: rows,
-          isAdmin: req.session.authUser.permission === 0,
+            users: rows,
+            isAdmin: req.session.authUser.permission === 0,
         });
-      } catch (err) {
+    } catch (err) {
         console.error(err);
         res.send('View error log at server console.');
-      }
+    }
 })
 
-router.get('/add', async function (req, res) {
+router.get('/add', auth, async function (req, res) {
     res.render('vwUser/add');
 })
 
-router.post('/add', async function (req, res) {
+router.post('/add', auth, async function (req, res) {
     const user = await userModel.singleByUserName(req.body.username)
-    if (user){
+    if (user) {
         return res.render('vwUser/add', {
             err_message: "User existed"
         });

@@ -35,23 +35,34 @@
                             <div class="card-body p-0">
                                 <div class="table-responsive">
                                     <table class="table table-hover ">
+                                        <tr>
+                                            <td>Course Image</td>
+                                            <td>Course Name</td>
+                                            <td>Category</td>
+                                            <td>Rating Score</td>
+                                            <td>Last Modify</td>
+                                            <td>Completed</td>
+                                            <td>Action</td>
+                                        </tr>
                                         <tbody>
+                                            {{#each this.courses}}
                                             <tr class="no-b">
-                                                <td class="w-10">
-                                                    <img src="" alt="">
-                                                </td>
+                                                <td class="w-10"><img src="data:image/png;base64, {{encodeMyString courseImage}}" ) alt=""></td>
                                                 <td>
-                                                    <h6>Apple Product</h6>
+                                                    <h6>{{courseName}}</h6>
                                                 </td>
-                                                <td>author</td>
+                                                <td>{{category}}</td>
+                                                <td>{{ratingScore}}</td>
                                                 <td>
-                                                    <span><i class="icon icon-timer"></i> 5 September, 2017</span>
+                                                    <span><i class="icon icon-timer"></i>{{lastModify}}</span>
                                                 </td>
+                                                <td>{{completed}}</td>
                                                 <td>
                                                     <a class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
                                                             class="icon-pencil"></i></a>
                                                 </td>
                                             </tr>
+                                            {{/each}}
                                         </tbody>
                                     </table>
                                 </div>
