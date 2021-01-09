@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const moment = require('moment');
 
 const courseModel = require('../models/course.model');
+const categoryModel = require('../models/category.model');
 
 const router = express.Router();
 
@@ -21,7 +22,10 @@ router.get('/', async function (req, res) {
 })
 
 router.get('/add', async function (req, res) {
-    res.render('vwCourse/add');
+    const rows = await categoryModel.all();
+    res.render('vwCourse/add',{
+      categories: rows
+    });
 })
 
 module.exports = router;

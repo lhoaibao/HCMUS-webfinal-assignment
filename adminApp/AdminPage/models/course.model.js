@@ -1,9 +1,9 @@
 const db = require('../utils/db');
 
-const TBL_COURSES = 'courses';
+const TBL_COURSE = 'course';
 
 module.exports = {
     all() {
-        return db.load(`select * from ${TBL_COURSES}`);
+        return db.load(`select * from ${TBL_COURSE}`);
     },
 };

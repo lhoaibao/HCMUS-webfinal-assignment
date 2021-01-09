@@ -1,0 +1,133 @@
+<div class="page has-sidebar-left">
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-package"></i>
+                        Users
+                    </h4>
+                </div>
+            </div>
+            <div class="row">
+                <ul class="nav responsive-tab nav-material nav-material-white">
+                    <li>
+                        <a class="nav-link" href="/user"><i class="icon icon-list"></i>All
+                            Users</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" href="/user/add"><i class="icon icon-plus-circle"></i> Add New
+                            User</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid animatedParent animateOnce my-3">
+        <div class="animated fadeInUpShort">
+            <form id="needs-validation" novalidate method="POST" action="/user/add">
+                <div class="card no-b  no-r">
+                    <div class="card-body">
+                        <h5 class="card-title">About User</h5>
+                        <div class="form-row">
+                            <div class="col-md-8">
+                                <div class="form-row">
+                                    <div class="form-group col-6 m-0">
+                                        <label class="col-form-label s-12">First Name</label>
+                                        <input type="text" class="form-control" required name="firstName">
+                                        <div class="invalid-feedback">
+                                            Please provide a First Name.
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-6 m-0">
+                                        <label class="col-form-label s-12">Last Name</label>
+                                        <input type="text" class="form-control" required name="lastName">
+                                        <div class="invalid-feedback">
+                                            Please provide a Last Name.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-6 m-0">
+                                        <label class="col-form-label s-12">Username</label>
+                                        <input type="text" class="form-control" required name="username">
+                                        <div class="invalid-feedback">
+                                            Please provide a Username.
+                                        </div>
+                                        <small style="color: #ed5564;">{{err_message}}</small>
+                                    </div>
+                                    <div class="form-group col-6 m-0">
+                                        <label class="col-form-label s-12">Password</label>
+                                        <input type="password" class="form-control" required name="password">
+                                        <div class="invalid-feedback">
+                                            Please provide a Password.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-12 m-0">
+                                        <label for="dob" class="col-form-label s-12"><i
+                                                class="icon-calendar mr-2"></i>DATE OF BIRTH</label>
+                                        <input id="dob" class="form-control r-0 light s-12 datePicker" max=
+                                            data-time-picker="false" data-format-date='yyyy-mm-dd' type="date" required
+                                            name="dob">
+                                        <div class="invalid-feedback">
+                                            Please provide a valid DATE OF BIRTH.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row mt-1">
+                            <div class="form-group col-8 m-0">
+                                <label for="email" class="col-form-label s-12"><i
+                                        class="icon-envelope-o mr-2"></i>Email</label>
+                                <input id="email" placeholder="user@email.com" class="form-control r-0 light s-12 "
+                                    type="email" required name="email">
+                                <div class="invalid-feedback">
+                                    Please provide a valid Email.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-1">
+
+                            <div class="col-md-8 mb-3">
+                                <label for="category">Permission</label>
+                                <select id="category" class="custom-select form-control" required name="permission">
+                                    <option value="">Select Permission</option>
+                                    <option value="1">Teacher</option>
+                                    <option value="2">Student</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please provide a valid Permission.
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            (function () {
+                                "use strict";
+                                window.addEventListener("load", function () {
+                                    var form = document.getElementById("needs-validation");
+                                    form.addEventListener("submit", function (event) {
+                                        if (form.checkValidity() == false) {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                        }
+                                        form.classList.add("was-validated");
+                                    }, false);
+                                }, false);
+                            }());
+                        </script>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-primary btn-lg"><i class="icon-save mr-2"></i>Save
+                            Data</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -7,11 +7,42 @@ const userModel = require('../models/user.model');
 const router = express.Router();
 
 router.get('/', async function (req, res) {
-    res.render('vwUser/index');
+    try {
+        const rows = await userModel.all();
+        res.render('vwUser/index', {
+          users: rows,
+          isAdmin: req.session.authUser.permission === 0,
+        });
+      } catch (err) {
+        console.error(err);
+        res.send('View error log at server console.');
+      }
 })
 
 router.get('/add', async function (req, res) {
     res.render('vwUser/add');
+})
+
+router.post('/add', async function (req, res) {
+    const user = await userModel.singleByUserName(req.body.username)
+    if (user){
+        return res.render('vwUser/add', {
+            err_message: "User existed"
+        });
+    }
+    entity = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        username: req.body.username,
+        password: bcrypt.hashSync(req.body.password, 10),
+        dob: req.body.dob,
+        email: req.body.email,
+        permission: parseInt(req.body.permission)
+    }
+    await userModel.add(entity);
+    return res.render('vwUser/add', {
+        message: 'Add user success'
+    })
 })
 
 router.get('/login', async function (req, res) {

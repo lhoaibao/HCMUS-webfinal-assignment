@@ -27,6 +27,16 @@
             left: 50%;
         }
     </style>
+    <script src="https://cdn.tiny.cloud/1/tv7fm7kwqk7yk6m42gg97fpa2v9axzf918kush1dl93wwnwp/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+            menubar: 'file edit view insert format tools table help',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+            height: 600,
+        });
+    </script>
     <script>(function (w, d, u) { w.readyQ = []; w.bindReadyQ = []; function p(x, y) { if (x == "ready") { w.bindReadyQ.push(y); } else { w.readyQ.push(x); } }; var a = { ready: p, bind: p }; w.$ = w.jQuery = function (f) { if (f === d || f === u) { return a } else { p(f) } } })(window, document)</script>
 </head>
 
