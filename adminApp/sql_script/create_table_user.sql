@@ -11,3 +11,8 @@ create table if not exists user (
     UNIQUE(email, username),
     primary key (id)
 )
+
+insert into user (username,password,firstName,lastName,email, dob,permission)
+values (
+    'admin', '$2y$12$gpAltNbuATgMSiQrZGDsdeftAub4VhANdQIHczCzhHrpD5BMEQen2 ', 'Hoai Bao', 'Le', 'admin@admin.com.vn', '1999-08-02', 0
+)
