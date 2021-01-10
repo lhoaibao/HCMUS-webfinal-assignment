@@ -5,13 +5,14 @@ create table if not exists course (
    courseImage LONGBLOB not null,
    shortDesc varchar(100) not null,
    detailDesc text not null,
-   ratingScoce decimal(2,1) not null default 0.0,
+   ratingScore decimal(2,1) not null default 0.0,
    ratingNumber int not null default 0,
    enrollNumber int not null default 0,
    tuition int not null,
    lastModify datetime not null,
    authorId int not null,
    promotionInfo varchar(100),
+   views int not null default 0,
    status varchar(20) not null default "incompleted", 
    primary key(id)
  );
