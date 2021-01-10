@@ -20,9 +20,6 @@
                             <a class="nav-link" href="/course/add"><i class="icon icon-plus-circle"></i> Add New
                                 Course</a>
                         </li>
-                        <li>
-                            <a class="nav-link" href="#"><i class="icon icon-trash-can"></i>Trash</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -41,25 +38,29 @@
                                             <td>Category</td>
                                             <td>Rating Score</td>
                                             <td>Last Modify</td>
-                                            <td>Completed</td>
+                                            <td>Status</td>
                                             <td>Action</td>
                                         </tr>
                                         <tbody>
                                             {{#each this.courses}}
-                                            <tr class="no-b">
-                                                <td class="w-10"><img src="data:image/png;base64, {{encodeMyString courseImage}}" ) alt=""></td>
+                                            <tr class="no-b clickable-row">
+                                                <td class="w-10"><img
+                                                        src="data:image/png;base64, {{encodeMyString courseImage}}" )
+                                                        alt=""></td>
                                                 <td>
                                                     <h6>{{courseName}}</h6>
                                                 </td>
                                                 <td>{{category}}</td>
-                                                <td>{{ratingScore}}</td>
+                                                <td>{{ratingScoce}}</td>
                                                 <td>
                                                     <span><i class="icon icon-timer"></i>{{lastModify}}</span>
                                                 </td>
-                                                <td>{{completed}}</td>
+                                                <td>{{status}}</td>
                                                 <td>
-                                                    <a class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
+                                                    <a href="/course/{{id}}" class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
                                                             class="icon-pencil"></i></a>
+                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white"><i
+                                                            class="icon-trash"></i></a>
                                                 </td>
                                             </tr>
                                             {{/each}}
