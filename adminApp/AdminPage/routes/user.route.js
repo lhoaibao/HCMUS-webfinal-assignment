@@ -47,11 +47,11 @@ router.post('/add', auth, async function (req, res) {
 })
 
 router.get('/login', async function (req, res) {
-    if (req.session.isAuth) {
-        res.redirect(req.session.retUrl)
-    }
     if (req.headers.referer) {
         req.session.retUrl = req.headers.referer;
+    }
+    if (req.session.isAuth) {
+        res.redirect(req.session.retUrl)
     }
     res.render('vwUser/login', {
         layout: false
@@ -61,7 +61,7 @@ router.get('/login', async function (req, res) {
 router.post('/login', async function (req, res) {
     const user = await userModel.singleByUserName(req.body.username);
     if (user === null) {
-        return res.render('vwAccount/login', {
+        return res.render('vwUser/login', {
             layout: false,
             err_message: 'Invalid username or password.'
         });
@@ -69,7 +69,7 @@ router.post('/login', async function (req, res) {
 
     const ret = bcrypt.compareSync(req.body.password, user.password);
     if (ret === false) {
-        return res.render('vwAccount/login', {
+        return res.render('vwUser/login', {
             layout: false,
             err_message: 'Invalid username or password.'
         });

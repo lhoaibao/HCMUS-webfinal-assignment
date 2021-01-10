@@ -94,6 +94,14 @@
                 <h3 class="mt-2">Welcome Back</h3>
                 <p class="p-t-b-20">Administrator</p>
               </div>
+              {{#if err_message}}
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {{err_message}}
+              </div>
+              {{/if}}
               <form method="POST">
                 <div class="form-group has-icon"><i class="icon-user"></i>
                   <input type="text" class="form-control form-control-lg" placeholder="Username" name="username">

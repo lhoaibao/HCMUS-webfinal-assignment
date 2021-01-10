@@ -48,7 +48,7 @@
                                                 <div class="mr-3">
                                                     Category
                                                 </div>
-                                                <h6 class="p-t-10">{{category}}</h6>
+                                                <h6 class="p-t-10">{{../category_name}}</h6>
                                             </li>
                                             {{#with ../author}}
                                             <li class="list-group-item">
@@ -128,7 +128,7 @@
 
                             </div>
                             <div class="col-md-3">
-                                <form id="needs-validation" novalidate method="POST" action="/course/{{id}}">
+                                <form id="needs-validation" novalidate method="POST" action="/course/detail/{{id}}">
                                     <div class="card mt-4">
                                         <h6 class="card-header white">Update Status</h6>
                                         <div class="card-body text-success">
@@ -175,7 +175,7 @@
                                                     <td><a href="/course/delete/{{id}}">Delete Course</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="/course/">Back Course</a></td> 
+                                                    <td><a href="/course/">Back Course</a></td>
                                                 </tr>
                                             </table>
                                         </div>

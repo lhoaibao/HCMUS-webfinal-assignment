@@ -6,7 +6,7 @@
                     <div class="col">
                         <h4>
                             <i class="icon-package"></i>
-                            Categorys
+                            Categories
                         </h4>
                     </div>
                 </div>
@@ -14,11 +14,11 @@
                     <ul class="nav responsive-tab nav-material nav-material-white">
                         <li>
                             <a class="nav-link active" href="/category"><i class="icon icon-list"></i>All
-                                Categorys</a>
+                                Categories</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/category/add"><i
-                                    class="icon icon-plus-circle"></i> Add New category</a>
+                            <a class="nav-link" href="/category/add"><i class="icon icon-plus-circle"></i> Add New
+                                category</a>
                         </li>
                     </ul>
                 </div>
@@ -33,13 +33,28 @@
                                 <div class="table-responsive">
                                     <table class="table table-hover ">
                                         <tr>
+                                            <td>Category Id</td>
                                             <td>Category Name</td>
+                                            <td>Category Description</td>
+                                            <td>Action</td>
                                         </tr>
                                         <tbody>
                                             {{#each this.categorys}}
                                             <tr class="no-b">
                                                 <td>
-                                                    <h6>{{name}}</h6>
+                                                    <h6>{{id}}</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>{{category_name}}</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>{{category_des}}</h6>
+                                                </td>
+                                                <td>
+                                                    <a href="/category/detail/{{id}}" class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
+                                                            class="icon-pencil"></i></a>
+                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white"><i
+                                                            class="icon-trash"></i></a>
                                                 </td>
                                             </tr>
                                             {{/each}}

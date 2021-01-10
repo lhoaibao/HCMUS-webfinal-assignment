@@ -3,8 +3,8 @@ const db = require('../utils/db');
 const TBL_COURSE = 'course';
 
 module.exports = {
-    all() {
-        return db.load(`select * from ${TBL_COURSE}`);
+    all(field, condition) {
+        return db.load(`select ${field} from ${TBL_COURSE} ${condition}`);
     },
 
     add(entity) {
@@ -12,7 +12,7 @@ module.exports = {
     },
 
     async single(id) {
-        const rows = await db.load(`select * from ${TBL_COURSE} where id = ${id}`);
+        const rows = await db.load(`select * from ${TBL_COURSE} where id = '${id}'`);
         if (rows.length === 0)
             return null;
 

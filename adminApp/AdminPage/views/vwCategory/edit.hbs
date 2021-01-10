@@ -5,34 +5,14 @@
                 <div class="col">
                     <h4>
                         <i class="icon-package"></i>
-                        Categorys
+                        Edit category
                     </h4>
                 </div>
-            </div>
-            <div class="row">
-                <ul class="nav responsive-tab nav-material nav-material-white">
-                    <li>
-                        <a class="nav-link" href="/category"><i class="icon icon-list"></i>All
-                            Categorys</a>
-                    </li>
-                    <li>
-                        <a class="nav-link active" href="/category/add"><i class="icon icon-plus-circle"></i> Add New
-                            Category</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </header>
     <div class="container-fluid animatedParent animateOnce my-3">
         <div class="animated fadeInUpShort">
-            {{#if message}}
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                {{message}}
-            </div>
-            {{/if}}
             {{#if err_message}}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -41,20 +21,24 @@
                 {{err_message}}
             </div>
             {{/if}}
-            <form id="needs-validation" novalidate method="POST" action="/category/add">
+            {{#with category}}
+            <form id="needs-validation" novalidate method="POST" action="/category/edit/{{id}}">
                 <div class="row">
                     <div class="col-md-8 ">
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label>Category Name</label>
-                                <input type="text" class="form-control" required name="category_name">
+                                <input type="text" class="form-control" required name="category_name"
+                                    value="{{category_name}}">
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label>Category Description</label>
-                                <input type="text" class="form-control" required name="category_des">
+                                <input type="text" class="form-control" required name="category_des"
+                                    value="{{category_des}}">
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="submit">Add</button>
+                        <button class="btn btn-primary" type="submit">Update</button>
+                        <a href="/category/detail/{{id}}" class="btn btn-primary" type="submit">Back Detail Category</a>
                         <script>
                             (function () {
                                 "use strict";
@@ -72,6 +56,7 @@
                     </div>
                 </div>
             </form>
+            {{/with}}
         </div>
     </div>
 </div>

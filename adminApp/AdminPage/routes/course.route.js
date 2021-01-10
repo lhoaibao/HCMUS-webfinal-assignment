@@ -4,6 +4,7 @@ const moment = require('moment');
 const fs = require("fs");
 var multer = require('multer')
 var upload = multer({ dest: 'resources/uploads/' })
+const { v4: uuidv4 } = require('uuid');
 
 const courseModel = require('../models/course.model');
 const categoryModel = require('../models/category.model');
@@ -14,7 +15,7 @@ const router = express.Router();
 
 router.get('/', async function (req, res) {
   try {
-    const rows = await courseModel.all()
+    const rows = await courseModel.all(`*, course.id as id`, `, category where category.id = course.category`)
     res.render('vwCourse/index', {
       courses: rows,
       empty: rows.length === 0
@@ -28,10 +29,11 @@ router.get('/', async function (req, res) {
 router.get('/detail/:id', async function (req, res) {
   const row = await courseModel.single(req.params.id)
   const user = await userModel.single(row.authorId)
-  console.log(row)
+  const category = await categoryModel.single(row.category)
   res.render('vwCourse/detail.hbs', {
     course: row,
-    author: user
+    author: user,
+    category_name: category.category_name
   })
 })
 
@@ -42,7 +44,6 @@ router.post('/detail/:id', async function (req, res) {
   await courseModel.update(req.params.id, entity);
   const row = await courseModel.single(req.params.id)
   const user = await userModel.single(row.authorId)
-  console.log(row)
   res.render('vwCourse/detail.hbs', {
     course: row,
     author: user
@@ -60,6 +61,7 @@ router.post('/add', upload.single('courseImage'), async function (req, res) {
   var now = moment().format('YYYY-MM-DD hh:mm:ss')
   image = fs.readFileSync("resources/uploads/" + req.file.filename)
   entity = {
+    id: uuidv4(),
     courseName: req.body.courseName,
     category: req.body.category,
     shortDesc: req.body.shortDesc,
@@ -67,6 +69,7 @@ router.post('/add', upload.single('courseImage'), async function (req, res) {
     lastModify: now,
     detailDesc: req.body.detailDesc,
     authorId: req.session.authUser.id,
+    authorName: req.session.authUser.firstName + req.session.authUser.lastName,
     courseImage: image
   }
   fs.writeFileSync("resources/tmp/" + req.file.filename, image)
