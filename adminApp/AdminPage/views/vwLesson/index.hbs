@@ -1,3 +1,66 @@
-<div class="page has-sidebar-left">
-    lesson view
+<div id="app">
+    <div class="page has-sidebar-left">
+        <header class="blue accent-3 relative">
+            <div class="container-fluid text-white">
+                <div class="row p-t-b-10 ">
+                    <div class="col">
+                        <h4>
+                            <i class="icon-package"></i>
+                            Lessons
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="nav responsive-tab nav-material nav-material-white">
+                        <li>
+                            <a class="nav-link active" href="/course/detail/{{this.course_id}}/lesson"><i class="icon icon-list"></i>All
+                                Lessons</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/course/detail/{{this.course_id}}/lesson/add"><i class="icon icon-plus-circle"></i> Add New
+                                Lesson</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid animatedParent animateOnce my-3">
+            <div class="animated fadeInUpShort">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card no-b shadow">
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover ">
+                                        <tr>
+                                            <td>Lesson Name</td>
+                                            <td>Lesson Section</td>
+                                            <td>Action</td>
+                                        </tr>
+                                        <tbody>
+                                            {{#each this.lessons}}
+                                            <tr class="no-b clickable-row">
+                                                <td>
+                                                    <h6>{{lessonName}}</h6>
+                                                </td>
+                                                <td>{{lessonSection}}</td>
+                                                <td>
+                                                    <a href="/course/detail/{{id}}" class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
+                                                            class="icon-pencil"></i></a>
+                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white"><i
+                                                            class="icon-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="control-sidebar-bg shadow white fixed"></div>
 </div>

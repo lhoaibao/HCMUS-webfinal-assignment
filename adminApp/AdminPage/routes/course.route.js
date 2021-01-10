@@ -85,7 +85,7 @@ router.get('/edit/:id', async function (req, res) {
   })
 })
 
-router.post('/edit/:id',upload.single('courseImage'), async function (req, res) {
+router.post('/edit/:id', upload.single('courseImage'), async function (req, res) {
   var now = moment().format('YYYY-MM-DD hh:mm:ss')
   id = req.params.id
   if (req.file) {
@@ -117,6 +117,10 @@ router.post('/edit/:id',upload.single('courseImage'), async function (req, res) 
   console.log(entity)
   await courseModel.update(id, entity);
   return res.redirect('/course/detail/' + id)
+})
+
+router.post('/delete/:id', async function (req, res) {
+
 })
 
 
