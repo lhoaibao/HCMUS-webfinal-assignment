@@ -1,151 +1,97 @@
-<!-- Header -->
+<!--====== Header Start ======-->
+<header class="header-area">
+    <div class="header-top">
+        <div class="container">
+            <div class="header-top-wrapper d-flex flex-wrap justify-content-sm-between">
+                <div class="header-top-left mt-10">
+                    <ul class="header-meta">
+                        <li><a href="mailto://infoedumate@example.com">mclass@company.com</a></li>
+                    </ul>
+                </div>
+                <form id="frmLogout" method="POST" action="/account/log-out"></form>
+                <div class="header-top-right mt-10 ">
+                    <div class="mr-4 header-link">
+                        <a href="/cart" class="mr-3">
+                            <i class="fa fa-shopping-cart"></i>
+                            <span class="badge badge-primary rounded-circle">3</span>
+                        </a>
+                        {{#if isAuth}}
+                        <div class="btn-group drop-left">
+                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg"
+                                    class="rounded-circle" width="32px" height="32px">
+                            </a>
 
-<div id="header" class="mdk-header mdk-header--bg-dark bg-dark js-mdk-header mb-0"
-    data-effects="parallax-background waterfall" data-fixed data-condenses>
-    <div class="mdk-header__bg">
-        <div class="mdk-header__bg-front"
-            style="background-image: url(images/photodune-4161018-group-of-students-m.jpg);"></div>
-    </div>
-    <div class="mdk-header__content justify-content-center">
-
-        <div class="navbar navbar-expand navbar-dark-pickled-bluewood bg-transparent will-fade-background"
-            id="default-navbar" data-primary>
-
-            <!-- Navbar toggler -->
-            <button class="navbar-toggler w-auto mr-16pt d-block rounded-0" type="button" data-toggle="sidebar">
-                <span class="material-icons">short_text</span>
-            </button>
-
-            <!-- Navbar Brand -->
-            <a href="/" class="navbar-brand mr-16pt">
-                <!-- <img class="navbar-brand-icon" src="images/logo/white-100@2x.png" width="30" alt="Luma"> -->
-
-                <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt">
-
-                    <span class="avatar-title rounded bg-primary"><img src="images/illustration/student/128/white.svg"
-                            alt="logo" class="img-fluid" /></span>
-
-                </span>
-
-                <span class="d-none d-lg-block">Luma</span>
-            </a>
-
-            <ul class="nav navbar-nav d-none d-sm-flex flex justify-content-start ml-8pt">
-                <li class="nav-item active">
-                    <a href="/" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="/courses" class="nav-link">Courses</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">Paths</a>
-                    <div class="dropdown-menu">
-                        <a href="paths.html" class="dropdown-item">Browse Paths</a>
-                        <a href="student-path.html" class="dropdown-item">Path Details</a>
-                        <a href="student-path-assessment.html" class="dropdown-item">Skill Assessment</a>
-                        <a href="student-path-assessment-result.html" class="dropdown-item">Skill Result</a>
-                        <a href="student-paths.html" class="dropdown-item">My Paths</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a href="pricing.html" class="nav-link">Pricing</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">Teachers</a>
-                    <div class="dropdown-menu">
-                        <a href="instructor-dashboard.html" class="dropdown-item">Instructor Dashboard</a>
-                        <a href="instructor-courses.html" class="dropdown-item">Manage Courses</a>
-                        <a href="instructor-quizzes.html" class="dropdown-item">Manage Quizzes</a>
-                        <a href="instructor-earnings.html" class="dropdown-item">Earnings</a>
-                        <a href="instructor-statement.html" class="dropdown-item">Statement</a>
-                        <a href="instructor-edit-course.html" class="dropdown-item">Edit Course</a>
-                        <a href="instructor-edit-quiz.html" class="dropdown-item">Edit Quiz</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown" data-toggle="tooltip" data-title="Community" data-placement="bottom"
-                    data-boundary="window">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" data-caret="false">
-                        <i class="material-icons">people_outline</i>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a href="teachers.html" class="dropdown-item">Browse Teachers</a>
-                        <a href="student-profile.html" class="dropdown-item">Student Profile</a>
-                        <a href="teacher-profile.html" class="dropdown-item">Instructor Profile</a>
-                        <a href="blog.html" class="dropdown-item">Blog</a>
-                        <a href="blog-post.html" class="dropdown-item">Blog Post</a>
-                        <a href="faq.html" class="dropdown-item">FAQ</a>
-                        <a href="help-center.html" class="dropdown-item">Help Center</a>
-                        <a href="discussions.html" class="dropdown-item">Discussions</a>
-                        <a href="discussion.html" class="dropdown-item">Discussion Details</a>
-                        <a href="discussions-ask.html" class="dropdown-item">Ask Question</a>
-                    </div>
-                </li>
-            </ul>
-
-            {{!-- Check user da dang nhap chua --}}
-            {{#if isAuth}}
-            <div class="nav-item dropdown  ml-auto mr-0">
-                <a href="#" class="nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown"
-                    data-caret="false">
-
-                    <div class="avatar avatar-sm">
-                        <img src="images/people/256/256_rsz_sharina-mae-agellon-377466-unsplash.jpg" alt="Avatar"
-                            class="avatar-img rounded-circle">
-                    </div>
-
-                </a>
-                <form action="/account/log-out" id="frmLogout" method="POST"></form>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <div class="dropdown-item d-flex align">
-                        <div class="avatar avatar-lg">
-                            <img src="images/people/256/256_rsz_sharina-mae-agellon-377466-unsplash.jpg" alt="Avatar"
-                                class="avatar-img rounded-circle">
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/profile">My profile</a>
+                                <a class="dropdown-item" href="/learning">My learning</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">Log out</a>
+                            </div>
                         </div>
-                        <div class="dropdown-header flex-column">
-                            <p class="mb-0"><strong>{{authUser.username}}</strong></p>
-                            <p class="text-secondary mb-0">{{authUser.email}}</p>
-                        </div>
+                        {{else}}
+                        <a class="login" href="/account/sign-in">Login</a>
+                        <a class="register" href="/account/sign-up">Register</a>
+                        {{/if}}
+
                     </div>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="edit-account.html">My learning</a>
-                    <a class="dropdown-item" href="edit-account.html">My cart</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="billing.html">Public profile</a>
-                    <a class="dropdown-item" href="billing-history.html">Edit profile</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">Logout</a>
+
                 </div>
             </div>
-            {{else}}
-            <ul class="nav navbar-nav ml-auto mr-0">
-                <li class="nav-item">
-                    <a href="/account/sign-in" class="nav-link" data-toggle="tooltip" data-title="Login"
-                        data-placement="bottom" data-boundary="window"><i class="material-icons">lock_open</i></a>
-                </li>
-                <li class="nav-item">
-                    <a href="/account/sign-up" class="btn btn-outline-white">Get Started</a>
-                </li>
-            </ul>
-            {{/if}}
-
-
         </div>
-
-
-        {{!-- <div class="hero container page__container text-center text-md-left py-112pt">
-            <h1 class="text-white text-shadow">Learn to Code</h1>
-            <p class="lead measure-hero-lead mx-auto mx-md-0 text-white text-shadow mb-48pt">Business,
-                Technology and Creative Skills taught by industry experts. Explore a wide range of skills with
-                our professional tutorials.</p>
-
-            <a href="/courses" class="btn btn-lg btn-white btn--raised mb-16pt">Browse Courses</a>
-
-            <p class="mb-0"><a href="/account/sign-in" class="text-white text-shadow"><strong>Are you a
-                        teacher?</strong></a>
-            </p>
-
-        </div> --}}
     </div>
-</div>
 
-<!-- // END Header -->
+    {{!-- Cart list --}}
+
+
+    <div id="navigation" class="navigation navigation-landscape">
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <div class="header-logo">
+                        <a href="/"><img src="images/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 position-static">
+                    <div class="nav-toggle"></div>
+                    <nav class="nav-menus-wrapper">
+                        <ul class="nav-menu">
+                            <li>
+                                <a class="active" href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="/courses">Courses</a>
+                            </li>
+                            <li>
+                                <a href="/events">Events</a>
+                            </li>
+                            <li>
+                                <a href="/teachers">Teachers</a>
+                            </li>
+                            <li>
+                                <a href="#">Blog</a>
+                                <ul class="nav-dropdown nav-submenu">
+                                    <li><a href="blog.html">Blog </a></li>
+                                    <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
+                                    <li><a href="blog-right-sideba.html">Blog Right Sidebar</a></li>
+                                    <li><a href="blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 position-static">
+                    <div class="header-search">
+                        <form action="#">
+                            <input type="text" placeholder="Search">
+                            <button><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--====== Header Ends ======-->

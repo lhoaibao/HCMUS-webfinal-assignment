@@ -11,15 +11,14 @@ router.get("/sign-up", async function (req, res) {
   if (req.session.isAuth) {
     return res.redirect(req.session.retUrl);
   }
-  res.render("vwAccount/signup", {
-    layout: false,
-  });
+  res.render("vwAccount/signup");
 });
 
 router.post("/sign-up", async function (req, res) {
   //Hash password
   const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-  const { username, firstName, lastName, email, password, dob } = req.body;
+  const { username, firstName, lastName, email} = req.body;
+  const dob = moment(req.body.dob, 'DD/MM/YYYY').format('YYYY-MM-DD');
   const user = {
     username: username,
     firstName: firstName,
@@ -54,9 +53,7 @@ router.get("/sign-in", async function (req, res) {
   if (req.headers.referer) {
     req.session.retUrl = ref;
   }
-  res.render("vwAccount/signin", {
-    layout: false,
-  });
+  res.render("vwAccount/signin");
 });
 
 router.post("/sign-in", async function (req, res) {
@@ -65,7 +62,6 @@ router.post("/sign-in", async function (req, res) {
   // Check username
   if (user === null) {
     return res.render("vwAccount/signin", {
-      layout: false,
       error_message: "Invalid username or password!",
     });
   }
@@ -73,7 +69,6 @@ router.post("/sign-in", async function (req, res) {
   //Check password
   if (bcrypt.compareSync(password, user.password) === false) {
     return res.render("vwAccount/signin", {
-      layout: false,
       error_message: "Password does not match!!!",
     });
   }
