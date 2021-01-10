@@ -17,6 +17,7 @@ require("./controllers/view.controller")(app);
 require("./controllers/session.controller")(app);
 require("./controllers/local.controller")(app);
 require("./controllers/routes.controller")(app);
+require("./controllers/error.controller")(app);
 
 const PORT = 3001;
 app.listen(PORT, function () {

@@ -25,7 +25,7 @@ router.get('/', async function (req, res) {
   }
 })
 
-router.get('/:id', async function (req, res) {
+router.get('/detail/:id', async function (req, res) {
   const row = await courseModel.single(req.params.id)
   const user = await userModel.single(row.authorId)
   console.log(row)
@@ -35,7 +35,7 @@ router.get('/:id', async function (req, res) {
   })
 })
 
-router.post('/:id', async function (req, res) {
+router.post('/detail/:id', async function (req, res) {
   entity = {
     status: req.body.status
   }

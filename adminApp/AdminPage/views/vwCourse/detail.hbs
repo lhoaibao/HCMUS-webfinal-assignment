@@ -19,7 +19,7 @@
                                                 <div>
                                                     <h2 class="p-t-10"><b>Course Name:</b> {{courseName}}</h2>
                                                     <h4><b>Status:</b> <span
-                                                            style="background-color: green; padding:5px; color:white">{{status}}</span>
+                                                            style="background-color: green; padding:5px; color:white; border-radius:10px">{{status}}</span>
                                                     </h4>
                                                     <h4><b>Short Description:</b> {{shortDesc}}</h4>
                                                 </div>
@@ -106,7 +106,7 @@
                                                     Detail Description:
                                                 </div>
                                                 <h6 class="p-t-10">
-                                                    {{detailDesc}}
+                                                    {{{detailDesc}}}
                                                 </h6>
                                             </li>
                                         </ul>
@@ -142,30 +142,52 @@
                                         <div class="card-footer bg-transparent">
                                             <button class="btn btn-primary" type="submit">Update</button>
                                         </div>
+                                    </div>
                                 </form>
-                                <script>
-                                    (function () {
-                                        "use strict";
-                                        window.addEventListener("load", function () {
-                                            var form = document.getElementById("needs-validation");
-                                            form.addEventListener("submit", function (event) {
-                                                if (form.checkValidity() == false) {
-                                                    event.preventDefault();
-                                                    event.stopPropagation();
-                                                }
-                                                form.classList.add("was-validated");
+
+                                <div class="card mt-4">
+                                    <h6 class="card-header white">Action</h6>
+                                    <div class="card-body text-success">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover ">
+                                                <tr>
+                                                    <td><a href="">Edit Course</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="/course/detail/{{id}}/add-lesson">Add Lesson</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="">View Lessons</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="">Delete Course</a></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        (function () {
+                                            "use strict";
+                                            window.addEventListener("load", function () {
+                                                var form = document.getElementById("needs-validation");
+                                                form.addEventListener("submit", function (event) {
+                                                    if (form.checkValidity() == false) {
+                                                        event.preventDefault();
+                                                        event.stopPropagation();
+                                                    }
+                                                    form.classList.add("was-validated");
+                                                }, false);
                                             }, false);
-                                        }, false);
-                                    }());
-                                </script>
+                                        }());
+                                    </script>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    {{/with}}
                 </div>
-                {{/with}}
             </div>
         </div>
-    </div>
 
-</div>
+    </div>
 </div>
