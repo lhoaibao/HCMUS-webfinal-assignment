@@ -76,4 +76,49 @@ router.post('/add', upload.single('courseImage'), async function (req, res) {
   })
 })
 
+router.get('/edit/:id', async function (req, res) {
+  const row = await courseModel.single(req.params.id)
+  const rows = await categoryModel.all();
+  res.render('vwCourse/edit.hbs', {
+    course: row,
+    categories: rows,
+  })
+})
+
+router.post('/edit/:id',upload.single('courseImage'), async function (req, res) {
+  var now = moment().format('YYYY-MM-DD hh:mm:ss')
+  id = req.params.id
+  if (req.file) {
+    image = fs.readFileSync("resources/uploads/" + req.file.filename)
+    entity = {
+      courseName: req.body.courseName,
+      category: req.body.category,
+      shortDesc: req.body.shortDesc,
+      tuition: req.body.tuition,
+      lastModify: now,
+      detailDesc: req.body.detailDesc,
+      authorId: req.session.authUser.id,
+      courseImage: image
+    }
+    fs.writeFileSync("resources/tmp/" + req.file.filename, image)
+  }
+  else {
+    entity = {
+      courseName: req.body.courseName,
+      category: req.body.category,
+      shortDesc: req.body.shortDesc,
+      tuition: req.body.tuition,
+      lastModify: now,
+      detailDesc: req.body.detailDesc,
+      authorId: req.session.authUser.id,
+    }
+  }
+  console.log(req.body)
+  console.log(entity)
+  await courseModel.update(id, entity);
+  return res.redirect('/course/detail/' + id)
+})
+
+
+router.use('/detail/:id/lesson', require('./lesson.route'))
 module.exports = router;

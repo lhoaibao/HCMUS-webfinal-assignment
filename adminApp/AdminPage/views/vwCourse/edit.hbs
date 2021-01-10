@@ -1,53 +1,59 @@
 <div class="page has-sidebar-left">
     <div class="container-fluid animatedParent animateOnce my-3">
         <div class="animated fadeInUpShort">
-            <form id="needs-validation" novalidate enctype="multipart/form-data" method="POST" action="/course/add">
+            {{#with this.course}}
+            <form id="needs-validation" novalidate enctype="multipart/form-data" method="POST" action="/course/edit/{{id}}">
                 <div class="row">
                     <div class="col-md-8 ">
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label>Course Image</label>
-                                <input type="file" class="form-control" required name="courseImage">
+                                <img src="data:image/png;base64, {{encodeMyString courseImage}}">
+                                <input type="file" class="form-control" name="courseImage">
+                                <span style="color: red;">If using current Image do not input this field</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label>Course Name</label>
-                                <input type="text" class="form-control" required name="courseName">
+                                <input type="text" class="form-control" required name="courseName"
+                                    value="{{courseName}}">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label>Catogory</label>
                                 <select id="category" class="custom-select form-control" required name="category">
-                                    <option value="">Select Category</option>
-                                    {{#each categories}}
-                                    <option value="{{name}}">{{name}}</option>
-                                    {{/each}}
+                                    {{#select category}}
+                                        <option value="">Select Category</option>
+                                        {{#each ../categories}}
+                                        <option value="{{name}}">{{name}}</option>
+                                        {{/each}}
+                                    {{/select}}
                                 </select>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label>Short Description</label>
-                                <input type="text" class="form-control" required name="shortDesc">
+                                <input type="text" class="form-control" required name="shortDesc" value="{{shortDesc}}">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label>Tuition</label>
                                 <input type="number" class="form-control" required min="0" placeholder="$"
-                                    name="tuition">
+                                    name="tuition" value="{{tuition}}">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label>Promotion info</label>
-                                <input type="text" class="form-control" name="promotionInfo">
+                                <input type="text" class="form-control" name="promotionInfo" value="{{promotionInfo}}">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label>Detail Description</label>
-                                <textarea id="mytextarea" name="detailDesc"></textarea>
+                                <textarea id="mytextarea" name="detailDesc">{{{detailDesc}}}</textarea>
                             </div>
                         </div>
                         <script>
@@ -81,11 +87,13 @@
                             </div>
                             <div class="card-footer bg-transparent">
                                 <button class="btn btn-primary" type="submit">Publish</button>
+                                <a class="btn btn-primary" href="/course/detail/{{id}}" type="button">Back Detail</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
+            {{/with}}
         </div>
     </div>
 </div>
