@@ -15,10 +15,11 @@ const router = express.Router();
 
 router.get('/', async function (req, res) {
   try {
-    const rows = await courseModel.all(`*, course.id as id`, `, category where category.id = course.category`)
+    const rows = await courseModel.all(`*, course.id as id`, `, category where category.id = course.categoryId`)
     res.render('vwCourse/index', {
       courses: rows,
-      empty: rows.length === 0
+      empty: rows.length === 0,
+      currentUser: req.session.authUser
     });
   } catch (err) {
     console.error(err);
@@ -33,7 +34,8 @@ router.get('/detail/:id', async function (req, res) {
   res.render('vwCourse/detail.hbs', {
     course: row,
     author: user,
-    category_name: category.category_name
+    category_name: category.category_name,
+    currentUser: req.session.authUser
   })
 })
 
@@ -46,14 +48,16 @@ router.post('/detail/:id', async function (req, res) {
   const user = await userModel.single(row.authorId)
   res.render('vwCourse/detail.hbs', {
     course: row,
-    author: user
+    author: user,
+    currentUser: req.session.authUser
   })
 })
 
 router.get('/add', async function (req, res) {
   const rows = await categoryModel.all();
   res.render('vwCourse/add', {
-    categories: rows
+    categories: rows,
+    currentUser: req.session.authUser
   });
 })
 
@@ -63,19 +67,19 @@ router.post('/add', upload.single('courseImage'), async function (req, res) {
   entity = {
     id: uuidv4(),
     courseName: req.body.courseName,
-    category: req.body.category,
+    categoryId: req.body.categoryId,
     shortDesc: req.body.shortDesc,
     tuition: req.body.tuition,
     lastModify: now,
     detailDesc: req.body.detailDesc,
     authorId: req.session.authUser.id,
-    authorName: req.session.authUser.firstName + req.session.authUser.lastName,
     courseImage: image
   }
   fs.writeFileSync("resources/tmp/" + req.file.filename, image)
   await courseModel.add(entity);
   return res.render('vwCourse/add', {
-    message: 'Add user success'
+    message: 'Add user success',
+    currentUser: req.session.authUser
   })
 })
 
@@ -85,6 +89,7 @@ router.get('/edit/:id', async function (req, res) {
   res.render('vwCourse/edit.hbs', {
     course: row,
     categories: rows,
+    currentUser: req.session.authUser
   })
 })
 
@@ -116,14 +121,13 @@ router.post('/edit/:id', upload.single('courseImage'), async function (req, res)
       authorId: req.session.authUser.id,
     }
   }
-  console.log(req.body)
-  console.log(entity)
   await courseModel.update(id, entity);
   return res.redirect('/course/detail/' + id)
 })
 
 router.post('/delete/:id', async function (req, res) {
-
+  await courseModel.delete(req.params.id)
+  res.redirect(req.session.retUrl)
 })
 
 

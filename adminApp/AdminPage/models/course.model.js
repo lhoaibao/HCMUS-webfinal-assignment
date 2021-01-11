@@ -20,6 +20,10 @@ module.exports = {
     },
 
     async update(id, entity) {
-        return db.patch(entity, {id: id}, TBL_COURSE);
+        return db.patch(entity, { id: id }, TBL_COURSE);
     },
+
+    async delete(id) {
+        return db.del({ id: id }, TBL_COURSE)
+    }
 };

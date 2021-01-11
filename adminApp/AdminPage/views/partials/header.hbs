@@ -15,20 +15,22 @@
                         <img class="user_avatar" src="/img/dummy/u1.png" alt="User Image">
                     </div>
                     <div class="float-left info">
-                        <h6 class="font-weight-light mt-2 mb-1">{{{this.user.firstName}}}</h6>
+                        <h6 class="font-weight-light mt-2 mb-1">{{this.currentUser.firstName}}
+                            {{this.currentUser.lastName}}</h6>
                         <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
                     </div>
                 </div>
                 <div class="clearfix"></div>
                 <div class="collapse multi-collapse" id="userSettingsCollapse">
                     <form action="/user/logout" method="post" id="frmLogout">
-                    <div class="list-group mt-3 shadow">
-                        <a href="index.html" class="list-group-item list-group-item-action ">
-                            <i class="mr-2 icon-umbrella text-blue"></i>Profile
-                        </a>
-                        <a href="javascript: $('#frmLogout').submit();" class="list-group-item list-group-item-action"><i
-                                class="mr-2 icon-cogs text-yellow"></i>Logout</a>
-                    </div>
+                        <div class="list-group mt-3 shadow">
+                            <a href="index.html" class="list-group-item list-group-item-action ">
+                                <i class="mr-2 icon-umbrella text-blue"></i>Profile
+                            </a>
+                            <a href="javascript: $('#frmLogout').submit();"
+                                class="list-group-item list-group-item-action"><i
+                                    class="mr-2 icon-cogs text-yellow"></i>Logout</a>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -40,8 +42,7 @@
                 </a>
             </li>
             <li class="treeview"><a href="#">
-                    Courses<i
-                        class="icon icon-angle-left s-18 pull-right"></i>
+                    Courses<i class="icon icon-angle-left s-18 pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="/course"><i class="icon icon-circle-o"></i>All Courses</a>
@@ -51,8 +52,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview"><a href="#">Categories<i
-                        class="icon icon-angle-left s-18 pull-right"></i></a>
+            {{#ifEquals this.currentUser.permission 0}}
+            <li class="treeview"><a href="#">Categories<i class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="/category"><i class="icon icon-circle-o"></i>All Categories</a>
                     </li>
@@ -60,8 +61,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="treeview"><a href="#">Users<i
-                        class="icon icon-angle-left s-18 pull-right"></i></a>
+            <li class="treeview"><a href="#">Users<i class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="/user"><i class="icon icon-circle-o"></i>All Users</a>
                     </li>
@@ -69,6 +69,7 @@
                     </li>
                 </ul>
             </li>
+            {{/ifEquals}}
         </ul>
     </section>
 </aside>
@@ -85,7 +86,7 @@
                     aria-label="Toggle navigation" class="paper-nav-toggle paper-nav-white active "><i></i></a>
             </div>
         </div>
-    </div> 
+    </div>
     <div class="sticky">
         <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar blue accent-3">
             <div class="relative">

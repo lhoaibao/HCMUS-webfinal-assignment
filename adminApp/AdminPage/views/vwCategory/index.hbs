@@ -45,16 +45,21 @@
                                                     <h6>{{id}}</h6>
                                                 </td>
                                                 <td>
-                                                    <h6>{{category_name}}</h6>
+                                                    <h6>{{categoryName}}</h6>
                                                 </td>
                                                 <td>
-                                                    <h6>{{category_des}}</h6>
+                                                    <h6>{{categoryDesc}}</h6>
                                                 </td>
-                                                <td>
-                                                    <a href="/category/detail/{{id}}" class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
+                                                <td class="d-flex">
+                                                    <a href="/category/detail/{{id}}"
+                                                        class="btn-fab btn-fab-sm btn-primary shadow text-white mr-1"><i
                                                             class="icon-pencil"></i></a>
-                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white"><i
-                                                            class="icon-trash"></i></a>
+                                                    <form action="/category/delete/{{id}}" method="POST"
+                                                        id="deleteCategoryForm">
+                                                        <a class="btn-fab btn-fab-sm btn-danger shadow text-white"
+                                                            href="javascript: $('#deleteCategoryForm').submit();"><i
+                                                                class="icon-trash"></i></a>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             {{/each}}

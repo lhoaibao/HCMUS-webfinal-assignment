@@ -6,7 +6,7 @@
                     <div class="col">
                         <h4>
                             <i class="icon-package"></i>
-                            Detail Category
+                            Detail User
                         </h4>
                     </div>
                 </div>
@@ -15,7 +15,7 @@
         <div class="container-fluid animatedParent animateOnce my-3">
             <div class="animated fadeInUpShort">
                 <div class="tab-content" id="v-pills-tabContent">
-                    {{#with this.category}}
+                    {{#with this.user}}
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                         aria-labelledby="v-pills-home-tab">
                         <div class="row">
@@ -25,20 +25,32 @@
                                         <li class="list-group-item">
                                             <a>
                                                 <div>
-                                                    <h2 class="p-t-10"><b>Category Name:</b> {{categoryName}}</h2>
+                                                    <h2 class="p-t-10"><b>User Name:</b> {{username}}</h2>
                                                 </div>
                                             </a>
                                         </li>
                                     </ul>
 
                                     <div class="card-header bg-white">
-                                        <strong class="card-title">Description</strong>
+                                        <strong class="card-title">Detail</strong>
                                     </div>
                                     <div>
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item">
                                                 <div class="mr-3">
-                                                    {{categoryDesc}}
+                                                    First Name: {{firstName}}
+                                                </div>
+                                                <div class="mr-3">
+                                                    Last Name: {{lastName}}
+                                                </div>
+                                                <div class="mr-3">
+                                                    Email: {{email}}
+                                                </div>
+                                                <div class="mr-3">
+                                                    Date of Birth: {{dob}}
+                                                </div>
+                                                <div class="mr-3">
+                                                    Permission: {{permission}}
                                                 </div>
                                             </li>
                                         </ul>
@@ -52,19 +64,19 @@
                                         <div class="table-responsive">
                                             <table class="table table-hover ">
                                                 <tr>
-                                                    <td><a href="/category/edit/{{id}}">Edit Category</a></td>
+                                                    <td><a href="/user/edit/{{id}}">Edit User</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <form action="/category/delete/{{id}}" method="POST"
-                                                        id="deleteCategoryForm">
+                                                    <form action="/user/delete/{{id}}" method="POST"
+                                                        id="deleteUserForm">
                                                         <td><a style="color: #03a9f4;"
-                                                                href="javascript: $('#deleteCategoryForm').submit();">Delete
-                                                                Category</a>
+                                                                href="javascript: $('#deleteUserForm').submit();">Delete
+                                                                User</a>
                                                         </td>
                                                     </form>
                                                 </tr>
                                                 <tr>
-                                                    <td><a href="/category/">Back Categories Home</a></td>
+                                                    <td><a href="/user/">Back Users Home</a></td>
                                                 </tr>
                                             </table>
                                         </div>

@@ -16,10 +16,12 @@
                             <a class="nav-link active" href="/course"><i class="icon icon-list"></i>All
                                 Courses</a>
                         </li>
+                        {{#ifEquals this.currentUser.permission 1}}
                         <li>
                             <a class="nav-link" href="/course/add"><i class="icon icon-plus-circle"></i> Add New
                                 Course</a>
                         </li>
+                        {{/ifEquals}}
                     </ul>
                 </div>
             </div>
@@ -57,8 +59,11 @@
                                                 </td>
                                                 <td>{{status}}</td>
                                                 <td>
-                                                    <a href="/course/detail/{{id}}" class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
+                                                    {{#ifEquals this.currentUser.permission 1}}
+                                                    <a href="/course/detail/{{id}}"
+                                                        class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
                                                             class="icon-pencil"></i></a>
+                                                    {{/ifEquals}}
                                                     <a class="btn-fab btn-fab-sm btn-danger shadow text-white"><i
                                                             class="icon-trash"></i></a>
                                                 </td>

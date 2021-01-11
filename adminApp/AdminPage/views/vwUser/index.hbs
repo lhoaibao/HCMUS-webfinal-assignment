@@ -60,13 +60,16 @@
                                                 <td>
                                                     <span></i>{{permission}}</span>
                                                 </td>
-                                                <td>
-                                                    {{#if ../isAdmin}}
-                                                    <a class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
+                                                <td class="d-flex">
+                                                    <a href="/user/detail/{{id}}"
+                                                        class="btn-fab btn-fab-sm btn-primary shadow text-white mr-1"><i
                                                             class="icon-pencil"></i></a>
-                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white"><i
-                                                            class="icon-trash"></i></a>
-                                                    {{/if}}
+                                                    <form action="/user/delete/{{id}}" method="POST"
+                                                        id="deleteUserForm">
+                                                        <a class="btn-fab btn-fab-sm btn-danger shadow text-white"
+                                                            href="javascript: $('#deleteUserForm').submit();"><i
+                                                                class="icon-trash"></i></a>
+                                                    </form>
                                                 </td>
                                             </tr>
                                             {{/each}}
@@ -82,4 +85,3 @@
     </div>
     <div class="control-sidebar-bg shadow white fixed"></div>
 </div>
-

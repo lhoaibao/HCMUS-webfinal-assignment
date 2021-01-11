@@ -14,5 +14,5 @@ create table if not exists user (
 
 insert into user (username,password,firstName,lastName,email, dob,permission)
 values (
-    'admin', '$2y$12$gpAltNbuATgMSiQrZGDsdeftAub4VhANdQIHczCzhHrpD5BMEQen2 ', 'Hoai Bao', 'Le', 'admin@admin.com.vn', '1999-08-02', 0
+    'admin', '$2y$12$35BLLfR1pnh6u3yNMZrUF.Hv3DmGtNoTJFgWEsySBDFwME1caM16u', 'Hoai Bao', 'Le', 'admin@admin.com.vn', '1999-08-02', 0
 )

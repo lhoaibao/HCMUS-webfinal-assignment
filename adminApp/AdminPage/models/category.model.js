@@ -7,16 +7,17 @@ module.exports = {
     all() {
         return db.load(`select * from ${TBL_CATEGORY}`);
     },
-    async singleByUserName(name) {
-        const rows = await db.load(`select * from ${TBL_CATEGORY} where category_name = '${name}'`);
+
+    async single(id) {
+        const rows = await db.load(`select * from ${TBL_CATEGORY} where id = ${id}`);
         if (rows.length === 0)
             return null;
 
         return rows[0];
     },
 
-    async single(id) {
-        const rows = await db.load(`select * from ${TBL_CATEGORY} where id = ${id}`);
+    async singleBycategoryName(categoryName) {
+        const rows = await db.load(`select * from ${TBL_CATEGORY} where categoryName = '${categoryName}'`);
         if (rows.length === 0)
             return null;
 
@@ -28,14 +29,14 @@ module.exports = {
     },
 
     async update(id, entity) {
-        return db.patch(entity, {id: id}, TBL_CATEGORY);
+        return db.patch(entity, { id: id }, TBL_CATEGORY);
     },
 
-    async del(name) {
-        const rows = await db.load(`select * from ${TBL_COURSE} where category_name=${name}`);
+    async delete(id) {
+        const rows = await db.load(`select * from ${TBL_COURSE} where categoryId=${id}`);
         if (rows.length === 0) {
-            return null
+            return db.del({ id: id }, TBL_CATEGORY)
         }
-        return db.del({ name: name }, TBL_CATEGORY)
+        return null
     }
 }
