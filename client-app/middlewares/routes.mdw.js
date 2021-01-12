@@ -12,4 +12,7 @@ module.exports = function (app) {
 
   // Courses
   app.use("/courses", require("../routers/courses.route"));
+
+  // Teacher
+  app.use("/teachers", require("../routers/teachers.route"));
 };

@@ -1,6 +1,6 @@
 module.exports = function (app) {
   app.use(async (req, res, next) => {
-    if (typeof( req.session.isAuth) === "undefined") {
+    if (typeof req.session.isAuth === "undefined") {
       req.session.isAuth = false;
     }
 

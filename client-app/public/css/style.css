@@ -6015,6 +6015,85 @@ p {
   padding-top: 10px;
 }
 
+
+/* Form sign-up */
+.form-control-group {
+  padding-bottom: 16px;
+  position: relative;
+}
+
+.form-control-group label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.form-control-group input {
+  display: block;
+  width: 100%;
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 14px 10px;
+  outline: none;
+  font-size: 14px;
+}
+.form-control-group input:focus {
+  border: 2px solid #c7c3c3;
+}
+.form-control-group i {
+  position: absolute;
+  right: 10px;
+  top: 40px;
+  visibility: hidden;
+}
+
+.form-control-group small {
+  display: inline-block;
+  margin-top: 5px;
+  visibility: hidden;
+}
+
+.form-control-group.success input {
+  border: 2px solid #2ecc71;
+}
+.form-control-group.error input {
+  border: 2px solid #e74c3c;
+}
+.form-control-group.success i.fa-check-circle {
+  color: #2ecc71;
+  visibility: visible;
+}
+.form-control-group.error i.fa-exclamation-circle {
+  color: #e74c3c;
+  visibility: visible;
+}
+
+.form-control-group.error small {
+  color: #e74c3c;
+  visibility: visible;
+}
+/* Button submit */
+.btn-submit {
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 16px 10px;
+  cursor: pointer;
+  background-color: #9922dd;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.btn-submit:hover {
+  opacity: 0.8;
+}
+
+
+
 /*===========================
     16.Page Banner css 
 ===========================*/
