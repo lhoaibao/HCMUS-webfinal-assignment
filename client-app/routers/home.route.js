@@ -36,6 +36,14 @@ router.get("/", async (req, res) => {
     tenMostViewedCourses[i].img = conversion;
     tenMostViewedCourses[i].catName = catItem.category_name;
   }
+
+  //   handle view data category
+  for (let i = 0; i < allCategory.length; i++) {
+    let catItem = allCategory[i];
+    if (catItem.category_des.length >= 100) {
+      allCategory[i].category_des = allCategory[i].category_des.slice(0, 100) + "...";
+    }
+  } 
   res.render("home", {
     categories: allCategory,
     empty: allCategory.length === 0,
