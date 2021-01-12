@@ -8,7 +8,7 @@ const userModel = require('../models/user.model');
 
 const router = express.Router();
 
-router.get('/', auth, async function (req, res) {
+router.get('/', auth, isAdmin, async function (req, res) {
     req.session.retUrl = req.originalUrl
     try {
         const rows = await userModel.all();
@@ -97,7 +97,7 @@ router.post('/logout', async function (req, res) {
 })
 
 
-router.get('/detail/:id', async function (req, res) {
+router.get('/detail/:id',isAdmin, async function (req, res) {
     const row = await userModel.single(req.params.id)
     req.session.retUrl = req.originalUrl
     res.render('vwUser/detail.hbs', {
@@ -106,8 +106,9 @@ router.get('/detail/:id', async function (req, res) {
     })
 })
 
-router.get('/edit/:id', async function (req, res) {
+router.get('/edit/:id',isAdmin, async function (req, res) {
     const row = await userModel.single(req.params.id)
+    req.session.retUrl = req.originalUrl
     row.dob = moment(row.dob).format('YYYY-MM-DD');
     res.render('vwUser/edit.hbs', {
         user: row,
@@ -115,14 +116,13 @@ router.get('/edit/:id', async function (req, res) {
     })
 })
 
-router.post('/edit/:id', async function (req, res) {
+router.post('/edit/:id',isAdmin, async function (req, res) {
     id = req.params.id
     const row = await userModel.single(req.params.id)
     if (row) {
         entity = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
-            username: req.body.username,
             dob: req.body.dob,
             email: req.body.email,
         }
@@ -132,15 +132,16 @@ router.post('/edit/:id', async function (req, res) {
     res.redirect(req.session.retUrl)
 })
 
-router.post('/delete/:id', async function (req, res) {
+router.post('/delete/:id',isAdmin, async function (req, res) {
     id = req.params.id
+    if (id == req.session.authUser.id) {
+        return res.redirect(req.session.retUrl)
+    }
     const check = await userModel.delete(id)
     if (check) {
-        res.redirect('/user')
+        return res.redirect('/user')
     }
-    else {
-        res.redirect(req.session.retUrl)
-    }
+    return res.redirect(req.session.retUrl)
 })
 
 module.exports = router;

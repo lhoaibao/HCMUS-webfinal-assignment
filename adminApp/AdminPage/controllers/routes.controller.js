@@ -3,6 +3,7 @@ const isAdmin = require('../controllers/admin.controller');
 
 module.exports = function (app) {
     app.get('/', auth, function (req, res) {
+        req.session.retUrl = req.originalUrl
         res.render('home', {
             currentUser: req.session.authUser
         });

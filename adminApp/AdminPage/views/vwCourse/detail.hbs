@@ -171,9 +171,11 @@
                                                 <tr>
                                                     <td><a href="/course/detail/{{id}}/lesson">View Lessons</a></td>
                                                 </tr>
+                                                {{#ifEquals this.currentUser.permission 0}}
                                                 <tr>
                                                     <td><a href="/course/delete/{{id}}">Delete Course</a></td>
                                                 </tr>
+                                                {{/ifEquals}}
                                                 <tr>
                                                     <td><a href="/course/">Back Course</a></td>
                                                 </tr>

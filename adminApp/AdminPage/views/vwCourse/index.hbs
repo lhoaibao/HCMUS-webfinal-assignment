@@ -59,13 +59,19 @@
                                                 </td>
                                                 <td>{{status}}</td>
                                                 <td>
-                                                    {{#ifEquals this.currentUser.permission 1}}
+                                                    {{#ifEquals ../currentUser.permission 1}}
                                                     <a href="/course/detail/{{id}}"
                                                         class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
                                                             class="icon-pencil"></i></a>
                                                     {{/ifEquals}}
-                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white"><i
-                                                            class="icon-trash"></i></a>
+                                                    {{#ifEquals ../currentUser.permission 0}}
+                                                    <form action="/course/delete/{{id}}" method="post"
+                                                        id="deleteCourseForm">
+                                                        <a class="btn-fab btn-fab-sm btn-danger shadow text-white"
+                                                            href="javascript: $('#deleteCourseForm').submit();"><i
+                                                                class="icon-trash"></i></a>
+                                                    </form>
+                                                    {{/ifEquals}}
                                                 </td>
                                             </tr>
                                             {{/each}}

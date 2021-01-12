@@ -16,6 +16,7 @@ const router = express.Router();
 router.get('/', async function (req, res) {
   try {
     const rows = await courseModel.all(`*, course.id as id`, `, category where category.id = course.categoryId`)
+    req.session.retUrl = req.originalUrl
     res.render('vwCourse/index', {
       courses: rows,
       empty: rows.length === 0,
@@ -30,7 +31,8 @@ router.get('/', async function (req, res) {
 router.get('/detail/:id', async function (req, res) {
   const row = await courseModel.single(req.params.id)
   const user = await userModel.single(row.authorId)
-  const category = await categoryModel.single(row.category)
+  const category = await categoryModel.single(row.categoryId)
+  req.session.retUrl = req.originalUrl
   res.render('vwCourse/detail.hbs', {
     course: row,
     author: user,
@@ -54,6 +56,7 @@ router.post('/detail/:id', async function (req, res) {
 })
 
 router.get('/add', async function (req, res) {
+  req.session.retUrl = req.originalUrl
   const rows = await categoryModel.all();
   res.render('vwCourse/add', {
     categories: rows,
@@ -84,6 +87,7 @@ router.post('/add', upload.single('courseImage'), async function (req, res) {
 })
 
 router.get('/edit/:id', async function (req, res) {
+  req.session.retUrl = req.originalUrl
   const row = await courseModel.single(req.params.id)
   const rows = await categoryModel.all();
   res.render('vwCourse/edit.hbs', {
@@ -127,7 +131,7 @@ router.post('/edit/:id', upload.single('courseImage'), async function (req, res)
 
 router.post('/delete/:id', async function (req, res) {
   await courseModel.delete(req.params.id)
-  res.redirect(req.session.retUrl)
+  return res.redirect(req.session.retUrl)
 })
 
 

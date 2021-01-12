@@ -9,17 +9,19 @@ const lessonModel = require('../models/lesson.model');
 
 router.get('/', async function (req, res) {
     course_id = req.params.id
-    row = await lessonModel.all(`where courseId=${course_id}`)
+    row = await lessonModel.all(`where courseId='${course_id}'`)
     res.render('./vwLesson/index', {
         lessons: row,
-        course_id: course_id
+        course_id: course_id,
+        currentUser: req.session.authUser
     })
 })
 
 router.get('/add', async function (req, res) {
     course_id = req.params.id
     res.render('./vwLesson/add', {
-        course_id: course_id
+        course_id: course_id,
+        currentUser: req.session.authUser
     })
 })
 
