@@ -57,22 +57,26 @@
                     <div class="tab-pane fade show active" id="grid" role="tabpanel">
                         <div class="courses-wrapper wrapper-2">
                             <div class="row grid">
+                                {{#each this.courses}}
                                 <div class="col-lg-4 col-sm-6 courses-col">
                                     <div class="single-courses-2 mt-30">
                                         <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-5.jpg" alt="courses"></a>
+                                            <a href="courses-details.html"><img src="data:image/png;base64,{{img}}"
+                                                    alt="courses"></a>
                                         </div>
                                         <div class="courses-content">
-                                            <a href="#" class="category">#Science</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Computer Science &
-                                                    Engineering</a></h4>
+                                            <a href="#" class="category">#{{catName}}</a>
+                                            <h4 class="courses-title"><a href="courses-details.html">{{courseName}}</a>
+                                            </h4>
+                                            <p class="m-1 category"><b>Author:</b> {{authorName}}</p>
                                             <div class="duration-rating">
                                                 <div class="duration-fee">
                                                     <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
+                                                    <p class="fee">Fee: <span> ${{tuition}}</span></p>
                                                 </div>
                                                 <div class="rating">
-                                                    <span>Rating: </span>
+                                                    <span>{{ratingScore}}</span>
+                                                    <span class="ml-1">({{ratingNumber}})</span>
                                                     <ul class="star">
                                                         <li><i class="fas fa-star"></i></li>
                                                         <li><i class="fas fa-star"></i></li>
@@ -82,377 +86,18 @@
                                                     </ul>
                                                 </div>
                                             </div>
+
+                                            {{!-- Add to cart --}}
                                             <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
+                                                <button class="btn-outline-white">Add to cart</button>
+                                                <a class="more" href="courses-details.html">Read more
+                                                    <i class="fal fa-chevron-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-sm-6 courses-col">
-                                    <div class="single-courses-2 mt-30">
-                                        <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-6.jpg" alt="courses"></a>
-                                        </div>
-                                        <div class="courses-content">
-                                            <a href="#" class="category">#Technology</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Bachelor of
-                                                    Business Administration</a></h4>
-                                            <div class="duration-rating">
-                                                <div class="duration-fee">
-                                                    <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
-                                                </div>
-                                                <div class="rating">
-                                                    <span>Rating: </span>
-                                                    <ul class="star">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 courses-col">
-                                    <div class="single-courses-2 mt-30">
-                                        <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-7.jpg" alt="courses"></a>
-                                        </div>
-                                        <div class="courses-content">
-                                            <a href="#" class="category">#Science</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Social & Digital
-                                                    Marketing</a></h4>
-                                            <div class="duration-rating">
-                                                <div class="duration-fee">
-                                                    <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
-                                                </div>
-                                                <div class="rating">
-                                                    <span>Rating: </span>
-                                                    <ul class="star">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 courses-col">
-                                    <div class="single-courses-2 mt-30">
-                                        <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-8.jpg" alt="courses"></a>
-                                        </div>
-                                        <div class="courses-content">
-                                            <a href="#" class="category">#Technology</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Bachelor of Applied
-                                                    Mathematics</a></h4>
-                                            <div class="duration-rating">
-                                                <div class="duration-fee">
-                                                    <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
-                                                </div>
-                                                <div class="rating">
-                                                    <span>Rating: </span>
-                                                    <ul class="star">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 courses-col">
-                                    <div class="single-courses-2 mt-30">
-                                        <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-9.jpg" alt="courses"></a>
-                                        </div>
-                                        <div class="courses-content">
-                                            <a href="#" class="category">#Literature</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Bachelor of English
-                                                    Literature</a></h4>
-                                            <div class="duration-rating">
-                                                <div class="duration-fee">
-                                                    <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
-                                                </div>
-                                                <div class="rating">
-                                                    <span>Rating: </span>
-                                                    <ul class="star">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 courses-col">
-                                    <div class="single-courses-2 mt-30">
-                                        <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-10.jpg" alt="courses"></a>
-                                        </div>
-                                        <div class="courses-content">
-                                            <a href="#" class="category">#Business</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Bachelor of Advance
-                                                    Psychology</a></h4>
-                                            <div class="duration-rating">
-                                                <div class="duration-fee">
-                                                    <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
-                                                </div>
-                                                <div class="rating">
-                                                    <span>Rating: </span>
-                                                    <ul class="star">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 courses-col">
-                                    <div class="single-courses-2 mt-30">
-                                        <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-11.jpg" alt="courses"></a>
-                                        </div>
-                                        <div class="courses-content">
-                                            <a href="#" class="category">#Marketing</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Bachelor of Film
-                                                    and Theater</a></h4>
-                                            <div class="duration-rating">
-                                                <div class="duration-fee">
-                                                    <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
-                                                </div>
-                                                <div class="rating">
-                                                    <span>Rating: </span>
-                                                    <ul class="star">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 courses-col">
-                                    <div class="single-courses-2 mt-30">
-                                        <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-12.jpg" alt="courses"></a>
-                                        </div>
-                                        <div class="courses-content">
-                                            <a href="#" class="category">#Science</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Bachelor of Law and
-                                                    Creminalism</a></h4>
-                                            <div class="duration-rating">
-                                                <div class="duration-fee">
-                                                    <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
-                                                </div>
-                                                <div class="rating">
-                                                    <span>Rating: </span>
-                                                    <ul class="star">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 courses-col">
-                                    <div class="single-courses-2 mt-30">
-                                        <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-13.jpg" alt="courses"></a>
-                                        </div>
-                                        <div class="courses-content">
-                                            <a href="#" class="category">#Science</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Bachelor of Applied
-                                                    Physics</a></h4>
-                                            <div class="duration-rating">
-                                                <div class="duration-fee">
-                                                    <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
-                                                </div>
-                                                <div class="rating">
-                                                    <span>Rating: </span>
-                                                    <ul class="star">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 courses-col">
-                                    <div class="single-courses-2 mt-30">
-                                        <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-14.jpg" alt="courses"></a>
-                                        </div>
-                                        <div class="courses-content">
-                                            <a href="#" class="category">#Business</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Bachelor of
-                                                    Business Marketing</a></h4>
-                                            <div class="duration-rating">
-                                                <div class="duration-fee">
-                                                    <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
-                                                </div>
-                                                <div class="rating">
-                                                    <span>Rating: </span>
-                                                    <ul class="star">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 courses-col">
-                                    <div class="single-courses-2 mt-30">
-                                        <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-15.jpg" alt="courses"></a>
-                                        </div>
-                                        <div class="courses-content">
-                                            <a href="#" class="category">#Science</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Bachelor of Micro
-                                                    Biology</a></h4>
-                                            <div class="duration-rating">
-                                                <div class="duration-fee">
-                                                    <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
-                                                </div>
-                                                <div class="rating">
-                                                    <span>Rating: </span>
-                                                    <ul class="star">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-sm-6 courses-col">
-                                    <div class="single-courses-2 mt-30">
-                                        <div class="courses-image">
-                                            <a href="#"><img src="images/courses/courses-16.jpg" alt="courses"></a>
-                                        </div>
-                                        <div class="courses-content">
-                                            <a href="#" class="category">#Technology</a>
-                                            <h4 class="courses-title"><a href="courses-details.html">Bachelor of Fashion
-                                                    Design</a></h4>
-                                            <div class="duration-rating">
-                                                <div class="duration-fee">
-                                                    <p class="duration">Duration: <span> 4 year</span></p>
-                                                    <p class="fee">Fee: <span> $540</span></p>
-                                                </div>
-                                                <div class="rating">
-                                                    <span>Rating: </span>
-                                                    <ul class="star">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="courses-link">
-                                                <a class="apply" href="#">Online Apply</a>
-                                                <a class="more" href="#">Read more <i
-                                                        class="fal fa-chevron-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {{/each}}
+
                             </div>
                         </div>
                     </div>
@@ -693,43 +338,15 @@
                             <h4 class="title">Categories</h4>
                         </div>
                         <ul class="category-items">
+                            {{#each this.categories}}
                             <li>
                                 <div class="form-radio">
-                                    <input type="radio" name="categoryRadio" id="categoryRadio1">
-                                    <label for="categoryRadio1"> <span></span> Science <strong>(25)</strong></label>
+                                    <input type="checkbox" name="categoryRadio" id="categoryRadio1">
+                                    <label for="categoryRadio1"> <span></span> {{category_name}}
+                                        <strong>({{catQuantity}})</strong></label>
                                 </div>
                             </li>
-                            <li>
-                                <div class="form-radio">
-                                    <input type="radio" name="categoryRadio" id="categoryRadio2">
-                                    <label for="categoryRadio2"> <span></span> Marketing <strong>(18)</strong></label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-radio">
-                                    <input type="radio" name="categoryRadio" id="categoryRadio3">
-                                    <label for="categoryRadio3"> <span></span> Design <strong>(10)</strong></label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-radio">
-                                    <input type="radio" name="categoryRadio" id="categoryRadio4">
-                                    <label for="categoryRadio4"> <span></span> Social Marketing
-                                        <strong>(05)</strong></label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-radio">
-                                    <input type="radio" name="categoryRadio" id="categoryRadio5">
-                                    <label for="categoryRadio5"> <span></span> Fine Arts <strong>(12)</strong></label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="form-radio">
-                                    <input type="radio" name="categoryRadio" id="categoryRadio6">
-                                    <label for="categoryRadio6"> <span></span> Law <strong>(05)</strong></label>
-                                </div>
-                            </li>
+                            {{/each}}
                         </ul>
                     </div>
 

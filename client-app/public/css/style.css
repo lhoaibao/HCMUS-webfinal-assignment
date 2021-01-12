@@ -1830,6 +1830,7 @@ p {
   .courses-wrapper {
     padding-top: 20px;
   }
+  
 }
 .courses-wrapper.wrapper-2 {
   padding-top: 10px;
@@ -1837,7 +1838,12 @@ p {
 .courses-wrapper .courses-col .courses-content{
  height:300px;
 }
-
+@media (max-width: 414px) {
+  .courses-wrapper .courses-col .courses-content {
+    height:260px;
+  }
+  
+}
 .courses-wrapper .courses-col:nth-child(8n + 1) .single-courses-2,
 .courses-wrapper .courses-col:nth-child(8n + 1) .single-courses {
   background-color: #07294d;
