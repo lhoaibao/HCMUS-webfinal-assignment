@@ -3,8 +3,8 @@ const util = require('util');
 
 const pool = mysql.createPool({
   host: 'localhost',
-  user: 'lehoaibao',
-  password: 'kaorikousei0208',
+  user: 'root',
+  password: 'password',
   database: 'elearning',
   connectionLimit: 50,
 });

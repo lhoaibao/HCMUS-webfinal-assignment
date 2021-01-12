@@ -18,7 +18,7 @@ module.exports = {
     async singleByUserName(username) {
         const rows = await db.load(`select * from ${TBL_USERS} where username = '${username}'`);
         if (rows.length === 0)
-            return null;
+            return null;    
 
         return rows[0];
     },
