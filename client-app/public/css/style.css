@@ -1795,6 +1795,13 @@ p {
 }
 
 /*===========================
+     Categories Home 
+===========================*/
+.categories-wrp{
+  padding-top: 110px;
+}
+
+/*===========================
      05.Top Courses css 
 ===========================*/
 .top-courses-area {
@@ -1827,6 +1834,10 @@ p {
 .courses-wrapper.wrapper-2 {
   padding-top: 10px;
 }
+.courses-wrapper .courses-col .courses-content{
+ height:300px;
+}
+
 .courses-wrapper .courses-col:nth-child(8n + 1) .single-courses-2,
 .courses-wrapper .courses-col:nth-child(8n + 1) .single-courses {
   background-color: #07294d;
@@ -2214,20 +2225,7 @@ p {
     line-height: 28px;
   }
 }
-.single-courses-2 .courses-content .duration-rating {
-  position: absolute;
-  bottom: 0px;
-  left: 0;
-  width: 100%;
-  padding: 0 25px 25px;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -ms-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-}
+
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .single-courses-2 .courses-content .duration-rating {
     padding: 0px 15px 15px;
@@ -2378,6 +2376,26 @@ p {
   color: #fff;
   margin-left: 5px;
 }
+
+
+.single-courses-2 .courses-content .duration-rating {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  padding: 0 25px 25px;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.single-courses-2:hover .courses-content .duration-rating {
+  opacity: 0;
+  visibility: hiden;
+}
 .single-courses-2 .courses-content .courses-link {
   display: -webkit-flex;
   display: -moz-flex;
@@ -2387,7 +2405,6 @@ p {
   -webkit-box-pack: space-between;
   -ms-flex-pack: space-between;
   justify-content: space-between;
-  border-top: 1px solid #fff;
   margin-top: 15px;
   padding-bottom: 5px;
   -webkit-transition: all 0.3s linear;
@@ -2395,8 +2412,37 @@ p {
   -ms-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
   transition: all 0.3s linear;
+  opacity: 0;
+  visibility: hidden;
+}
+.single-courses-2:hover .courses-link {
   opacity: 1;
   visibility: visible;
+}
+
+.btn-outline-white{
+  outline:none;
+  border: 2px solid #fff;
+  padding: 8px 16px;
+  color: #fff;
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+
+.courses-list .courses-content .duration-rating {
+  position: relative;
+  padding: 0;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 .single-courses-2 .courses-content .courses-link .apply {
   font-weight: 500;
@@ -2441,14 +2487,7 @@ p {
   -o-transform: scale(1.1);
   transform: scale(1.1);
 }
-.single-courses-2:hover .courses-content .duration-rating {
-  opacity: 1;
-  visibility: visible;
-}
-.single-courses-2:hover .courses-link {
-  opacity: 1;
-  visibility: hidden;
-}
+
 
 .courses-menu .menu-items li {
   display: inline-block;
@@ -2618,17 +2657,7 @@ p {
     max-width: 270px;
   }
 }
-.courses-list .courses-content .duration-rating {
-  position: relative;
-  padding: 0;
-  opacity: 1;
-  visibility: visible;
-  -webkit-transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -ms-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
-  transition: all 0.3s linear;
-}
+
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .courses-list .courses-content .duration-rating {
     padding: 0px;

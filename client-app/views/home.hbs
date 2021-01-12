@@ -8,16 +8,18 @@
             <div class="slider-content slider-content-3 text-center">
                 <h2 class="title" data-animation="fadeInUp" data-delay="0.2s">Education is the power of Humanity</h2>
                 <ul class="slider-btn">
-                    <li><a data-animation="fadeInUp" data-delay="0.6s" class="main-btn main-btn-2"
-                            href="/courses">View Courses</a></li>
-                    <li><a data-animation="fadeInUp" data-delay="1s" class="main-btn" href="/courses">Learn more</a></li>
+                    <li><a data-animation="fadeInUp" data-delay="0.6s" class="main-btn main-btn-2" href="/courses">View
+                            Courses</a></li>
+                    <li><a data-animation="fadeInUp" data-delay="1s" class="main-btn" href="/courses">Learn more</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="single-slider d-flex align-items-center bg_cover bg-parent" style="background-image: url(images/slider-3-2.jpg);">
-               <div class="over-lay"></div>
+    <div class="single-slider d-flex align-items-center bg_cover bg-parent"
+        style="background-image: url(images/slider-3-2.jpg);">
+        <div class="over-lay"></div>
 
         <div class="container">
             <div class="slider-content slider-content-3 text-center">
@@ -83,6 +85,68 @@
 </section>
 
 <!--====== About Ends ======-->
+
+<!--====== Top 10 Latest Courses Start ======-->
+
+<section class="top-courses-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-title mt-40">
+                    <h2 class="title">Here is our <br> latest Courses</h2>
+                    <p>Top 10 latest courses on Edumate Education</p>
+                </div>
+            </div>
+        </div>
+        <div class="courses-wrapper wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.3s">
+            <div class="row">
+                {{#each this.latestCourses}}
+                <div class="col-lg-3 col-sm-6 courses-col">
+                    <div class="single-courses-2 mt-30">
+                        <div class="courses-image">
+                            <a href="courses-details.html"><img src="data:image/png;base64,{{img}}" alt="courses"></a>
+                        </div>
+                        <div class="courses-content">
+                            <a href="#" class="category">#{{catName}}</a>
+                            <h4 class="courses-title"><a href="courses-details.html">{{courseName}}</a>
+                            </h4>
+                            <p class="m-1 category"><b>Author:</b> {{authorName}}</p>
+                            <div class="duration-rating">
+                                <div class="duration-fee">
+                                    <p class="duration">Duration: <span> 4 year</span></p>
+                                    <p class="fee">Fee: <span> ${{tuition}}</span></p>
+                                </div>
+                                <div class="rating">
+                                    <span>{{ratingScore}}</span>
+                                    <span class="ml-1">({{ratingNumber}})</span>
+                                    <ul class="star">
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                        <li><i class="fas fa-star"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {{!-- Add to cart --}}
+                            <div class="courses-link">
+                                <button class="btn-outline-white">Add to cart</button>
+                                <a class="more" href="courses-details.html">Read more
+                                    <i class="fal fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====== Top Course Ends ======-->
 
 <!--====== Top Course Start ======-->
 

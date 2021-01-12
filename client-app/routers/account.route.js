@@ -17,8 +17,8 @@ router.get("/sign-up", async function (req, res) {
 router.post("/sign-up", async function (req, res) {
   //Hash password
   const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-  const { username, firstName, lastName, email} = req.body;
-  const dob = moment(req.body.dob, 'DD/MM/YYYY').format('YYYY-MM-DD');
+  const { username, firstName, lastName, email } = req.body;
+  const dob = moment(req.body.dob, "DD/MM/YYYY").format("YYYY-MM-DD");
   const user = {
     username: username,
     firstName: firstName,
