@@ -17,6 +17,7 @@
 <section class="teachers-page">
     <div class="container">
         <div class="row teachers-row">
+            {{#each this.teachers}}
             <div class="col-md-4 col-sm-6 teachers-col">
                 <div class="single-teacher mt-80 text-center">
                     <div class="teacher-social">
@@ -28,184 +29,18 @@
                         </ul>
                     </div>
                     <div class="teacher-image">
-                        <a href="teacher-details.html">
-                            <img src="images/teachers/teacher-1.jpg" alt="teacher">
+                        <a href="#">
+                            <img  src="data:image/png;base64,{{imgSrc}}" alt="teacher">
                         </a>
                     </div>
                     <div class="teacher-content">
-                        <h4 class="name"><a href="teacher-details.html">Roberto Carlos</a></h4>
+                        <h4 class="name"><a href="#">{{firstName}} {{lastName}}</a></h4>
                         <span class="designation">Science Lecturor</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 teachers-col">
-                <div class="single-teacher mt-80 text-center">
-                    <div class="teacher-social">
-                        <ul class="social">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="teacher-image">
-                        <a href="teacher-details.html">
-                            <img src="images/teachers/teacher-2.jpg" alt="teacher">
-                        </a>
-                    </div>
-                    <div class="teacher-content">
-                        <h4 class="name"><a href="teacher-details.html">Roberto Carlos</a></h4>
-                        <span class="designation">Science Lecturor</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 teachers-col">
-                <div class="single-teacher mt-80 text-center">
-                    <div class="teacher-social">
-                        <ul class="social">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="teacher-image">
-                        <a href="teacher-details.html">
-                            <img src="images/teachers/teacher-3.jpg" alt="teacher">
-                        </a>
-                    </div>
-                    <div class="teacher-content">
-                        <h4 class="name"><a href="teacher-details.html">Roberto Carlos</a></h4>
-                        <span class="designation">Science Lecturor</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 teachers-col">
-                <div class="single-teacher mt-80 text-center">
-                    <div class="teacher-social">
-                        <ul class="social">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="teacher-image">
-                        <a href="teacher-details.html">
-                            <img src="images/teachers/teacher-4.jpg" alt="teacher">
-                        </a>
-                    </div>
-                    <div class="teacher-content">
-                        <h4 class="name"><a href="teacher-details.html">Alex Fargunes</a></h4>
-                        <span class="designation">Chemistry Professor </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 teachers-col">
-                <div class="single-teacher mt-80 text-center">
-                    <div class="teacher-social">
-                        <ul class="social">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="teacher-image">
-                        <a href="teacher-details.html">
-                            <img src="images/teachers/teacher-5.jpg" alt="teacher">
-                        </a>
-                    </div>
-                    <div class="teacher-content">
-                        <h4 class="name"><a href="teacher-details.html">Rehana Smith</a></h4>
-                        <span class="designation">Lecturer</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 teachers-col">
-                <div class="single-teacher mt-80 text-center">
-                    <div class="teacher-social">
-                        <ul class="social">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="teacher-image">
-                        <a href="teacher-details.html">
-                            <img src="images/teachers/teacher-6.jpg" alt="teacher">
-                        </a>
-                    </div>
-                    <div class="teacher-content">
-                        <h4 class="name"><a href="teacher-details.html">Julia Williams</a></h4>
-                        <span class="designation">Science Lecturor</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 teachers-col">
-                <div class="single-teacher mt-80 text-center">
-                    <div class="teacher-social">
-                        <ul class="social">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="teacher-image">
-                        <a href="teacher-details.html">
-                            <img src="images/teachers/teacher-7.jpg" alt="teacher">
-                        </a>
-                    </div>
-                    <div class="teacher-content">
-                        <h4 class="name"><a href="teacher-details.html">Zara Thomson</a></h4>
-                        <span class="designation">Math Professor</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 teachers-col">
-                <div class="single-teacher mt-80 text-center">
-                    <div class="teacher-social">
-                        <ul class="social">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="teacher-image">
-                        <a href="teacher-details.html">
-                            <img src="images/teachers/teacher-8.jpg" alt="teacher">
-                        </a>
-                    </div>
-                    <div class="teacher-content">
-                        <h4 class="name"><a href="teacher-details.html">Stev Morgan</a></h4>
-                        <span class="designation">English Lecturor</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 teachers-col">
-                <div class="single-teacher mt-80 text-center">
-                    <div class="teacher-social">
-                        <ul class="social">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="teacher-image">
-                        <a href="teacher-details.html">
-                            <img src="images/teachers/teacher-3.jpg" alt="teacher">
-                        </a>
-                    </div>
-                    <div class="teacher-content">
-                        <h4 class="name"><a href="teacher-details.html">Nicolus Lisa</a></h4>
-                        <span class="designation">Science Lecturor</span>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
+
         </div>
     </div>
 </section>

@@ -1,8 +1,41 @@
+{{#section 'css'}}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"
+    integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw=="
+    crossorigin="anonymous" />
+{{/section}}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"
+    integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw=="
+    crossorigin="anonymous" />
 {{#section 'js'}}
 <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 
-<script src="services/validator.js"></script>
+<script>
+
+    $("#frmRegister").on("submit", (e) => {
+        e.preventDefault();
+        // Check username đã tồn tại hay chưa
+
+        const username = $("#username").val();
+        const password = $("#password").val();
+        const password2 = $("#password2").val();
+
+        $.getJSON(`/account/is-available?user=${username}`, function (data) {
+            if (data && (password === password2)) {
+                $("#frmRegister").off("submit").submit();
+            } else alert("Invalid data!");
+        });
+    });
+
+
+    $("#txtDOB").datetimepicker({
+        timepicker: false,
+        mask: true,
+        format: "d/m/Y"
+    })
+</script>
 {{/section}}
 
 <!--====== Page Banner Start ======-->
@@ -22,79 +55,98 @@
 <section class="login-register mb-5">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-6">
+            <div class=" col-lg-12">
                 <div class="login-register-content">
                     <h4 class="title mb-4">Create New Account</h4>
 
-                    <div class="form-wrapper">
+                    <div class="form-wrapper ">
                         <form class="form" id="frmRegister" method="POST">
-                            <!-- Firstname -->
-                            <div class="form-control-group">
-                                <label>First name</label>
-                                <input type="text" id="firstName" name="firstName"
-                                    placeholder="Enter your first name..." />
-                                <i class="fa fa-check-circle"></i>
-                                <i class="fa fa-exclamation-circle"></i>
-                                <small>Error Message</small>
+                            <div class="row ">
+                                <!-- Firstname -->
+                                <div class="form-control-group col-12 col-lg-6">
+                                    <label>First name</label>
+                                    <input type="text" id="firstName" name="firstName"
+                                        placeholder="Enter your first name..." />
+                                    <i class="fa fa-check-circle"></i>
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <small>Error Message</small>
+                                </div>
+
+                                <!-- Lastname -->
+                                <div class="form-control-group col-12 col-lg-6">
+                                    <label>Last name</label>
+                                    <input type="text" name="lastName" id="lastName"
+                                        placeholder="Enter your last name..." />
+                                    <i class="fa fa-check-circle"></i>
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <small>Error Message</small>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="form-control-group col-12 col-lg-6">
+                                    <label>Email</label>
+                                    <input type="text" id="email" name="email" placeholder="minhhung.it99@gmail.com" />
+                                    <i class="fa fa-check-circle"></i>
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <small>Error Message</small>
+                                </div>
+                                <!-- Username -->
+                                <div class="form-control-group col-12 col-lg-6">
+                                    <label>Username</label>
+                                    <input type="text" id="username" name="username"
+                                        placeholder="Enter your username..." />
+                                    <i class="fa fa-check-circle"></i>
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <small>Error Message</small>
+                                </div>
+
+                                <!-- Password-->
+                                <div class="form-control-group col-12 col-lg-6">
+                                    <label>Password</label>
+                                    <input type="password" id="password" name="password"
+                                        placeholder="Enter your password..." />
+                                    <i class="fa fa-check-circle"></i>
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <small>Error Message</small>
+                                </div>
+
+                                <!-- Password2 -->
+                                <div class="form-control-group col-12 col-lg-6">
+                                    <label>Confirm password</label>
+                                    <input type="password" id="password2"
+                                        placeholder="Confirm password" />
+                                    <i class="fa fa-check-circle"></i>
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <small>Error Message</small>
+                                </div>
+                                <!-- Date of birth -->
+                                <div class="form-control-group col-12 col-lg-6">
+                                    <label>Date of birth:</label>
+                                    <input type="text" id="txtDOB" name="dob" placeholder="Date of birth..." />
+                                    <i class="fa fa-check-circle"></i>
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <small>Error Message</small>
+                                </div>
+
+                                <!-- Type-->
+                                <div class="form-control-group col-12 col-lg-6">
+                                    <label>Type*</label>
+                                    <select class="custom-select custom-select-sm" name="type" id="txtType">
+                                        <option selected>You are a student or teacher</option>
+                                        <option value="2">Student</option>
+                                        <option value="1">Teacher</option>
+                                    </select>
+                                    <small>Error Message</small>
+                                </div>
+
                             </div>
 
-                            <!-- Lastname -->
-                            <div class="form-control-group">
-                                <label>Last name</label>
-                                <input type="text" name="lastName" id="lastName"
-                                    placeholder="Enter your last name..." />
-                                <i class="fa fa-check-circle"></i>
-                                <i class="fa fa-exclamation-circle"></i>
-                                <small>Error Message</small>
-                            </div>
 
-                            <!-- Email -->
-                            <div class="form-control-group">
-                                <label>Email</label>
-                                <input type="text" id="email" name="email" placeholder="minhhung.it99@gmail.com" />
-                                <i class="fa fa-check-circle"></i>
-                                <i class="fa fa-exclamation-circle"></i>
-                                <small>Error Message</small>
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <button class="main-btn w-100" type="submit">Submit</button>
+                                </div>
                             </div>
-
-                            <!-- Date of birth -->
-                            <div class="form-control-group">
-                                <label>Date of birth:</label>
-                                <input type="text" id="txtDOB" name="dob" placeholder="Date of birth..." />
-                                <i class="fa fa-check-circle"></i>
-                                <i class="fa fa-exclamation-circle"></i>
-                                <small>Error Message</small>
-                            </div>
-
-                            <!-- Username -->
-                            <div class="form-control-group">
-                                <label>Username</label>
-                                <input type="text" id="username" name="username" placeholder="Enter your username..." />
-                                <i class="fa fa-check-circle"></i>
-                                <i class="fa fa-exclamation-circle"></i>
-                                <small>Error Message</small>
-                            </div>
-
-                            <!-- Password-->
-                            <div class="form-control-group">
-                                <label>Password</label>
-                                <input type="password" id="password" name="password"
-                                    placeholder="Enter your password..." />
-                                <i class="fa fa-check-circle"></i>
-                                <i class="fa fa-exclamation-circle"></i>
-                                <small>Error Message</small>
-                            </div>
-
-                            <!-- Password2 -->
-                            <div class="form-control-group">
-                                <label>Confirm password</label>
-                                <input type="password" id="password2" name="password2" placeholder="Confirm password" />
-                                <i class="fa fa-check-circle"></i>
-                                <i class="fa fa-exclamation-circle"></i>
-                                <small>Error Message</small>
-                            </div>
-
-                            <button class="main-btn w-100" type="submit">Submit</button>
                         </form>
                     </div>
                 </div>

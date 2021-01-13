@@ -3,7 +3,7 @@ const categoriesModel = require("../models/categories.model");
 const courseModel = require("../models/course.model");
 const router = express.Router();
 router.get("/", async (req, res) => {
-  const allCategory = await categoriesModel.all();
+  const allCategory = await categoriesModel.all();  
   const tenLatestCourses = await courseModel.get10LatestCourses();
   const tenMostViewedCourses = await courseModel.get10MostViewedCourses();
 
@@ -41,9 +41,10 @@ router.get("/", async (req, res) => {
   for (let i = 0; i < allCategory.length; i++) {
     let catItem = allCategory[i];
     if (catItem.category_des.length >= 100) {
-      allCategory[i].category_des = allCategory[i].category_des.slice(0, 100) + "...";
+      allCategory[i].category_des =
+        allCategory[i].category_des.slice(0, 100) + "...";
     }
-  } 
+  }
   res.render("home", {
     categories: allCategory,
     empty: allCategory.length === 0,

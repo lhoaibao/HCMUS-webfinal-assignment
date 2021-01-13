@@ -34,4 +34,10 @@ router.get("/", async (req, res) => {
   });
 });
 
+router.get("/detail/:id", async (req, res) => {
+  const courseID = req.params.id;
+  const courseItem = await courseModel.single(courseID);
+  console.log(courseItem)
+  res.render("vwCourses/courseDetail");
+});
 module.exports = router;

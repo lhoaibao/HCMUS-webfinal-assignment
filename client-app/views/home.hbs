@@ -127,11 +127,11 @@
                 <div class="courses-col">
                     <div class="single-courses-2 mt-30">
                         <div class="courses-image">
-                            <a href="courses-details.html"><img src="data:image/png;base64,{{img}}" alt="courses"></a>
+                            <a href="courses/detail/{{courseID}}"><img src="data:image/png;base64,{{img}}" alt="courses"></a>
                         </div>
                         <div class="courses-content">
                             <a href="#" class="category">#{{catName}}</a>
-                            <h4 class="courses-title"><a href="courses-details.html">{{courseName}}</a>
+                            <h4 class="courses-title"><a href="courses/detail/{{courseID}}">{{courseName}}</a>
                             </h4>
                             <p class="m-1 category"><b>Author:</b> {{authorName}}</p>
                             <div class="duration-rating">
@@ -188,13 +188,19 @@
             <div class="owl-carousel owl-theme ">
                 {{#each this.mostViewedCourses}}
                 <div class="courses-col">
+                    {{!-- Course Item start --}}
                     <div class="single-courses-2 mt-30">
+
+                        {{!-- Course Image start--}}
                         <div class="courses-image">
-                            <a href="courses-details.html"><img src="data:image/png;base64,{{img}}" alt="courses"></a>
+                            <a href="courses/detail/{{courseID}}"><img src="data:image/png;base64,{{img}}" alt="courses"></a>
                         </div>
+                        {{!-- Course Image end--}}
+
+                        {{!-- Course content start--}}
                         <div class="courses-content">
                             <a href="#" class="category">#{{catName}}</a>
-                            <h4 class="courses-title"><a href="courses-details.html">{{courseName}}</a>
+                            <h4 class="courses-title"><a  href="courses/detail/{{courseID}}>{{courseName}}</a>
                             </h4>
                             <p class="m-1 category"><b>Author:</b> {{authorName}}</p>
                             <div class="duration-rating">
@@ -202,6 +208,8 @@
                                     <p class="duration">Students: <span>{{enrollNumber}}</span></p>
                                     <p class="fee">Fee: <span> ${{tuition}}</span></p>
                                 </div>
+
+                                {{!-- Course rating start --}}
                                 <div class="rating">
                                     <span>{{ratingScore}}</span>
                                     <span class="ml-1">({{ratingNumber}})</span>
@@ -213,17 +221,22 @@
                                         <li><i class="fas fa-star"></i></li>
                                     </ul>
                                 </div>
+                                {{!-- Course rating End--}}
                             </div>
 
-                            {{!-- Add to cart --}}
+                            {{!-- Add to cart start--}}
                             <div class="courses-link">
                                 <button class="btn-outline-white">Add to cart</button>
                                 <a class="more" href="courses-details.html">Read more
                                     <i class="fal fa-chevron-right"></i></a>
                             </div>
+                            {{!-- Add to cart end--}}
+
                         </div>
+                        {{!-- Course content end --}}
 
                     </div>
+                    {{!-- Course Item ends --}}
                 </div>
                 {{/each}}
             </div>

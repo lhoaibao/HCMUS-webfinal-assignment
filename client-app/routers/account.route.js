@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const moment = require("moment");
-
+const { v4: uuidv4 } = require("uuid");
 const userModel = require("../models/user.model");
 
 const router = express.Router();
@@ -16,17 +16,20 @@ router.get("/sign-up", async function (req, res) {
 
 router.post("/sign-up", async function (req, res) {
   //Hash password
-  const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-  const { username, firstName, lastName, email } = req.body;
-  const dob = moment(req.body.dob, "DD/MM/YYYY").format("YYYY-MM-DD");
+  let { username, firstName, lastName, email, type, dob, password } = req.body;
+
+  const hashedPassword = bcrypt.hashSync(password, 10);
+  dob = moment(dob, "DD/MM/YYYY").format("YYYY-MM-DD");
+  console.log(dob);
   const user = {
+    userID: uuidv4(),
     username: username,
     firstName: firstName,
     lastName: lastName,
     email: email,
     password: hashedPassword,
     dob: dob,
-    permission: 2,
+    permission: +type,
   };
 
   await userModel.add(user);
