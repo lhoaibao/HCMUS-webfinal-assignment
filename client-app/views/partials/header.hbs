@@ -1,11 +1,18 @@
-<!--====== Header Start ======-->
+{{#section 'js'}}
+<script>
+    document.querySelector('.mini-photo-wrapper').addEventListener('click', function () {
+        document.querySelector('.menu-container').classList.toggle('active');
+    });
+</script>
+{{/section}}
+
 <header class="header-area">
     <div class="header-top">
         <div class="container">
             <div class="header-top-wrapper d-flex flex-wrap justify-content-sm-between">
                 <div class="header-top-left mt-10">
                     <ul class="header-meta">
-                        <li><a href="mailto://infoedumate@example.com">mclass@company.com</a></li>
+                        <li><a href="mailto://infoedumate@example.com">edumate@company.com</a></li>
                     </ul>
                 </div>
                 <form id="frmLogout" method="POST" action="/account/log-out"></form>
@@ -16,19 +23,26 @@
                             <span class="badge badge-primary rounded-circle">3</span>
                         </a>
                         {{#if isAuth}}
-                        <div class="btn-group drop-left">
-                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg"
-                                    class="rounded-circle" width="32px" height="32px">
-                            </a>
-
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/profile">My profile</a>
-                                <a class="dropdown-item" href="/learning">My learning</a>
-                                <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            aria-expanded="false"><img src="data:image/png;base64,{{imgSrc}}" class="rounded-circle"
+                                alt=""></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="dropdown-item">
+                                <div class="d-flex">
+                                    <img src="data:image/png;base64,{{imgSrc}}" class="rounded-circle"
+                                        alt="">
+                                    <div class="user-info-login">
+                                        <p class="user-name-login">{{authUser.firstName}} {{authUser.lastName}}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dropdown-item">
                                 <a class="dropdown-item" href="javascript: $('#frmLogout').submit();">Log out</a>
-                            </div>
-                        </div>
+                            </li>
+                            <li class="dropdown-item"><a href="#">Autre chose ici</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-item"><a href="#">Lien séparé</a></li>
+                        </ul>
                         {{else}}
                         <a class="login" href="/account/sign-in">Login</a>
                         <a class="register" href="/account/sign-up">Register</a>
@@ -93,5 +107,3 @@
         </div>
     </div>
 </header>
-
-<!--====== Header Ends ======-->

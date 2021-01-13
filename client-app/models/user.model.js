@@ -7,16 +7,20 @@ module.exports = {
   },
 
   async single(id) {
-    const rows = await db.load(`select * from ${TBL_USERS} where userID='${id}'`);
+    const rows = await db.load(
+      `select * from ${TBL_USERS} where userID='${id}'`
+    );
     if (rows.length === 0) return null;
-
+   
     return rows[0];
   },
 
-  async getByType(type){
-    const rows=await db.load(`select * from ${TBL_USERS} where permission=${type}`);
-    if (rows.length===0) return null;
-    
+  async getByType(type) {
+    const rows = await db.load(
+      `select * from ${TBL_USERS} where permission=${type}`
+    );
+    if (rows.length === 0) return null;
+
     return rows;
   },
   async singleByUsername(username) {

@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const moment = require("moment");
 const { v4: uuidv4 } = require("uuid");
 const userModel = require("../models/user.model");
-
+const couseServer = require("../services/course");
 const router = express.Router();
 
 // Register
@@ -20,7 +20,6 @@ router.post("/sign-up", async function (req, res) {
 
   const hashedPassword = bcrypt.hashSync(password, 10);
   dob = moment(dob, "DD/MM/YYYY").format("YYYY-MM-DD");
-  console.log(dob);
   const user = {
     userID: uuidv4(),
     username: username,
@@ -78,6 +77,8 @@ router.post("/sign-in", async function (req, res) {
 
   req.session.isAuth = true;
   req.session.authUser = user;
+  req.session.imgSrc = couseServer.convertBlobToBase64(user.userImage);
+  console.log(req.session.imgSrc)
   let url = req.session.retUrl || "/";
   res.redirect(url);
 });
@@ -86,6 +87,7 @@ router.post("/sign-in", async function (req, res) {
 router.post("/log-out", (req, res) => {
   req.session.isAuth = false;
   req.session.authUser = null;
+  req.session.imgSrc =null;
   res.redirect(req.headers.referer);
 });
 module.exports = router;

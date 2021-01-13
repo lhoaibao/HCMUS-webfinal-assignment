@@ -19,25 +19,12 @@
         <div class="row flex-row-reverse">
             <div class="col-lg-9">
                 <div class="courses-details-content mt-50">
-                    <img src="images/courses-details.jpg" alt="">
+                    <h2 class="title mb-4">{{this.courseItem.courseName}}</h2>
+                    <img src="data:image/png;base64,{{this.courseItem.imgSrc}}" class="w-100" alt="">
 
-                    <h2 class="title">Bachelor of Business Administration</h2>
+                    <h5 class="sub-title">Course Overview </h5>
 
-                    <p>Even slightly believable. If you are going use a passage of Lorem Ipsum need equal blame belongs
-                        to those who fail in their duty through weakness of will, which is the same as saying through
-                        shrinking from toil and pain. These cases are perfectly simple and easy to distinguish</p>
-
-                    <h5 class="sub-title">Course Overview</h5>
-
-                    <p>Bachelor of Business Administration(BBA) If you are going use a passage of Lorem Ipsum need equal
-                        blame belongs to those who fail in their duty through weakness of will, which is the same as
-                        saying through shrinking from toil and pain. These cases are perfectly simple and easy to
-                        distinguish. <br> <br> Bachelor of Business Administration(BBA) If you are going use a passage
-                        of Lorem Ipsum need equal blame belongs to those who fail in their duty through weakness of
-                        will, which is the same as saying through shrinking from toil and pain. These cases are
-                        perfectly simple and easy to distinguish omnis dolor repellendus. Temporibus autem quibusdam et
-                        aut officiis debitis aut rerum necessitatibus sae pe eveniet ut et voluptates repudiandae sint
-                        et molestiae.</p>
+                    <p>{{this.courseItem.detailDesc}}.</p>
 
                     <ul class="courses-details-list">
                         <li>
@@ -60,40 +47,16 @@
 
                 <div class="courses-details-tab">
                     <ul class="nav nav-justified" role="tablist">
-                        <li class="nav-item"><a class="active" data-toggle="tab" href="#benefit" role="tab">Benefit</a>
+                        <li class="nav-item"><a data-toggle="tab" class="active" href="#curriculum" role="tab">Course
+                                program</a>
                         </li>
-                        <li class="nav-item"><a data-toggle="tab" href="#curriculum" role="tab">Course Curriculum</a>
+                        <li class="nav-item"><a data-toggle="tab" href="#benefit" role="tab">Benefit</a>
                         </li>
                         <li class="nav-item"><a data-toggle="tab" href="#teachers" role="tab">Teachers</a></li>
                         <li class="nav-item"><a data-toggle="tab" href="#reviews" role="tab">Reviews</a></li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="benefit" role="tabpanel">
-                            <div class="benefit-content">
-                                <p>Bachelor of Business Administration(BBA) If you are going use a passage of Lorem
-                                    Ipsum need equal blame belongs to those who fail in their duty through weakness of
-                                    will, which is the same as saying through shrinking from toil and pain. These cases
-                                    are perfectly simple and easy to distinguish.</p>
-                                <ul class="courses-details-list">
-                                    <li>
-                                        <i class="far fa-check-circle"></i>
-                                        <p>Bachelor of Business Administration(BBA) If you are going use a passage of
-                                            blame belongs to those who fail in their duty through weakness </p>
-                                    </li>
-                                    <li>
-                                        <i class="far fa-check-circle"></i>
-                                        <p>Bachelor of Business Administration(BBA) If you are going use a passage of
-                                            blame belongs to those who fail in their duty through weakness </p>
-                                    </li>
-                                    <li>
-                                        <i class="far fa-check-circle"></i>
-                                        <p>Bachelor of Business Administration(BBA) If you are going use a passage of
-                                            blame belongs to those who fail in their duty through weakness </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="curriculum" role="tabpanel">
+                        <div class="tab-pane fade  show active" id="curriculum" role="tabpanel">
                             <div class="curriculum-content">
                                 <div class="row">
                                     <div class="col-md-4 col-sm-6">
@@ -303,6 +266,32 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="tab-pane fade" id="benefit" role="tabpanel">
+                            <div class="benefit-content">
+                                <p>Bachelor of Business Administration(BBA) If you are going use a passage of Lorem
+                                    Ipsum need equal blame belongs to those who fail in their duty through weakness of
+                                    will, which is the same as saying through shrinking from toil and pain. These cases
+                                    are perfectly simple and easy to distinguish.</p>
+                                <ul class="courses-details-list">
+                                    <li>
+                                        <i class="far fa-check-circle"></i>
+                                        <p>Bachelor of Business Administration(BBA) If you are going use a passage of
+                                            blame belongs to those who fail in their duty through weakness </p>
+                                    </li>
+                                    <li>
+                                        <i class="far fa-check-circle"></i>
+                                        <p>Bachelor of Business Administration(BBA) If you are going use a passage of
+                                            blame belongs to those who fail in their duty through weakness </p>
+                                    </li>
+                                    <li>
+                                        <i class="far fa-check-circle"></i>
+                                        <p>Bachelor of Business Administration(BBA) If you are going use a passage of
+                                            blame belongs to those who fail in their duty through weakness </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="tab-pane fade" id="teachers" role="tabpanel">
                             <div class="courses-teachers">
                                 <div class="row">
@@ -410,7 +399,7 @@
                                         </div>
                                     </div>
                                     <div class="review-point">
-                                        <span>4.9</span>
+                                        <span>{{this.courseItem.ratingScore}}</span>
                                     </div>
                                 </div>
 
@@ -491,9 +480,11 @@
                             <li>Credit <strong>180</strong></li>
                             <li>Semester <strong>12</strong></li>
                             <li>Quizzes <strong>2</strong></li>
-                            <li>Pass Parcentages <strong>80%</strong></li>
-                            <li>Maximum Retakes <strong>5</strong></li>
-                            <li>Rating <strong>4.9(80 reviews)</strong></li>
+                            <li>Category <strong>{{this.category.category_name}}</strong></li>
+                            <li>Enroll number <strong>{{this.courseItem.enrollNumber}}</strong></li>
+                            <li>Rating <strong>{{this.courseItem.ratingScore}} ({{this.courseItem.ratingNumber}}
+                                    reviews)</strong></li>
+                            <li id="rater"></li>
                         </ul>
                         <div class="sidebar-btn">
                             <a class="main-btn" href="#">Enroll Course</a>

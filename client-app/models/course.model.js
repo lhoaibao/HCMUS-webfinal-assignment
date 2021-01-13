@@ -8,7 +8,7 @@ module.exports = {
     const rows = await db.load(
       `select * from ${TBL_COURSE} where courseID = '${id}'`
     );
-    if (rows.length == null) return null;
+    if (rows.length === null) return null;
     return rows[0];
   },
 
@@ -16,11 +16,11 @@ module.exports = {
 
   // Get 10 latest coures
   get10LatestCourses: () =>
-    db.load(`select * from ${TBL_COURSE} order by lastModify limit 10`),
+    db.load(`select * from ${TBL_COURSE} order by lastModify desc limit 10`),
 
   // Get 10 most viewed courses
   get10MostViewedCourses: () =>
-    db.load(`select * from ${TBL_COURSE} order by views limit 10`),
+    db.load(`select * from ${TBL_COURSE} order by views desc limit 10`),
 
   // Get quantity by category
   getQuantityByCategory: async (id) => {
