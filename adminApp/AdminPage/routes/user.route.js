@@ -22,6 +22,54 @@ router.get('/', auth, isAdmin, async function (req, res) {
     }
 })
 
+router.get('/profile', auth, async function (req, res) {
+    req.session.retUrl = req.originalUrl
+    try {
+        const row = await userModel.single(req.session.authUser.id);
+        res.render('vwUser/profile', {
+            users: row,
+            currentUser: req.session.authUser,
+        });
+    } catch (err) {
+        console.error(err);
+        res.send('View error log at server console.');
+    }
+})
+
+router.get('/changePassword', auth, async function (req, res) {
+    req.session.retUrl = req.originalUrl
+    try {
+        res.render('vwUser/changePassword', {
+            currentUser: req.session.authUser,
+        });
+    } catch (err) {
+        console.error(err);
+        res.send('View error log at server console.');
+    }
+})
+
+router.post('/changePassword', auth, async function (req, res) {
+    const ret = bcrypt.compareSync(req.body['old-password'], req.session.authUser.password);
+    if (ret) {
+        if (req.body['new-password'] != req.body['confirm-new-password']) {
+            return res.render('vwUser/changePassword', {
+                currentUser: req.session.authUser,
+                err_message: "Confirm password does not match"
+            });
+        } else {
+            entity = {
+                password: bcrypt.hashSync(req.body['new-password'], 10),
+            }
+            await userModel.update(req.session.authUser.id, entity);
+            return res.redirect('/user/profile/')
+        }
+    }
+    return res.render('vwUser/changePassword', {
+        currentUser: req.session.authUser,
+        err_message: "Old password is wrong"
+    });
+})
+
 router.get('/add', auth, isAdmin, async function (req, res) {
     req.session.retUrl = req.originalUrl
     res.render('vwUser/add', {
@@ -97,7 +145,7 @@ router.post('/logout', async function (req, res) {
 })
 
 
-router.get('/detail/:id',isAdmin, async function (req, res) {
+router.get('/detail/:id', isAdmin, async function (req, res) {
     const row = await userModel.single(req.params.id)
     req.session.retUrl = req.originalUrl
     res.render('vwUser/detail.hbs', {
@@ -106,7 +154,7 @@ router.get('/detail/:id',isAdmin, async function (req, res) {
     })
 })
 
-router.get('/edit/:id',isAdmin, async function (req, res) {
+router.get('/edit/:id', isAdmin, async function (req, res) {
     const row = await userModel.single(req.params.id)
     req.session.retUrl = req.originalUrl
     row.dob = moment(row.dob).format('YYYY-MM-DD');
@@ -116,7 +164,7 @@ router.get('/edit/:id',isAdmin, async function (req, res) {
     })
 })
 
-router.post('/edit/:id',isAdmin, async function (req, res) {
+router.post('/edit/:id', isAdmin, async function (req, res) {
     id = req.params.id
     const row = await userModel.single(req.params.id)
     if (row) {
@@ -132,7 +180,7 @@ router.post('/edit/:id',isAdmin, async function (req, res) {
     res.redirect(req.session.retUrl)
 })
 
-router.post('/delete/:id',isAdmin, async function (req, res) {
+router.post('/delete/:id', isAdmin, async function (req, res) {
     id = req.params.id
     if (id == req.session.authUser.id) {
         return res.redirect(req.session.retUrl)

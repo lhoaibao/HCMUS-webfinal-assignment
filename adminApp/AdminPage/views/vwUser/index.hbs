@@ -49,6 +49,7 @@
                                         </tr>
                                         <tbody>
                                             {{#each this.users}}
+                                            {{#ifNotEquals id ../currentUser.id}}
                                             <tr class="no-b">
                                                 <td>
                                                     <h6>{{lastName}} {{firstName}}</h6>
@@ -72,6 +73,7 @@
                                                     </form>
                                                 </td>
                                             </tr>
+                                            {{/ifNotEquals}}
                                             {{/each}}
                                         </tbody>
                                     </table>

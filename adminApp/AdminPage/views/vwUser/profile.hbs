@@ -1,0 +1,88 @@
+<div class="page has-sidebar-left">
+    <div>
+        <header class="blue accent-3 relative">
+            <div class="container-fluid text-white">
+                <div class="row p-t-b-10 ">
+                    <div class="col">
+                        <h4>
+                            <i class="icon-package"></i>
+                            Profile User
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid animatedParent animateOnce my-3">
+            <div class="animated fadeInUpShort">
+                <div class="tab-content" id="v-pills-tabContent">
+                    {{#with this.currentUser}}
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card mt-3 mb-3">
+                                    <ul class="no-b">
+                                        <li class="list-group-item">
+                                            <a>
+                                                <div>
+                                                    <h2 class="p-t-10"><b>User Name:</b> {{username}}</h2>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="card-header bg-white">
+                                        <strong class="card-title">Detail</strong>
+                                    </div>
+                                    <div>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <div class="mr-3">
+                                                    First Name: {{firstName}}
+                                                </div>
+                                                <div class="mr-3">
+                                                    Last Name: {{lastName}}
+                                                </div>
+                                                <div class="mr-3">
+                                                    Email: {{email}}
+                                                </div>
+                                                <div class="mr-3">
+                                                    Date of Birth: {{dob}}
+                                                </div>
+                                                <div class="mr-3">
+                                                    Permission: {{permission}}
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card mt-4">
+                                    <h6 class="card-header white">Action</h6>
+                                    <div class="card-body text-success">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover ">
+                                                <tr>
+                                                    <td><a href="/user/edit/{{id}}">Edit User</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="/user/changePassword">Change Password</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a href="/">Back Home</a></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/with}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
