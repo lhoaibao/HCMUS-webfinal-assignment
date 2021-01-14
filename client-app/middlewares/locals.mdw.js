@@ -7,6 +7,7 @@ module.exports = function (app) {
     res.locals.isAuth = req.session.isAuth;
     res.locals.authUser = req.session.authUser;
     res.locals.avatar = req.session.avatar;
+    res.locals.isTeacher = req.session.isTeacher;
 
     next();
   });

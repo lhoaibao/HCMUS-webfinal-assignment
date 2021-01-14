@@ -77,14 +77,19 @@ router.post("/sign-in", async function (req, res) {
     });
   }
 
+  // Conert user avatar
   let avatar = "";
   if (user.userImage !== null) {
     avatar = courseService.convertBlobToBase64(user.userImage);
   } else avatar = "images/user-avt.png";
 
+  // Type user
+  const isTeacher = user.permission === 1;
+  console.log(isTeacher);
   req.session.isAuth = true;
   req.session.authUser = user;
   req.session.avatar = avatar;
+  req.session.isTeacher = isTeacher;
   let url = req.session.retUrl || "/";
   res.redirect(url);
 });
@@ -94,6 +99,7 @@ router.post("/log-out", (req, res) => {
   req.session.isAuth = false;
   req.session.authUser = null;
   req.session.avatar = null;
+  req.session.isTeacher = null;
   res.redirect(req.headers.referer);
 });
 module.exports = router;
