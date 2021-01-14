@@ -7,11 +7,9 @@ module.exports = {
   },
 
   async single(id) {
-    const rows = await db.load(
-      `select * from ${TBL_USERS} where userID='${id}'`
-    );
+    const rows = await db.load(`select * from ${TBL_USERS} where id='${id}'`);
     if (rows.length === 0) return null;
-   
+
     return rows[0];
   },
 

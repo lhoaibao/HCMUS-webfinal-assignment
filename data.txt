@@ -1,0 +1,126 @@
+Category:
+
+1. 00e8c071-7440-4605-bb4e-fdb40332bcf1 - Development
+    1.1 6528fc35-67dc-43e5-bf14-f9f8a9cd8558 - Web Developement
+            06b87188-c66a-4ffd-8496-a12b76493c6e - 
+            1647a133-2d3a-41b6-a026-f8e7d11e50fb - 
+            cef89fcf-b011-4397-a5f5-a001b71ecdad - 
+
+    1.2 97407f4c-bc10-45d6-8ad7-9e41ac391346 - Mobile Development
+            9d5cb4e9-9fd9-4276-aeda-a40dc9dcacbf - 
+            d97ea8fd-065b-4b52-83b8-83dad17f0463 -
+            37b0f88c-7d00-4347-a60c-d1da8e3aa8b2 - 
+
+    1.3 08491e45-1db9-4ea3-a139-4cec1ee64f62 - Data Science
+            0d86919b-e0a8-4a65-9fdd-e7add677d9b3 -
+            96a66283-4463-471e-9e4c-06b5cd1305be -
+            fb2bb6ae-e2c9-4f3e-bc11-1494947e4cfa -
+    1.4 54fdc1f7-ff28-4c2b-b0b8-012b518c9eda - Game Development
+            f5414e73-e06c-4b2c-ad6e-7d8000d1db25 -
+            2478a70b-c5e5-4266-a5e9-b8897517e152 -
+            50c42308-1a73-40bc-837b-a793ab06c9e7 -
+
+    1.5 8c6ce9e8-ccc3-404f-9fdd-1c8223a1a9ab - Database & Developement
+            5d38436b-0381-4e1b-a749-890889442665 -
+            986d9e57-557c-442d-909e-7d1cd0ae29fa -
+            0177487d-402d-4606-8145-909b6182636d -
+    1.6 2ebc75e8-7b4a-4449-a43a-e12c24d27ff5 - Programming Languages
+            d95072bb-2314-4803-a5bc-df65a831860d -
+            63180bb1-10ab-4b7d-883a-711e5265880b -
+            1730c841-ab61-4bad-af69-f5966db1978e -
+
+2. 9d9ef8b7-bc50-452a-9aab-88c7809f40b7 - Business
+    2.1 6e62e622-5e93-4982-8b9e-87608440d425 - Entrepreneurship
+        bf58ad71-26c8-465e-aaa6-91d0b4d39a74 -
+        0c52cfd0-64db-4ff0-8f6c-42e153d0f73e -
+
+    2.2 10f20a57-6aa1-4b88-83be-ee92678cea04 - Communications
+        dff6a676-e4c5-482a-85ed-cc79f93e4bbc -
+        da3b8df8-6c26-448e-8ced-fe26ce221895 -
+
+
+    2.3 b672ee48-f410-47ab-96b3-19acf2b92153 - Management
+            ed10fe84-5fa1-4199-8baf-af498747def4 -
+            2aabef6e-7f16-4cdd-946a-8e50772b31ed -
+
+
+    2.4 d0cd42cd-3a33-4c31-bf9f-8136746856d1 - Sales
+            ad02e997-12f1-4e30-8b47-90158336a392 -
+            fb86bca4-fb29-46bd-a5bb-f376efdcf123 -
+
+
+
+3. eefbbb9c-c98e-4caf-bc64-ca3b8dbdd9e4 - Finance & Accounting
+    3.1 e32b2adc-2ce9-4712-a161-b8cc922323fc - Economics
+            8bf0c6ce-c3f5-4a5a-9620-083ea9417986
+            b648c3a7-b40d-4e3f-9b0e-99ee1c844da9
+
+    3.2 27575383-925c-4de4-910b-6627a83e9792 - Compliances
+            52fa0329-8020-4f80-90b4-1360fde7dd95
+            87693ad9-48ea-4b18-8508-1ab91b27e59c
+
+    3.3 6fd33366-8372-4d96-bc8f-e3055984e0db - Cryptocurrency & Blockchain
+            b70d8a54-112a-47aa-8973-3e54099adc9c
+            07b7368d-f559-4eed-a9b7-3f821bdb4875
+
+4. 94f8afb5-db6e-4776-a9b1-f67a864b88bb - IT & Software
+    4.1 5d3f05d6-46c8-4b98-95eb-f5bac63d70e5 - IT Certification
+            938c71cc-ec23-4898-92c4-1a48694a06cd
+            e8cd2ef2-3c1b-4209-b471-97c5f54e4582
+            
+    4.2 cb23e208-d708-4c9b-a239-5bc4cb2c9f40 - Hardware
+            5a4319e0-9e5c-47a0-81e0-377373f87309
+            d698ca09-8c38-4b8e-84b0-25b19cd1c8d8
+
+5. f508d1f5-87a6-4f68-b251-c4423ba21533 - Personal Development
+    5.2 7c44cc85-f83c-435a-aa40-8215bc4c88b9 - Leadership
+            bf262663-7d2f-492c-b110-fbf40dd48474
+            698f72fd-74c1-4a0f-995c-1006d640a028
+
+    5.3 b4e84f63-4a04-4a8e-a561-ad9a00e294a7 - Happiness
+            e30a45f4-328b-4ffe-80e8-4ff49aa781ba
+            6828e88e-b761-4170-b5b6-095213aae26a
+
+6. 1ca327e4-9be5-46db-a4ea-58b5dea25581 - Marketing
+    6.1 db0a68d4-f841-4089-af6c-ab56a3258525 - Digital Maketing
+            b6ede664-618a-40a1-b811-7123c0f93f6d
+            7cf72380-14df-4340-a4d1-302cd9a01bc6
+
+    6.2 8c185fbf-91fd-4aa3-a6ea-38de5589cbd9 - Branding
+            2c0e236f-4387-478a-9237-08b5ecd84e6f
+            24398ea9-4aba-4a1f-9918-ae3a646a13c2
+
+7. 87ab829e-9555-4206-9849-d6b040f9d8f5 - Design
+    7.1 73142cd5-c430-4ab6-b26c-31a1df326fb5 - Web Designs
+            903f0e0e-cd6d-4a46-a181-d361436e6d7b
+            a79c97a0-4353-48f7-8768-137d26e349ee
+
+    7.2 42a3ded4-bc8f-40b3-9fc0-843948bef004 - Design Tools
+            26f7680b-bb1b-4545-bfb9-18e70ca18eb4
+            322fe606-9cb7-4c4e-9629-2959354e307d
+
+8. 59f50a80-6df4-4adf-a1c4-6731bcb12b30 - Health & Fitness
+    8.1 340815d1-20ff-444d-a59a-59a451ec89f6 - Sports
+            9503e4c7-8c1e-4226-a892-dcd7201b951f
+            44694841-3687-4aad-a237-2514d578731d
+
+    8.2 c49587c3-162a-4702-a2a5-6932346239b8 - Yoga
+            8ffec3b6-9cde-45df-a870-edf4c2642914
+            e453d54b-d7dc-46d1-b53a-70e5c6b44d5d
+
+
+
+USER
+    89c56d1d-36ed-474c-9b33-96a41c89e8ab - Traversy Brandy
+    669eeb74-74bd-4251-a33b-fdc1c28dadf3 - Dinh Dien
+    67866f48-9403-4836-a7aa-e9e8304f35c9 - Hoai Bao
+    1910769f-574e-471c-8ad5-8ecb76387d61 - Minh Hung
+    1b1c38f5-8905-492f-bd42-3be04ccf2dcb - Dung Ngoc
+    e665955e-f00a-4ab6-820a-5f28a11b92cd - Cristian Ronaldo 
+    0665ce3e-1f63-4071-87bd-e83097a07801 - Lady Gara
+    931a9ed5-ebbb-42f1-bf2b-a9b9351c683b - Alex Feguson
+
+
+
+
+

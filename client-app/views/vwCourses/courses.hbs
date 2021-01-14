@@ -56,16 +56,16 @@
                     <div class="tab-pane fade show active" id="grid" role="tabpanel">
                         <div class="courses-wrapper wrapper-2">
                             <div class="row grid">
-                                {{#each this.courses}}
+                                {{#each this.allCourse}}
                                 <div class="col-lg-4 col-sm-6 courses-col">
                                     <div class="single-courses-2 mt-30">
                                         <div class="courses-image">
-                                            <a href="detail/{{courseID}}"><img src="data:image/png;base64,{{img}}"
+                                            <a href="detail/{{id}}"><img src="data:image/png;base64,{{img}}"
                                                     alt="courses"></a>
                                         </div>
                                         <div class="courses-content">
                                             <a href="#" class="category">#{{catName}}</a>
-                                            <h4 class="courses-title"><a href="detail/{{courseID}}">{{courseName}}</a>
+                                            <h4 class="courses-title"><a href="detail/{{id}}">{{courseName}}</a>
                                             </h4>
                                             <p class="m-1 category"><b>Author:</b> {{authorName}}</p>
                                             <div class="duration-rating">
@@ -89,7 +89,7 @@
                                             {{!-- Add to cart --}}
                                             <div class="courses-link">
                                                 <button class="btn-outline-white">Add to cart</button>
-                                                <a class="more" href="detail/{{courseID}}">Read more
+                                                <a class="more" href="detail/{{id}}">Read more
                                                     <i class="fal fa-chevron-right"></i></a>
                                             </div>
                                         </div>
@@ -102,18 +102,18 @@
                     </div>
                     <div class="tab-pane fade" id="list" role="tabpanel">
                         <div class="courses-wrapper wrapper-2">
-                            {{#each this.courses}}
+                            {{#each this.allCourse}}
                             <div class="courses-col">
                                 <div class="single-courses-2 courses-list mt-30">
                                     <div class="courses-image">
-                                        <a href="detail/{{courseID}}"><img src="data:image/png;base64,{{img}}"
+                                        <a href="detail/{{id}}"><img src="data:image/png;base64,{{img}}"
                                                 alt="courses"></a>
                                     </div>
                                     <div class="courses-content">
                                         <p class="courses-fee">Fee: <span> {{tuition}}</span></p>
 
                                         <div class="courses-content-wrapper">
-                                            <h4 class="courses-title"><a href="detail/{{courseID}}">{{courseName}}</a>
+                                            <h4 class="courses-title"><a href="detail/{{id}}">{{courseName}}</a>
                                             </h4>
                                             <div class="duration-rating">
                                                 <div class="duration-fee">
@@ -167,9 +167,11 @@
                             {{#each this.categories}}
                             <li>
                                 <div class="form-radio">
-                                    <input type="checkbox" name="categoryRadio" id="categoryRadio1">
-                                    <label for="categoryRadio1"> <span></span> {{category_name}}
-                                        <strong>({{catQuantity}})</strong></label>
+                                    <input type="checkbox" name="categoryRadio" id="categoryRadio1" class="mr-2">
+                                    <label for="categoryRadio1">
+                                        <span> {{categoryName}}</span>
+                                        <b>({{subCatQuantity}})</b>
+                                    </label>
                                 </div>
                             </li>
                             {{/each}}

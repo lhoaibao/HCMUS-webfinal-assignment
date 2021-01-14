@@ -1,4 +1,5 @@
 const express = require("express");
+const subCategoryModel = require("../models/subCategory.model");
 const categoriesModel = require("../models/categories.model");
 const courseModel = require("../models/course.model");
 const userModel = require("../models/user.model");
@@ -8,17 +9,18 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   const allCategory = await categoriesModel.all();
   const courses = await courseModel.all();
-  // Handle category quantity
-
+  // Handle sub Category quantity
+  const catQuantity = await categoriesModel.getQuantityOfSubCategory();
   for (let i = 0; i < allCategory.length; i++) {
-    const catItem = allCategory[i];
-    const catQuantity = await courseModel.getQuantityByCategory(catItem.id);
-    allCategory[i].catQuantity = catQuantity.length;
+    allCategory[i].subCatQuantity = catQuantity[i].subCatQuantity;
   }
+
   // Hanle course item
   for (let i = 0; i < courses.length; i++) {
-    const catItem = await categoriesModel.single(courses[i].category);
-    const userTeacher = await userModel.single(courses[i].authorId);
+    const catItem = await subCategoryModel.single(courses[i].categoryId);
+
+    const userTeacher = await userModel.single(courses[i].userId);
+
     if (userTeacher !== null) {
       courses[i].authorName =
         userTeacher.firstName + " " + userTeacher.lastName;
@@ -28,17 +30,18 @@ router.get("/", async (req, res) => {
       courses[i].courseName = courses[i].courseName.slice(0, 60) + "...";
 
     courses[i].img = courseService.convertBlobToBase64(courses[i].courseImage);
-    courses[i].catName = catItem.category_name;
+    if (catItem !== undefined) courses[i].catName = catItem.subCategoryName;
   }
+  // console.log(courses);
   res.render("vwCourses/courses", {
     categories: allCategory,
-    courses: courses,
+    allCourse: courses,
   });
 });
 
 router.get("/detail/:id", async (req, res) => {
   const courseID = req.params.id;
-
+  console.log(courseID);
   // Course Item
   const courseItem = await courseModel.single(courseID);
 
@@ -46,13 +49,12 @@ router.get("/detail/:id", async (req, res) => {
   courseItem.imgSrc = courseService.convertBlobToBase64(courseItem.courseImage);
 
   //Get category
-  const category = await categoriesModel.single(courseItem.category);
+  const category = await subCategoryModel.single(courseItem.categoryId);
 
   // Teacher of course: is queried by authorId
-  let userTeacher = await userModel.single(courseItem.authorId);
+  let userTeacher = await userModel.single(courseItem.userId);
   if (userTeacher !== null) {
     courseItem.authorName = userTeacher.firstName + " " + userTeacher.lastName;
-    userTeacher.userImage;
   }
 
   res.render("vwCourses/courseDetail", {

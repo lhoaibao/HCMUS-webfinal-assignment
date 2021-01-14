@@ -125,12 +125,12 @@
                 <div class="courses-col">
                     <div class="single-courses-2 mt-30">
                         <div class="courses-image">
-                            <a href="courses/detail/{{courseID}}"><img src="data:image/png;base64,{{img}}"
+                            <a href="courses/detail/{{id}}"><img src="data:image/png;base64,{{img}}"
                                     alt="courses"></a>
                         </div>
                         <div class="courses-content">
                             <a href="#" class="category">#{{catName}}</a>
-                            <h4 class="courses-title"><a href="courses/detail/{{courseID}}">{{courseName}}</a>
+                            <h4 class="courses-title"><a href="courses/detail/{{id}}">{{courseName}}</a>
                             </h4>
                             <p class="m-1 category"><b>Author:</b> {{authorName}}</p>
                             <div class="duration-rating">
@@ -192,7 +192,7 @@
 
                         {{!-- Course Image start--}}
                         <div class="courses-image">
-                            <a href="courses/detail/{{courseID}}"><img src="data:image/png;base64,{{img}}"
+                            <a href="courses/detail/{{id}}"><img src="data:image/png;base64,{{img}}"
                                     alt="courses"></a>
                         </div>
                         {{!-- Course Image end--}}
@@ -200,7 +200,7 @@
                         {{!-- Course content start--}}
                         <div class="courses-content">
                             <a href="#" class="category">#{{catName}}</a>
-                            <h4 class="courses-title"><a href="courses/detail/{{courseID}}">{{courseName}}</a></h4>
+                            <h4 class="courses-title"><a href="courses/detail/{{id}}">{{courseName}}</a></h4>
                             <p class=" m-1 category"><b>Author:</b> {{authorName}}</p>
                             <div class="duration-rating">
                                 <div class="duration-fee">
@@ -345,8 +345,8 @@
                 {{#each this.categories }}
                 <div class="col-lg-3 col-sm-6 courses-col">
                     <div class="single-courses mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.2s">
-                        <h4 class="courses-title"><a href="courses-details.html">{{category_name}}</a></h4>
-                        <p class="text-white my-1">{{category_des}}</p>
+                        <h4 class="courses-title mb-3"><a href="courses-details.html">{{categoryName}}</a></h4>
+                        <p class="text-white my-1">{{categoryDesc}}</p>
                         <div class="courses-link">
                             <a class="apply" href="#">Online Apply</a>
                             <a class="more" href="courses-details.html">Read more <i

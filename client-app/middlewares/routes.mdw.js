@@ -14,5 +14,5 @@ module.exports = function (app) {
   app.use("/teachers", require("../routers/teachers.route"));
 
   //Profile
-  app.use("/profile", auth, require("../routers/profile.route"));
+  app.use("/profile", require("../routers/profile.route"));
 };
