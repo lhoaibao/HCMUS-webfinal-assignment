@@ -1,0 +1,71 @@
+/*======================
+    404 page
+=======================*/
+@import url("https://fonts.googleapis.com/css?family=Fira+Code&display=swap");
+body {
+  font-family: "Exo", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  color: #151515;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.page_404 {
+  padding: 40px 0;
+  background: #fff;
+  font-family: "Fira Code", monospace;
+}
+
+.page_404 img {
+  width: 100%;
+}
+
+.four_zero_four_bg {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  height: 400px;
+  background-position: center;
+}
+
+.four_zero_four_bg h1 {
+  font-size: 80px;
+}
+
+.four_zero_four_bg h3 {
+  font-size: 80px;
+}
+
+.link_404 {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+}
+.contant_box_404 {
+  margin-top: -50px;
+}
+
+.page_404_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.four_zero_four_bg h2 {
+  text-align: center !important;
+}
+
+a{
+    text-decoration: none;
+    transition:all .3s;
+}
+
+a:hover{
+    transform: scale(1.2);
+}

@@ -30,73 +30,33 @@
 
     <!-- App CSS -->
     <link type="text/css" href="css/404.css" rel="stylesheet">
-    <script>
-        //based on https://dribbble.com/shots/3913847-404-page
 
-        var pageX = $(document).width();
-        var pageY = $(document).height();
-        var mouseY = 0;
-        var mouseX = 0;
-
-        $(document).mousemove(function (event) {
-            //verticalAxis
-            mouseY = event.pageY;
-            yAxis = (pageY / 2 - mouseY) / pageY * 300;
-            //horizontalAxis
-            mouseX = event.pageX / -pageX;
-            xAxis = -mouseX * 100 - 100;
-
-            $('.box__ghost-eyes').css({ 'transform': 'translate(' + xAxis + '%,-' + yAxis + '%)' });
-
-            //console.log('X: ' + xAxis);
-
-        });
-    </script>
 </head>
 
 <body>
-    <div class="box">
+    <section class="page_404">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <div class="col-sm-10 col-sm-offset-1  ">
+                        <div class="four_zero_four_bg">
+                            <h2 class="text-center">500 Internal Server Error!!!</h2>
+                        </div>
 
-        <div class="box__ghost">
-            <div class="symbol"></div>
-            <div class="symbol"></div>
-            <div class="symbol"></div>
-            <div class="symbol"></div>
-            <div class="symbol"></div>
-            <div class="symbol"></div>
+                        <div class="contant_box_404 page_404_container">
+                            <h3 class="h2" style="margin-bottom:24px;">
+                                We are currently trying to fix the problem.
+                            </h3>
 
-            <div class="box__ghost-container">
-                <div class="box__ghost-eyes">
-                    <div class="box__eye-left"></div>
-                    <div class="box__eye-right"></div>
-                </div>
-                <div class="box__ghost-bottom">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                            <p>Sorry for this incovenient.</p>
+
+                            <a href="/" class="link_404">Back to Home</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="box__ghost-shadow"></div>
         </div>
-
-        <div class="box__description">
-            <div class="box__description-container">
-                <div class="box__description-title">505 Internal Server Error!</div>
-                <div class="box__description-text">It seems like we couldn't find the page you were looking for</div>
-            </div>
-
-            <a href="http://localhost:3000/" class="box__button">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                Go Homepage
-            </a>
-            <a href="http://localhost:3000/" class="box__button btn-success">
-                <i class="fas fa-redo"></i>
-                Go back
-            </a>
-        </div>
-    </div>
+    </section>
 </body>
 
 </html>
