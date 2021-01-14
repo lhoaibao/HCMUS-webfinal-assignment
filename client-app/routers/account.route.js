@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const moment = require("moment");
 const { v4: uuidv4 } = require("uuid");
 const userModel = require("../models/user.model");
-const couseServer = require("../services/course");
+const courseService = require("../services/course");
 const router = express.Router();
 
 // Register
@@ -32,7 +32,7 @@ router.post("/sign-up", async function (req, res) {
   };
 
   await userModel.add(user);
-  res.render("home");
+  res.redirect("/");
 });
 
 // Check user đã tồn tại hay chưa?
@@ -52,9 +52,11 @@ router.get("/sign-in", async function (req, res) {
   if (req.session.isAuth) {
     return res.redirect(req.session.retUrl);
   }
+
   if (req.headers.referer) {
     req.session.retUrl = ref;
   }
+
   res.render("vwAccount/signin");
 });
 
@@ -75,10 +77,14 @@ router.post("/sign-in", async function (req, res) {
     });
   }
 
+  let avatar = "";
+  if (user.userImage !== null) {
+    avatar = courseService.convertBlobToBase64(user.userImage);
+  } else avatar = "images/user-avt.png";
+
   req.session.isAuth = true;
   req.session.authUser = user;
-  req.session.imgSrc = couseServer.convertBlobToBase64(user.userImage);
-  console.log(req.session.imgSrc)
+  req.session.avatar = avatar;
   let url = req.session.retUrl || "/";
   res.redirect(url);
 });
@@ -87,7 +93,7 @@ router.post("/sign-in", async function (req, res) {
 router.post("/log-out", (req, res) => {
   req.session.isAuth = false;
   req.session.authUser = null;
-  req.session.imgSrc =null;
+  req.session.avatar = null;
   res.redirect(req.headers.referer);
 });
 module.exports = router;

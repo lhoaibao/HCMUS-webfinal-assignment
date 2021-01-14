@@ -1,3 +1,5 @@
+const auth = require("./auth");
+
 module.exports = function (app) {
   //Homepage
   app.get("/", require("../routers/home.route"));
@@ -10,4 +12,7 @@ module.exports = function (app) {
 
   // Teacher
   app.use("/teachers", require("../routers/teachers.route"));
+
+  //Profile
+  app.use("/profile", auth, require("../routers/profile.route"));
 };

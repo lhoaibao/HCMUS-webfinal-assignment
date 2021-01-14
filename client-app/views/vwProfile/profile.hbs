@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="user-profile">
+        <div class="row">
+            <div class="col-12 col-lg-3 user-profile-sidebar">
+
+                <div class="text-center">
+                    {{#if authUser.userImage}}
+                    <img src="data:image/png;base64,{{this.user.avatar}}" class="rounded-circle" alt="avatar" width="80"
+                        height="80">
+                    {{else}}
+                    <img src="{{this.user.avatar}}" class="rounded-circle" alt="avatar" width="80" height="80">
+                    {{/if}}
+                    <p class="my-2 font-weight-bold">{{this.user.firstName}} {{this.user.lastName}}</p>
+                </div>
+
+                <div class="border-bottom"></div>
+                <div class="py-2">
+                    <div class="user-profile-sidebar__item py-2 active">
+                        <i class="fa fa-home mr-3"></i>
+                        <span>My profile</span>
+                    </div>
+                    <div class="user-profile-sidebar__item py-2">
+                        <i class="fa fa-graduation-cap mr-3"></i>
+                        <span>My learning</span>
+                    </div>
+                    <div class="user-profile-sidebar__item py-2">
+                        <i class="fa fa-heart mr-3"></i>
+                        <span>My wishlist</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-8 user-profile-content">
+                <div class="user-profile-content__title py-2 text-center ">
+                    <h2 class="mb-2">Public profile</h2>
+                    <p>Add information about your self</p>
+                </div>
+                <div class="border-bottom"></div>
+                <div class="user-profile-content__detail mt-3">
+                    <form action="" id="frmProfile">
+
+                        <div class="row">
+                            <div class="form-group col-12 col-lg-6">
+                                <label for="exampleInputEmail1">First name</label>
+                                <input type="text" class="form-control" id="txtFirstName" name="firstName"
+                                    value="{{this.user.firstName}}">
+                            </div>
+                            <div class="form-group col-12 col-lg-6">
+                                <label>Last name</label>
+                                <input type="text" class="form-control" id="txtLastName" name="lsatName"
+                                    value="{{this.user.lastName}}">
+                            </div>
+                            <div class="form-group col-12 col-lg-6">
+                                <label>Username</label>
+                                <input type="text" class="form-control" id="txtUserName" name="username" disabled
+                                    value="{{this.user.username}}">
+                            </div>
+
+                            <div class="form-group col-12 col-lg-6">
+                                <label>Date of birth</label>
+                                <input type="text" class="form-control" id="txtDOB" name="dob" value="{{this.dob}}">
+                            </div>
+                            <div class="form-group col-12 col-lg-6">
+                                <label>Email</label>
+                                <input type="text" class="form-control" id="txtEmail" name="email"
+                                    value="{{this.user.email}}">
+                            </div>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-success">Update my profile</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
