@@ -10,5 +10,5 @@ module.exports = function (app) {
     });
     app.use('/user', require('../routes/user.route'));
     app.use('/course', auth, require('../routes/course.route'));
-    app.use('/category', auth, isAdmin, require('../routes/category.route'));
+    app.use('/category', auth, require('../routes/category.route'));
 };

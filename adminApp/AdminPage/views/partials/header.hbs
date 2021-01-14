@@ -1,7 +1,7 @@
 <aside class="main-sidebar fixed offcanvas shadow" data-toggle='offcanvas'>
     <section class="sidebar">
-        <div class="w-80px mt-3 mb-3 ml-3">
-            MClass
+        <div class="my-2 d-flex justify-content-center">
+            <img src="/img/logo.png" class="img-fluid">
         </div>
         <div class="relative">
             <a data-toggle="collapse" href="#userSettingsCollapse" role="button" aria-expanded="false"
@@ -12,7 +12,7 @@
             <div class="user-panel p-3 light mb-2">
                 <div>
                     <div class="float-left image">
-                        <img class="user_avatar" src="/img/dummy/u1.png" alt="User Image">
+                        <img class="user_avatar" src="{{encodeMyString this.currentUser.userImage}}" alt="User Image">
                     </div>
                     <div class="float-left info">
                         <h6 class="font-weight-light mt-2 mb-1">{{this.currentUser.firstName}}
@@ -26,6 +26,9 @@
                         <div class="list-group mt-3 shadow">
                             <a href="/user/profile" class="list-group-item list-group-item-action ">
                                 <i class="mr-2 icon-umbrella text-blue"></i>Profile
+                            </a>
+                            <a href="/user/profile" class="list-group-item list-group-item-action ">
+                                <i class="mr-2 icon-security text-purple"></i>Change Password
                             </a>
                             <a href="javascript: $('#frmLogout').submit();"
                                 class="list-group-item list-group-item-action"><i
@@ -41,29 +44,8 @@
                     <i class="icon icon icon-home blue-text s-18"></i>Home
                 </a>
             </li>
-            <li class="treeview"><a href="#">
-                    Courses<i class="icon icon-angle-left s-18 pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="/course"><i class="icon icon-circle-o"></i>All Courses</a>
-                    </li>
-                    {{#ifEquals this.currentUser.permission 1}}
-                    <li><a href="/course/add"><i class="icon icon-add"></i>Add
-                            New Course</a>
-                    </li>
-                    {{/ifEquals}}
-                </ul>
-            </li>
-            {{#ifEquals this.currentUser.permission 0}}
-            <li class="treeview"><a href="#">Categories<i class="icon icon-angle-left s-18 pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="/category"><i class="icon icon-circle-o"></i>All Categories</a>
-                    </li>
-                    <li><a href="/category/add"><i class="icon icon-add"></i>Add New Category</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="treeview"><a href="#">Users<i class="icon icon-angle-left s-18 pull-right"></i></a>
+            <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Users<i
+                        class="icon icon-angle-left s-18 pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="/user"><i class="icon icon-circle-o"></i>All Users</a>
                     </li>
@@ -71,7 +53,28 @@
                     </li>
                 </ul>
             </li>
-            {{/ifEquals}}
+            <li class="treeview"><a href="#">
+                    <i class="icon icon-book-bookmark2 text-yellow s-18"></i>
+                    Courses<i class="icon icon-angle-left s-18 pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/course"><i class="icon icon-circle-o"></i>All Courses</a>
+                    </li>
+                    <li><a href="/course/add"><i class="icon icon-add"></i>Add
+                            New Course</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="treeview"><a href="#">
+                    <i class="icon icon-th-large text-purple s-18"></i>
+                    Categories<i class="icon icon-angle-left s-18 pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="/category"><i class="icon icon-circle-o"></i>All Categories</a>
+                    </li>
+                    <li><a href="/category/add"><i class="icon icon-add"></i>Add New Category</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </section>
 </aside>

@@ -3,8 +3,8 @@ const db = require('../utils/db');
 const TBL_USERS = 'user';
 
 module.exports = {
-    all() {
-        return db.load(`select * from ${TBL_USERS}`);
+    all(condition) {
+        return db.load(`select * from ${TBL_USERS} ${condition}`);
     },
 
     async single(id) {
@@ -32,7 +32,7 @@ module.exports = {
     },
 
     async delete(id) {
-        const rows = await db.load(`select * from ${TBL_USERS} where id = ${id}`);
+        const rows = await db.load(`select * from ${TBL_USERS} where id = '${id}'`);
         if (rows.length === 0) {
             return null
         }

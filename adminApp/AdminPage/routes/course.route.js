@@ -2,8 +2,8 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const fs = require("fs");
-var multer = require('multer')
-var upload = multer({ dest: 'resources/uploads/' })
+const multer = require('multer')
+const upload = multer({ dest: 'resources/uploads/' })
 const { v4: uuidv4 } = require('uuid');
 
 const courseModel = require('../models/course.model');
@@ -76,7 +76,7 @@ router.post('/add', upload.single('courseImage'), async function (req, res) {
     lastModify: now,
     detailDesc: req.body.detailDesc,
     authorId: req.session.authUser.id,
-    courseImage: image
+    courseImage: image,
   }
   fs.writeFileSync("resources/tmp/" + req.file.filename, image)
   await courseModel.add(entity);

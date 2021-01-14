@@ -20,7 +20,10 @@ module.exports = function (app) {
   app.set('view engine', 'hbs');
   var temp = hbs.create({});
   temp.handlebars.registerHelper('encodeMyString', function (inputData) {
-    return inputData.toString('base64')
+    if (inputData) {
+      return "data:image/png;base64, " + inputData.toString('base64')
+    }
+    return "/img/dummy/u1.png"
   });
 
   temp.handlebars.registerHelper("select", function (value, options) {

@@ -5,7 +5,7 @@
                 <div class="row p-t-b-10 ">
                     <div class="col">
                         <h4>
-                            <i class="icon-package"></i>
+                            <i class="icon-account_box"></i>
                             Users
                         </h4>
                     </div>
@@ -29,51 +29,119 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card no-b shadow">
+                            <div class="card-title">
+                                <h3>Teacher User</h3>
+                            </div>
                             <div class="card-body p-0">
                                 <div class="table-responsive">
-                                    <table class="table table-hover ">
-                                        <tr>
-                                            <td>
-                                                <h6>Name</h6>
-                                            </td>
-                                            <td>Email</td>
-                                            <td>
-                                                <span></i>Date of birth</span>
-                                            </td>
-                                            <td>
-                                                <span></i>Permission</span>
-                                            </td>
-                                            <td>
-                                                <span></i>Action</span>
-                                            </td>
-                                        </tr>
+                                    <table class="table table-hover display" id="table1">
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <h6>Name</h6>
+                                                </td>
+                                                <td>Username</td>
+                                                <td>Email</td>
+                                                <td>
+                                                    <span></i>Date of birth</span>
+                                                </td>
+                                                <td>
+                                                    <span></i>Action</span>
+                                                </td>
+                                            </tr>
+                                        </thead>
                                         <tbody>
-                                            {{#each this.users}}
-                                            {{#ifNotEquals id ../currentUser.id}}
+                                            {{#each this.teachers}}
                                             <tr class="no-b">
                                                 <td>
                                                     <h6>{{lastName}} {{firstName}}</h6>
+                                                </td>
+                                                <td>{{username}}</td>
+                                                <td>{{email}}</td>
+                                                <td>
+                                                    <span></i>{{dob}}</span>
+                                                </td>
+                                                <td class="d-flex">
+                                                    <a href="/user/detail/{{id}}"
+                                                        class="btn-fab btn-fab-sm btn-primary shadow text-white mr-1"><i
+                                                            class="icon-eye3"></i></a>
+                                                    <a class="btn-fab btn-fab-sm btn-warning shadow text-white mr-1 updateStatus"
+                                                        data-id="{{id}}" style="cursor: pointer;">
+                                                        {{#ifEquals status 'deactivate'}}
+                                                        <i class="icon-lock"></i>
+                                                        {{/ifEquals}}
+                                                        {{#ifEquals status 'active'}}
+                                                        <i class="icon-lock-open2"></i>
+                                                        {{/ifEquals}}
+                                                    </a>
+                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white deleteRow"
+                                                        style="cursor: pointer;" data-id="{{id}}"><i
+                                                            class="icon-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <div class="card no-b shadow">
+                            <div class="card-title">
+                                <h3>Student User</h3>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover display" id="table2">
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <h6>Name</h6>
+                                                </td>
+                                                <td>Username</td>
+                                                <td>Email</td>
+                                                <td>
+                                                    <span></i>Date of birth</span>
+                                                </td>
+                                                <td>
+                                                    <span></i>Action</span>
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each this.students}}
+                                            <tr class="no-b">
+                                                <td>
+                                                    <h6>{{lastName}} {{firstName}}</h6>
+                                                </td>
+                                                <td>
+                                                    {{username}}
                                                 </td>
                                                 <td>{{email}}</td>
                                                 <td>
                                                     <span></i>{{dob}}</span>
                                                 </td>
-                                                <td>
-                                                    <span></i>{{permission}}</span>
-                                                </td>
                                                 <td class="d-flex">
                                                     <a href="/user/detail/{{id}}"
                                                         class="btn-fab btn-fab-sm btn-primary shadow text-white mr-1"><i
-                                                            class="icon-pencil"></i></a>
-                                                    <form action="/user/delete/{{id}}" method="POST"
-                                                        id="deleteUserForm">
-                                                        <a class="btn-fab btn-fab-sm btn-danger shadow text-white"
-                                                            href="javascript: $('#deleteUserForm').submit();"><i
-                                                                class="icon-trash"></i></a>
-                                                    </form>
+                                                            class="icon-eye3"></i></a>
+                                                    <a class="btn-fab btn-fab-sm btn-warning shadow text-white mr-1 updateStatus"
+                                                        data-id="{{id}}" style="cursor: pointer;">
+                                                        {{#ifEquals status 'deactivate'}}
+                                                        <i class="icon-lock"></i>
+                                                        {{/ifEquals}}
+                                                        {{#ifEquals status 'active'}}
+                                                        <i class="icon-lock-open2"></i>
+                                                        {{/ifEquals}}
+                                                    </a>
+                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white deleteRow"
+                                                        style="cursor: pointer;" data-id="{{id}}"><i
+                                                            class="icon-trash"></i></a>
                                                 </td>
                                             </tr>
-                                            {{/ifNotEquals}}
                                             {{/each}}
                                         </tbody>
                                     </table>
@@ -87,3 +155,52 @@
     </div>
     <div class="control-sidebar-bg shadow white fixed"></div>
 </div>
+<script>
+    $(document).ready(function () {
+        const table1 = $('#table1').DataTable({
+            "pagingType": "full_numbers",
+            "pageLength": 5,
+            "lengthChange": false
+        });
+
+        const table2 = $('#table2').DataTable({
+            "pagingType": "full_numbers",
+            "pageLength": 5,
+            "lengthChange": false
+        });
+
+        $('#table1 tbody').on('click', '.updateStatus', function () {
+            const id = $(this).data('id')
+            $.post(`/user/status/${id}`).then(() => {
+                $(this).children('i').prop('class') == 'icon-lock' ? $(this).children('i').removeClass('icon-lock').addClass('icon-lock-open2') : $(this).children('i').removeClass('icon-lock-open2').addClass('icon-lock')
+            })
+        })
+
+        $('#table1 tbody').on('click', '.deleteRow', function () {
+            const id = $(this).data('id')
+            $.post(`/user/delete/${id}`).then(() => {
+                table1
+                    .row($(this).parents('tr'))
+                    .remove()
+                    .draw();
+            })
+        })
+
+        $('#table1 tbody').on('click', '.updateStatus', function () {
+            const id = $(this).data('id')
+            $.post(`/user/status/${id}`).then(() => {
+                $(this).children('i').prop('class') == 'icon-lock' ? $(this).children('i').removeClass('icon-lock').addClass('icon-lock-open2') : $(this).children('i').removeClass('icon-lock-open2').addClass('icon-lock')
+            })
+        })
+
+        $('#table1 tbody').on('click', '.deleteRow', function () {
+            const id = $(this).data('id')
+            $.post(`/user/delete/${id}`).then(() => {
+                table1
+                    .row($(this).parents('tr'))
+                    .remove()
+                    .draw();
+            })
+        })
+    });
+</script>
