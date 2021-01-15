@@ -16,19 +16,28 @@ router.get("/sign-up", async function (req, res) {
 
 router.post("/sign-up", async function (req, res) {
   //Hash password
-  let { username, firstName, lastName, email, type, dob, password } = req.body;
+  let {
+    username,
+    firstName,
+    lastName,
+    email,
+    dob,
+    password,
+    phoneNumber,
+  } = req.body;
 
   const hashedPassword = bcrypt.hashSync(password, 10);
   dob = moment(dob, "DD/MM/YYYY").format("YYYY-MM-DD");
   const user = {
-    userID: uuidv4(),
+    id: uuidv4(),
     username: username,
     firstName: firstName,
     lastName: lastName,
     email: email,
     password: hashedPassword,
     dob: dob,
-    permission: +type,
+    permission: "student",
+    phoneNumber: phoneNumber,
   };
 
   await userModel.add(user);
@@ -49,6 +58,7 @@ router.get("/is-available", async function (req, res) {
 // Log in
 router.get("/sign-in", async function (req, res) {
   const ref = req.headers.referer;
+  console.log(res.locals.isAuth);
   if (req.session.isAuth) {
     return res.redirect(req.session.retUrl);
   }
@@ -63,17 +73,31 @@ router.get("/sign-in", async function (req, res) {
 router.post("/sign-in", async function (req, res) {
   const { username, password } = req.body;
   const user = await userModel.singleByUsername(username);
-  // Check username
+
+  // Validate
+  if (username === "") {
+    return res.render("vwAccount/signin", {
+      error_message: "Please fill in username!!!",
+    });
+  }
+
+  if (password === "") {
+    return res.render("vwAccount/signin", {
+      error_message: "Please fill in password!!!",
+    });
+  }
+
+  // Check username isExist
   if (user === null) {
     return res.render("vwAccount/signin", {
-      error_message: "Invalid username or password!",
+      error_message: "Username does not existence",
     });
   }
 
   //Check password
   if (bcrypt.compareSync(password, user.password) === false) {
     return res.render("vwAccount/signin", {
-      error_message: "Password does not match!!!",
+      error_message: "Password is not connect!!!",
     });
   }
 
@@ -84,12 +108,13 @@ router.post("/sign-in", async function (req, res) {
   } else avatar = "images/user-avt.png";
 
   // Type user
-  const isTeacher = user.permission === 1;
-  console.log(isTeacher);
+  const isTeacher = user.permission === "teacher";
+
   req.session.isAuth = true;
   req.session.authUser = user;
   req.session.avatar = avatar;
   req.session.isTeacher = isTeacher;
+
   let url = req.session.retUrl || "/";
   res.redirect(url);
 });

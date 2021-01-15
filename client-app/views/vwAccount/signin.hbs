@@ -1,3 +1,9 @@
+{{#section 'js'}}
+<script>
+   $('#errLogIn').delay(2500).hide(300);
+</script>
+{{/section}}
+
 <!--====== Login Start ======-->
 <section class="login-register my-5">
     <div class="container">
@@ -5,8 +11,15 @@
             <div class="col-lg-6">
                 <div class="login-register-content">
                     <h4 class="title">Login to Your Account</h4>
+                    {{#ifCond isAuth '===' false}}
+                    {{#if error_message}}
+                    <div class="alert alert-danger mt-3" role="alert" id="errLogIn">
+                        {{error_message}}
+                    </div>
+                    {{/if}}
+                    {{/ifCond}}
                     <div class="login-register-form">
-                        <form  method="POST">
+                        <form method="POST" id="fromLogIn">
                             <div class="single-form">
                                 <label>Username*</label>
                                 <input type="username" name="username" placeholder="Enter your username">
@@ -16,7 +29,7 @@
                                 <input type="password" name="password" placeholder="Enter your password">
                             </div>
                             <div class="single-form">
-                                <button class="main-btn btn-block" type="submit" >Login</button>
+                                <button class="main-btn btn-block" type="submit">Login</button>
                             </div>
                             <div class="single-form d-flex justify-content-between">
                                 <div class="checkbox">

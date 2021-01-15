@@ -15,7 +15,7 @@ module.exports = {
 
   async getByType(type) {
     const rows = await db.load(
-      `select * from ${TBL_USERS} where permission=${type}`
+      `select * from ${TBL_USERS} where permission='${type}'`
     );
     if (rows.length === 0) return null;
 

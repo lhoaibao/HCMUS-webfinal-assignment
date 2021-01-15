@@ -1,43 +1,3 @@
-{{#section 'css'}}
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"
-    integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw=="
-    crossorigin="anonymous" />
-{{/section}}
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"
-    integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw=="
-    crossorigin="anonymous" />
-{{#section 'js'}}
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
-
-<script>
-
-    $("#frmRegister").on("submit", (e) => {
-        e.preventDefault();
-        // Check username đã tồn tại hay chưa
-
-        const username = $("#username").val();
-        const password = $("#password").val();
-        const password2 = $("#password2").val();
-
-        $.getJSON(`/account/is-available?user=${username}`, function (data) {
-            if (data && (password === password2)) {
-                $("#frmRegister").off("submit").submit();
-            } else alert("Invalid data!");
-        });
-    });
-
-
-    $("#txtDOB").datetimepicker({
-        timepicker: false,
-        mask: true,
-        format: "d/m/Y"
-    })
-</script>
-{{/section}}
-
 <!--====== Page Banner Start ======-->
 
 <section class="page-banner">
@@ -113,8 +73,7 @@
                                 <!-- Password2 -->
                                 <div class="form-control-group col-12 col-lg-6">
                                     <label>Confirm password</label>
-                                    <input type="password" id="password2"
-                                        placeholder="Confirm password" />
+                                    <input type="password" id="password2" placeholder="Confirm password" />
                                     <i class="fa fa-check-circle"></i>
                                     <i class="fa fa-exclamation-circle"></i>
                                     <small>Error Message</small>
@@ -127,17 +86,17 @@
                                     <i class="fa fa-exclamation-circle"></i>
                                     <small>Error Message</small>
                                 </div>
-
-                                <!-- Type-->
+                                <!-- Username -->
                                 <div class="form-control-group col-12 col-lg-6">
-                                    <label>Type*</label>
-                                    <select class="custom-select custom-select-sm" name="type" id="txtType">
-                                        <option selected>You are a student or teacher</option>
-                                        <option value="2">Student</option>
-                                        <option value="1">Teacher</option>
-                                    </select>
+                                    <label>Phone number</label>
+                                    <input type="text" id="phoneNumber" name="phoneNumber"
+                                        placeholder="Enter your phone number..." />
+                                    <i class="fa fa-check-circle"></i>
+                                    <i class="fa fa-exclamation-circle"></i>
                                     <small>Error Message</small>
                                 </div>
+
+
 
                             </div>
 
@@ -156,3 +115,170 @@
 </section>
 
 <!--====== Login Ends ======-->
+
+
+{{#section 'css'}}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"
+    integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw=="
+    crossorigin="anonymous" />
+{{/section}}
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"
+    integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw=="
+    crossorigin="anonymous" />
+{{#section 'js'}}
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<script>
+
+
+
+
+    $("#txtDOB").datetimepicker({
+        timepicker: false,
+        mask: true,
+        format: "d/m/Y"
+    })
+
+    const firstName = document.getElementById("firstName");
+    const lastName = document.getElementById("lastName");
+    const username = document.getElementById("username");
+    const dob = document.getElementById("txtDOB");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const password2 = document.getElementById("password2");
+    const phoneNumber = document.getElementById("phoneNumber");
+
+    $("#frmRegister").on("submit", (e) => {
+        e.preventDefault();
+        // Check username đã tồn tại hay chưa
+
+        const username = $("#username").val();
+
+        $.getJSON(`/account/is-available?user=${username}`, function (data) {
+            let submitCondition = validateInputs();
+            if (data && submitCondition) {
+                $("#frmRegister").off("submit").submit();
+            } else alert("Invalid data!");
+        });
+    });
+
+    validateInputs = () => {
+        let flag = true;
+
+        // Get all values from th inputs
+        const usernameValue = username.value;
+        const passwordValue = password.value;
+        const password2Value = password2.value;
+        const firstNameValue = firstName.value;
+        const lastNameValue = lastName.value;
+        const dobValue = dob.value;
+        const emailValue = email.value;
+        const phoneNumberValue = phoneNumber.value
+
+
+        //Check username:
+        if (usernameValue === "") {
+            // Show error
+            // Add error class
+            setError(username, "Username can not be plank!");
+            flag = false;
+        } else {
+            setSuccess(username);
+        }
+
+        //Check firstName:
+        if (firstNameValue === "") {
+            // Show error
+            // Add error class
+            setError(firstName, "First name can not be plank!");
+            flag = false;
+        } else {
+            setSuccess(firstName);
+        }
+
+        //Check dob:
+        if (dobValue === "") {
+            // Show error
+            // Add error class
+            setError(dob, "Date of birth can not be plank!");
+            flag = false;
+        } else {
+            setSuccess(dob);
+        }
+
+        //Check lastName:
+        if (lastNameValue === "") {
+            // Show error
+            // Add error class
+            setError(lastName, "Last name can not be plank!");
+            flag = false;
+        } else {
+            setSuccess(lastName);
+        }
+
+        //Check Email
+        if (emailValue === "") {
+            setError(email, "Email cannot be plank!");
+        } else if (!isEmail(emailValue)) {
+            setError(email, "Email is not valid!");
+            flag = false;
+        } else {
+            setSuccess(email);
+        }
+
+        //Check passsword
+        if (passwordValue === "") {
+            setError(password, "Password cannot be plank!");
+            flag = false;
+        } else {
+            setSuccess(password);
+        }
+
+        //Check password confirmed
+        if (password2Value === "") {
+            setError(password2, "Password confirmed cannot be plank!");
+        } else if (password2Value !== passwordValue) {
+            setError(password2, "Password does not match!");
+            flag = false;
+        } else {
+            setSuccess(password2);
+        }
+
+        //Check passsword
+        if (phoneNumberValue === "") {
+            setError(phoneNumber, "Phone number cannot be plank!");
+            flag = false;
+        } else {
+            setSuccess(phoneNumber);
+        }
+
+        return flag;
+    };
+
+    // Handle Error:
+    setError = (input, message) => {
+        // Add message
+        const formControl = input.parentElement;
+        const small = formControl.querySelector("small");
+        small.innerText = message;
+
+        //Add error class
+        formControl.className = "form-control-group error col-12 col-lg-6";
+    };
+
+    // Handle Success:
+    setSuccess = (input) => {
+        // Add class
+        const formControl = input.parentElement;
+        formControl.className = "form-control-group success col-12 col-lg-6";
+    };
+
+    isEmail = (email) => {
+        return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            email
+        );
+    };
+</script>
+{{/section}}

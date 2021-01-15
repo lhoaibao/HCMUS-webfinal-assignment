@@ -6782,8 +6782,9 @@ p {
 
 .form-control-group i {
   position: absolute;
-  right: 10px;
-  top: 40px;
+  right: 20px;
+  top: calc(50% - 6px);
+  transform: translateY(-50%);
   visibility: hidden;
 }
 
