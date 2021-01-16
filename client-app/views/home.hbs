@@ -128,7 +128,12 @@
                             <a href="courses/detail/{{id}}"><img src="data:image/png;base64,{{img}}" alt="courses"></a>
                         </div>
                         <div class="courses-content">
-                            <a href="#" class="category">#{{catName}}</a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <a href="#" class="category">#{{catName}}</a>
+                                {{#if ../authUser}}
+                                <a href="" class="text-danger"><i class="fa fa-heart"></i></a>
+                                {{/if}}
+                            </div>
                             <h4 class="courses-title"><a href="courses/detail/{{id}}">{{courseName}}</a>
                             </h4>
                             <p class="m-1 category"><b>Author:</b> {{authorName}}</p>
@@ -197,7 +202,12 @@
 
                         {{!-- Course content start--}}
                         <div class="courses-content">
-                            <a href="#" class="category">#{{catName}}</a>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <a href="#" class="category">#{{catName}}</a>
+                                {{#if ../authUser}}
+                                <a  class="text-danger" href=""><i class="fa fa-heart "></i></a>
+                                {{/if}}
+                            </div>
                             <h4 class="courses-title"><a href="courses/detail/{{id}}">{{courseName}}</a></h4>
                             <p class=" m-1 category"><b>Author:</b> {{authorName}}</p>
                             <div class="duration-rating">

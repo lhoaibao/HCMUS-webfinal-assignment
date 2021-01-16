@@ -24,10 +24,10 @@
 
                 <div class="text-center">
                     {{#if authUser.userImage}}
-                    <img src="data:image/png;base64,{{this.user.avatar}}" class="rounded-circle" alt="avatar" width="80"
+                    <img src="data:image/png;base64,{{avatar}}" class="rounded-circle" alt="avatar" width="80"
                         height="80">
                     {{else}}
-                    <img src="{{this.user.avatar}}" class="rounded-circle" alt="avatar" width="80" height="80">
+                    <img src="{{authUser.avatar}}" class="rounded-circle" alt="avatar" width="80" height="80">
                     {{/if}}
                     <p class="my-2 font-weight-bold">{{this.user.firstName}} {{this.user.lastName}}</p>
                 </div>
@@ -37,15 +37,15 @@
                 <div class="py-2">
                     <div class="user-profile-sidebar__item py-2 active" id="profile">
                         <i class="fa fa-home mr-3"></i>
-                        <a href="#">My profile</a>
+                        <a href="/user/profile">My profile</a>
                     </div>
                     <div class="user-profile-sidebar__item py-2" id="learning">
                         <i class="fa fa-graduation-cap mr-3"></i>
-                        <a href="/user/learning/{{authUser.id}}">My learning</a>
+                        <a href="/user/learning">My learning</a>
                     </div>
                     <div class="user-profile-sidebar__item py-2" id="wishlist">
                         <i class="fa fa-heart mr-3"></i>
-                        <a href="/user/wishlist/{{authUser.id}}">My wishlist</a>
+                        <a href="/user/wishlist">My wishlist</a>
                     </div>
                 </div>
             </div>

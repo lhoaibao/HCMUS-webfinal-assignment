@@ -11,9 +11,7 @@
         })
     }));
 
-    // Filter Sub categories
-    let allSubCat=document.querySelector('#subCategoriesCheckbox');
-    allSubCat.addEventListener('click') 
+
 
     //Scroll to course after filter
     $(document).ready(function () {
@@ -23,6 +21,14 @@
         $('html, body').animate({
             scrollTop: $('.top-courses-area').offset().top
         }, 'slow');
+
+
+        $("#addwishlist").on('click', function () {
+            let courseId = $(this).data('id')
+            $.post(`/user/wishlist/add/${courseId}`).then((result) => {
+
+            })
+        })
     })
 
 
@@ -100,7 +106,15 @@
                                                     alt="courses"></a>
                                         </div>
                                         <div class="courses-content">
-                                            <a href="/courses/detail/{{id}}" class="category">#{{catName}}</a>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <span href="" class="category">#{{catName}}</span>
+                                                {{#if ../authUser}}
+                                                <a style="cursor: pointer;" id="addwishlist" data-id='{{id}}'
+                                                    class="text-white"><i class="fa fa-heart"></i></a>
+                                                {{/if}}
+
+
+                                            </div>
                                             <h4 class="courses-title"><a href="detail/{{id}}">{{courseName}}</a>
                                             </h4>
                                             <p class="m-1 category"><b>Author:</b> {{authorName}}</p>

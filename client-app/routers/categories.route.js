@@ -7,6 +7,7 @@ const courseServices = require("../services/course");
 router.get("/:id", async (req, res) => {
   const categoryId = req.params.id;
   const sortBy = req.query.sortBy;
+  req.session.retUrl = req.originalUrl;
   let subCategories = await subCategoryModel.subCategoriesByCategory(
     categoryId
   );
