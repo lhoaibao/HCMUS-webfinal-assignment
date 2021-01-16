@@ -17,4 +17,6 @@ module.exports = {
     poolQuery(`delete from ${tableName} where ?`, condition),
   patch: (entity, condition, tableName) =>
     poolQuery(`update ${tableName} set ? where ?`, [entity, condition]),
+  del: (condition, tableName) =>
+    poolQuery(`delete from ${tableName} where ?`, condition),
 };

@@ -59,7 +59,6 @@ router.get("/:id", async (req, res) => {
   for (let i = 0; i < courses.length; i++) {
     const catItem = await subCategoryModel.single(courses[i].categoryId);
     const userTeacher = await userModel.single(courses[i].userId);
-    console.log(courses[i].createAt);
     if (userTeacher !== null) {
       courses[i].authorName =
         userTeacher.firstName + " " + userTeacher.lastName;

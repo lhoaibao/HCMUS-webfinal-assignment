@@ -16,6 +16,12 @@
             }
         },
     })
+
+    $(".addwishlist").on('click', function () {
+        let courseId = $(this).data('id');
+        $.post(`/user/wishlist/add/${courseId}`);
+
+    })
 </script>
 {{/section}}
 
@@ -131,7 +137,8 @@
                             <div class="d-flex align-items-center justify-content-between">
                                 <a href="#" class="category">#{{catName}}</a>
                                 {{#if ../authUser}}
-                                <a href="" class="text-danger"><i class="fa fa-heart"></i></a>
+                                <a style="cursor: pointer;" class="addwishlist text-danger" data-id='{{id}}'
+                                    class="text-white"><i class="fa fa-heart"></i></a>
                                 {{/if}}
                             </div>
                             <h4 class="courses-title"><a href="courses/detail/{{id}}">{{courseName}}</a>
@@ -205,7 +212,8 @@
                             <div class="d-flex align-items-center justify-content-between">
                                 <a href="#" class="category">#{{catName}}</a>
                                 {{#if ../authUser}}
-                                <a  class="text-danger" href=""><i class="fa fa-heart "></i></a>
+                                <a style="cursor: pointer;" class="addwishlist text-danger" data-id='{{id}}'
+                                    class="text-white"><i class="fa fa-heart"></i></a>
                                 {{/if}}
                             </div>
                             <h4 class="courses-title"><a href="courses/detail/{{id}}">{{courseName}}</a></h4>

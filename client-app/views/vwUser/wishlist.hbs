@@ -1,8 +1,21 @@
+{{#section 'js'}}
+<script>
+    $('.rmWishlist').on('click', function () {
+        console.log(1);
+        let wishlistId = $(this).data('id');
+        $.post(`/user/wishlist/delete/${wishlistId}`).then((res) => {
+            window.location.reload();
+        }).catch(err => {
+            console.log()
+        })
+    })
+</script>
+{{/section}}
+
 <div class="container">
     <div class="user-profile">
         <div class="row">
             <div class="col-12 col-lg-3 user-profile-sidebar">
-
                 <div class="text-center">
                     {{#if authUser.userImage}}
                     <img src="data:image/png;base64,{{avatar}}" class="rounded-circle" alt="avatar" width="80"
@@ -30,7 +43,58 @@
                     </div>
                 </div>
             </div>
+            <div class="col-12 col-lg-8">
+                <div class="courses-wrapper wrapper-2">
+                    <div class="row grid">
 
+                        {{#each wishlist}}
+                        <div class="col-12 col-lg-6  courses-col">
+                            <div class="single-courses-2 mt-30">
+                                <div class="courses-image">
+                                    <a href="/courses/detail/{{id}}"><img src="data:image/png;base64,{{img}}"
+                                            alt="courses"></a>
+                                </div>
+                                <div class="courses-content">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <span href="" class="category">#{{catName}}</span>
+                                    </div>
+                                    <h4 class="courses-title"><a href="detail/{{id}}">{{courseName}}</a>
+                                    </h4>
+                                    <p class="m-1 category"><b>Author:</b> {{authorName}}</p>
+                                    <div class="duration-rating">
+                                        <div class="duration-fee">
+                                            <p class="duration">Duration: <span> 4 year</span></p>
+                                            <p class="fee">Fee: <span> ${{tuition}}</span></p>
+                                        </div>
+                                        <div class="rating">
+                                            <span>{{ratingScore}}</span>
+                                            <span class="ml-1">({{ratingNumber}})</span>
+                                            <ul class="star">
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                                <li><i class="fas fa-star"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    {{!-- Add to cart --}}
+                                    <div class="courses-link">
+                                        <button class="btn-outline-white mr-5" style="cursor: pointer;">Add to
+                                            cart</button>
+
+                                        <button class="btn btn-danger rmWishlist" style="cursor: pointer;"
+                                            data-id="{{wishlistId}}">Remove</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

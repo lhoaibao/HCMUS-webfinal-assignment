@@ -12,7 +12,6 @@
     }));
 
 
-
     //Scroll to course after filter
     $(document).ready(function () {
         // Handler for .ready() called.
@@ -23,11 +22,10 @@
         }, 'slow');
 
 
-        $("#addwishlist").on('click', function () {
-            let courseId = $(this).data('id')
-            $.post(`/user/wishlist/add/${courseId}`).then((result) => {
+        $(".addwishlist").on('click', function () {
+            let courseId = $(this).data('id');
+            $.post(`/user/wishlist/add/${courseId}`);
 
-            })
         })
     })
 
@@ -109,7 +107,7 @@
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <span href="" class="category">#{{catName}}</span>
                                                 {{#if ../authUser}}
-                                                <a style="cursor: pointer;" id="addwishlist" data-id='{{id}}'
+                                                <a style="cursor: pointer;" class="addwishlist text-danger" data-id='{{id}}'
                                                     class="text-white"><i class="fa fa-heart"></i></a>
                                                 {{/if}}
 

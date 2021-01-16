@@ -29,6 +29,6 @@ module.exports = {
     return db.add(entity, TBL_WISHLIST);
   },
   delete(id) {
-    return db.del({id:id, TBL_WISHLIST})
-  }
+    return db.del({id:id}, TBL_WISHLIST);
+  },
 };

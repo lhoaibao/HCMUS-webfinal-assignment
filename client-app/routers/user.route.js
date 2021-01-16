@@ -1,8 +1,9 @@
 const express = require("express");
 const userModel = require("../models/user.model");
 const router = express();
-const courseService = require("../services/course");
+const courseServices = require("../services/course");
 const wishlistModel = require("../models/wishlist.model");
+const subCategoryModel = require("../models/subCategory.model");
 const multer = require("multer");
 const upload = multer({ dest: "resource/uploads/" });
 const fs = require("fs");
@@ -16,13 +17,60 @@ router.get("/learning", async (req, res) => {
 // wishlist
 router.get("/wishlist", async (req, res) => {
   const userId = req.session.authUser.id;
-  req.session.retUrl = req.originalUrl
-  res.render("vwUser/wishlist");
+  const wishlist = await wishlistModel.all();
+  let courseList = [];
+  if (wishlist.length !== 0) {
+    for (let i = 0; i < wishlist.length; i++) {
+      let courseItem = await courseModel.single(wishlist[i].courseId);
+      courseList = [...courseList, courseItem];
+    }
+
+    // Hanle course item
+    for (let i = 0; i < courseList.length; i++) {
+      const catItem = await subCategoryModel.single(courseList[i].categoryId);
+      const userTeacher = await userModel.single(courseList[i].userId);
+      if (userTeacher !== null) {
+        courseList[i].authorName =
+          userTeacher.firstName + " " + userTeacher.lastName;
+      }
+
+      if (courseList[i].courseName.length >= 60)
+        courseList[i].courseName =
+          courseList[i].courseName.slice(0, 60) + "...";
+
+      courseList[i].img = courseServices.convertBlobToBase64(
+        courseList[i].courseImage
+      );
+      courseList[i].wishlistId = wishlist[i].id;
+      if (catItem !== undefined)
+        courseList[i].catName = catItem.subCategoryName;
+    }
+  }
+
+  req.session.retUrl = req.originalUrl;
+  res.render("vwUser/wishlist", {
+    wishlist: courseList,
+  });
 });
 
 router.post("/wishlist/add/:id", async (req, res) => {
   const courseId = req.params.id;
-  console.log(courseId)
+  const userId = req.session.authUser.id;
+  let wishlist = await wishlistModel.all();
+  let isExistWishlist = false;
+  if (wishlist.length !== 0) {
+    for (let i = 0; i < wishlist.length; i++) {
+      if (wishlist[i].courseId === courseId && wishlist[i].userId === userId) {
+        isExistWishlist = true;
+        break;
+      }
+    }
+  }
+
+  if (isExistWishlist) {
+    return res.redirect(req.session.retUrl);
+  }
+
   const entity = {
     id: uuidv4(),
     courseId: courseId,
@@ -35,9 +83,11 @@ router.post("/wishlist/add/:id", async (req, res) => {
 
 router.post("/wishlist/delete/:id", async (req, res) => {
   const wishlistId = req.params.id;
+  console.log(wishlistId);
   await wishlistModel.delete(wishlistId);
   res.redirect(req.session.retUrl);
 });
+
 // Profile
 router.get("/profile", async (req, res) => {
   let id = req.session.authUser.id;

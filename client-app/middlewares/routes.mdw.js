@@ -18,4 +18,7 @@ module.exports = function (app) {
 
   //Categories
   app.use("/categories", require("../routers/categories.route"));
+
+  //Cart
+  app.use("/cart", require("../routers/cart.route"));
 };

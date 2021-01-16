@@ -56,7 +56,6 @@ router.get("/is-available", async function (req, res) {
 // Log in
 router.get("/sign-in", async function (req, res) {
   const ref = req.headers.referer;
-  console.log(res.locals.isAuth);
   if (req.session.isAuth) {
     return res.redirect(req.session.retUrl);
   }
