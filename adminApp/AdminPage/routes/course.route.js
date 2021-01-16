@@ -5,7 +5,7 @@ const fs = require("fs");
 const multer = require('multer')
 const upload = multer({ dest: 'resources/uploads/' })
 const { v4: uuidv4 } = require('uuid');
-
+const isTeacher = require('../controllers/teacher.controller');
 const courseModel = require('../models/course.model');
 const subCategoryModel = require('../models/subCategory.model');
 const userModel = require('../models/user.model');

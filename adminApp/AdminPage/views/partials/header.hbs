@@ -44,15 +44,6 @@
                     <i class="icon icon icon-home blue-text s-18"></i>Home
                 </a>
             </li>
-            <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Users<i
-                        class="icon icon-angle-left s-18 pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="/user"><i class="icon icon-circle-o"></i>All Users</a>
-                    </li>
-                    <li><a href="/user/add"><i class="icon icon-add"></i>Add New User</a>
-                    </li>
-                </ul>
-            </li>
             <li class="treeview"><a href="#">
                     <i class="icon icon-book-bookmark2 text-yellow s-18"></i>
                     Courses<i class="icon icon-angle-left s-18 pull-right"></i>
@@ -62,6 +53,16 @@
                     </li>
                     <li><a href="/course/add"><i class="icon icon-add"></i>Add
                             New Course</a>
+                    </li>
+                </ul>
+            </li>
+            {{#ifEquals currentUser.permission 'admin'}}
+            <li class="treeview"><a href="#"><i class="icon icon-account_box light-green-text s-18"></i>Users<i
+                        class="icon icon-angle-left s-18 pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="/user"><i class="icon icon-circle-o"></i>All Users</a>
+                    </li>
+                    <li><a href="/user/add"><i class="icon icon-add"></i>Add New User</a>
                     </li>
                 </ul>
             </li>
@@ -75,6 +76,7 @@
                     </li>
                 </ul>
             </li>
+            {{/ifEquals}}
         </ul>
     </section>
 </aside>

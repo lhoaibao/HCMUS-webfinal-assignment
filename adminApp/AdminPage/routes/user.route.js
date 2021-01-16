@@ -12,7 +12,7 @@ const userModel = require('../models/user.model');
 
 const router = express.Router();
 
-router.get('/', auth, async function (req, res) {
+router.get('/', isAdmin, auth, async function (req, res) {
     req.session.retUrl = req.originalUrl
     try {
         const teachers = await userModel.all(`where permission='teacher'`);
@@ -28,14 +28,14 @@ router.get('/', auth, async function (req, res) {
     }
 })
 
-router.get('/add', auth, async function (req, res) {
+router.get('/add', isAdmin, auth, async function (req, res) {
     req.session.retUrl = req.originalUrl
     res.render('vwUser/add', {
         currentUser: req.session.authUser
     });
 })
 
-router.post('/add', upload.single('userImage'), auth, async function (req, res) {
+router.post('/add', auth, isAdmin, upload.single('userImage'), async function (req, res) {
     const user = await userModel.singleByUserName(req.body.username)
     if (user) {
         return res.render('vwUser/add', {
@@ -97,7 +97,7 @@ router.post('/login', async function (req, res) {
 router.post('/logout', async function (req, res) {
     req.session.isAuth = false;
     req.session.authUser = null;
-    res.redirect(req.headers.referer);
+    res.redirect('/user/login');
 })
 
 router.get('/profile', auth, async function (req, res) {
@@ -158,7 +158,7 @@ router.get('/login', async function (req, res) {
     });
 })
 
-router.get('/detail/:id', auth, async function (req, res) {
+router.get('/detail/:id', isAdmin, auth, isAdmin, async function (req, res) {
     const row = await userModel.single(req.params.id)
     res.render('vwUser/detail.hbs', {
         user: row,
@@ -172,7 +172,7 @@ router.get('/edit/:id', auth, async function (req, res) {
     })
 })
 
-router.post('/edit/:id', upload.single('userImage'), auth, async function (req, res) {
+router.post('/edit/:id', auth, upload.single('userImage'), async function (req, res) {
     let id = req.params.id
     if (req.file) {
         userImage = fs.readFileSync("resources/uploads/" + req.file.filename)
@@ -201,7 +201,7 @@ router.post('/edit/:id', upload.single('userImage'), auth, async function (req, 
     return res.redirect(req.session.retUrl)
 })
 
-router.post('/delete/:id', auth, async function (req, res) {
+router.post('/delete/:id', auth, isAdmin, async function (req, res) {
     id = req.params.id
     const check = await userModel.delete(id)
     if (check) {
@@ -210,7 +210,7 @@ router.post('/delete/:id', auth, async function (req, res) {
     return res.redirect(req.session.retUrl)
 })
 
-router.post('/status/:id', auth, async function (req, res) {
+router.post('/status/:id', auth, isAdmin, async function (req, res) {
     id = req.params.id
     const row = await userModel.single(req.params.id)
     entity = {
