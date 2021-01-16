@@ -10163,6 +10163,7 @@ p {
   padding-left: 16px;
   border-left: 3px solid #ffffff;
   transition: all .4s;
+  cursor: pointer;
 }
 
 .user-profile-sidebar__item:hover {

@@ -14,7 +14,7 @@ module.exports = function (app) {
   app.use("/teachers", require("../routers/teachers.route"));
 
   //Profile
-  app.use("/profile", require("../routers/profile.route"));
+  app.use("/user", auth, require("../routers/user.route"));
 
   //Categories
   app.use("/categories", require("../routers/categories.route"));
