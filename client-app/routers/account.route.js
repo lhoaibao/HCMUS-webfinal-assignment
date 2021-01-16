@@ -25,9 +25,7 @@ router.post("/sign-up", async function (req, res) {
     password,
     phoneNumber,
   } = req.body;
-
   const hashedPassword = bcrypt.hashSync(password, 10);
-  dob = moment(dob, "DD/MM/YYYY").format("YYYY-MM-DD");
   const user = {
     id: uuidv4(),
     username: username,
@@ -109,7 +107,6 @@ router.post("/sign-in", async function (req, res) {
 
   // Type user
   const isTeacher = user.permission === "teacher";
-
   req.session.isAuth = true;
   req.session.authUser = user;
   req.session.avatar = avatar;

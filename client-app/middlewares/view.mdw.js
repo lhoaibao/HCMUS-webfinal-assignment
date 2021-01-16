@@ -1,6 +1,6 @@
 const exphbs = require("express-handlebars");
 const hbs_sections = require("express-handlebars-sections");
-
+const moment =require('moment')
 module.exports = function (app) {
   app.engine(
     "hbs",
@@ -14,7 +14,9 @@ module.exports = function (app) {
       },
     })
   );
+
   app.set("view engine", "hbs");
+  
   let hbsInstance = exphbs.create({});
   hbsInstance.handlebars.registerHelper(
     "ifCond",
@@ -45,4 +47,10 @@ module.exports = function (app) {
       }
     }
   );
+
+  hbsInstance.handlebars.registerHelper(
+    'date', function(inputData){
+      return moment(inputData).format('YYYY-MM-DD')
+    }
+  )
 };

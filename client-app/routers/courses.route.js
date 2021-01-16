@@ -6,42 +6,9 @@ const userModel = require("../models/user.model");
 const courseService = require("../services/course");
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-  const allCategory = await categoriesModel.all();
-  const courses = await courseModel.all();
-  // Handle sub Category quantity
-  const catQuantity = await categoriesModel.getQuantityOfSubCategory();
-  for (let i = 0; i < allCategory.length; i++) {
-    allCategory[i].subCatQuantity = catQuantity[i].subCatQuantity;
-  }
-
-  // Hanle course item
-  for (let i = 0; i < courses.length; i++) {
-    const catItem = await subCategoryModel.single(courses[i].categoryId);
-
-    const userTeacher = await userModel.single(courses[i].userId);
-
-    if (userTeacher !== null) {
-      courses[i].authorName =
-        userTeacher.firstName + " " + userTeacher.lastName;
-    }
-
-    if (courses[i].courseName.length >= 60)
-      courses[i].courseName = courses[i].courseName.slice(0, 60) + "...";
-
-    courses[i].img = courseService.convertBlobToBase64(courses[i].courseImage);
-    if (catItem !== undefined) courses[i].catName = catItem.subCategoryName;
-  }
-  // console.log(courses);
-  res.render("vwCourses/courses", {
-    categories: allCategory,
-    allCourse: courses,
-  });
-});
-
 router.get("/detail/:id", async (req, res) => {
   const courseID = req.params.id;
-  console.log(courseID);
+
   // Course Item
   const courseItem = await courseModel.single(courseID);
 

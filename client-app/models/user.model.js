@@ -32,4 +32,8 @@ module.exports = {
   add(entity) {
     return db.add(entity, TBL_USERS);
   },
+
+  async update(id, entity) {
+    return db.patch(entity, { id: id }, TBL_USERS);
+  },
 };

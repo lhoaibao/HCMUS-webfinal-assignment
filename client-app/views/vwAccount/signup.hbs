@@ -81,7 +81,7 @@
                                 <!-- Date of birth -->
                                 <div class="form-control-group col-12 col-lg-6">
                                     <label>Date of birth:</label>
-                                    <input type="text" id="txtDOB" name="dob" placeholder="Date of birth..." />
+                                    <input type="date" id="txtDOB" name="dob" placeholder="Date of birth..." />
                                     <i class="fa fa-check-circle"></i>
                                     <i class="fa fa-exclamation-circle"></i>
                                     <small>Error Message</small>
@@ -117,29 +117,12 @@
 <!--====== Login Ends ======-->
 
 
-{{#section 'css'}}
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"
-    integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw=="
-    crossorigin="anonymous" />
-{{/section}}
-<link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css"
-    integrity="sha512-bYPO5jmStZ9WI2602V2zaivdAnbAhtfzmxnEGh9RwtlI00I9s8ulGe4oBa5XxiC6tCITJH/QG70jswBhbLkxPw=="
-    crossorigin="anonymous" />
+
+
+
 {{#section 'js'}}
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
 <script>
 
-
-
-
-    $("#txtDOB").datetimepicker({
-        timepicker: false,
-        mask: true,
-        format: "d/m/Y"
-    })
 
     const firstName = document.getElementById("firstName");
     const lastName = document.getElementById("lastName");

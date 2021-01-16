@@ -1,0 +1,411 @@
+{{#section 'js'}}
+<script>
+
+    // Filter Sortby
+    let sortBy = document.querySelector("#sortBy");
+    Array.prototype.forEach.call(sortBy.childNodes, (item => {
+        item.addEventListener("click", function () {
+            let sortByType = item.getAttribute('data-value');
+            let href = window.location.origin + window.location.pathname;
+            window.open(href + `?sortBy=${sortByType}`, "_self");
+        })
+    }));
+
+    // Filter Sub categories
+    let allSubCat=document.querySelector('#subCategoriesCheckbox');
+    allSubCat.addEventListener('click') 
+
+    //Scroll to course after filter
+    $(document).ready(function () {
+        // Handler for .ready() called.
+        let x = $("option:selected").attr('value');
+
+        $('html, body').animate({
+            scrollTop: $('.top-courses-area').offset().top
+        }, 'slow');
+    })
+
+
+
+</script>
+{{/section}}
+
+<!--====== Page Banner Start ======-->
+
+<section class="page-banner ">
+
+    <div class="page-banner-bg bg_cover bg-prent" style="background-image: url(images/page-banner.jpg);">
+        <div class="over-lay"></div>
+        <div class="container">
+            <div class="banner-content text-center">
+                <h2 class="title">Our courses</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====== Page Banner Ends ======-->
+
+<!--====== Top Course Start ======-->
+
+<section class="top-courses-area">
+    <div class="container">
+        <div class="row flex-row-reverse">
+            <div class="col-lg-9">
+                <div class="courses-bar">
+
+                    {{!-- So luong san pham render duoc --}}
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="courses-tab">
+                                <ul class="nav" role="tablist">
+                                    <li><a class="active" data-toggle="tab" href="#grid" role="tab"><i
+                                                class="fas fa-th-large"></i></a></li>
+                                    <li><a data-toggle="tab" href="#list" role="tab"><i class="fas fa-list"></i></a>
+                                    </li>
+                                </ul>
+                                <p>Showing 1 - 16 of 36 results</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="courses-bar-form">
+                                <div class="courses-select">
+                                    <ul id="sortBy">
+                                        <li data-value="1">All</li>
+                                        <li data-value="2">A to Z</li>
+                                        <li data-value="3">Z to A</li>
+                                        <li data-value="4">10 Latest Courses</li>
+                                        <li data-value="5">10 Most Viewed Courses</li>
+                                    </ul>
+
+                                </div>
+                                <div class="courses-search">
+                                    <input type="text" placeholder="Search courses">
+                                    <i class="far fa-search"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="grid" role="tabpanel">
+                        <div class="courses-wrapper wrapper-2">
+                            <div class="row grid">
+                                {{#each this.allCourse}}
+                                <div class="col-lg-4 col-sm-6 courses-col">
+                                    <div class="single-courses-2 mt-30">
+                                        <div class="courses-image">
+                                            <a href="/courses/detail/{{id}}"><img src="data:image/png;base64,{{img}}"
+                                                    alt="courses"></a>
+                                        </div>
+                                        <div class="courses-content">
+                                            <a href="/courses/detail/{{id}}" class="category">#{{catName}}</a>
+                                            <h4 class="courses-title"><a href="detail/{{id}}">{{courseName}}</a>
+                                            </h4>
+                                            <p class="m-1 category"><b>Author:</b> {{authorName}}</p>
+                                            <div class="duration-rating">
+                                                <div class="duration-fee">
+                                                    <p class="duration">Duration: <span> 4 year</span></p>
+                                                    <p class="fee">Fee: <span> ${{tuition}}</span></p>
+                                                </div>
+                                                <div class="rating">
+                                                    <span>{{ratingScore}}</span>
+                                                    <span class="ml-1">({{ratingNumber}})</span>
+                                                    <ul class="star">
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            {{!-- Add to cart --}}
+                                            <div class="courses-link">
+                                                <button class="btn-outline-white mr-5">Add to cart</button>
+                                                <a class="more" href="detail/{{id}}">
+                                                    <i class="fal fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/each}}
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="list" role="tabpanel">
+                        <div class="courses-wrapper wrapper-2">
+                            {{#each this.allCourse}}
+                            <div class="courses-col">
+                                <div class="single-courses-2 courses-list mt-30">
+                                    <div class="courses-image">
+                                        <a href="/courses/detail/{{id}}"><img src="data:image/png;base64,{{img}}"
+                                                alt="courses"></a>
+                                    </div>
+                                    <div class="courses-content">
+                                        <p class="courses-fee">Fee: <span> {{tuition}}</span></p>
+
+                                        <div class="courses-content-wrapper">
+                                            <h4 class="courses-title"><a
+                                                    href="/courses/detail/{{id}}">{{courseName}}</a>
+                                            </h4>
+                                            <div class="duration-rating">
+                                                <div class="duration-fee">
+                                                    <p class="duration">Duration: <span> 4 year</span></p>
+                                                    <p class="credit">Credit: 125</p>
+                                                </div>
+                                                <div class="rating">
+                                                    <span>Rating:{{ratingScore}} </span>
+                                                    <span class="ml-1">({{ratingNumber}})</span>
+                                                    <ul class="star">
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="courses-link">
+                                                <a class="apply mr-auto" href="#">Online Apply</a>
+                                                <a class="more" href="#"><i class="fal fa-chevron-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>s
+                            {{/each}}
+
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="pagination-items text-center">
+                    <li><a class="active" href="#">01</a></li>
+                    <li><a href="#">02</a></li>
+                    <li><a href="#">03</a></li>
+                    <li><a href="#">04</a></li>
+                    <li><a href="#">05</a></li>
+                </ul>
+            </div>
+
+            {{!-- Categories Sidebar --}}
+            <div class="col-lg-3">
+                <div class="courses-sidebar pt-20">
+                    <div class="courses-sidebar-category mt-30">
+                        <div class="sidebar-title">
+                            <h4 class="title">Sub categories</h4>
+                        </div>
+                        <ul class="category-items" id="subCategoriesCheckbox">
+                            {{#each this.categories}}
+                            <li>
+                                <div class="form-radio">
+                                    <input type="checkbox" name="categoryRadio" id="categoryRadio1" class="mr-2">
+                                    <label for="categoryRadio1">
+                                        <span> {{subCategoryName}}</span>
+                                        <b>({{subCategoryQuantity}})</b>
+                                    </label>
+                                </div>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+
+                    <div class="courses-sidebar-fee mt-30">
+                        <div class="sidebar-title">
+                            <h4 class="title">Fee</h4>
+                        </div>
+                        <ul class="fee-items">
+                            <li>
+                                <div class="form-radio">
+                                    <input type="radio" name="feeRadio" id="feeRadio1">
+                                    <label for="feeRadio1"> <span></span> All <strong>(225)</strong></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-radio">
+                                    <input type="radio" name="feeRadio" id="feeRadio2">
+                                    <label for="feeRadio2"> <span></span> Paid <strong>(120)</strong></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-radio">
+                                    <input type="radio" name="feeRadio" id="feeRadio3">
+                                    <label for="feeRadio3"> <span></span> Free <strong>(10)</strong></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-radio">
+                                    <input type="radio" name="feeRadio" id="feeRadio4">
+                                    <label for="feeRadio4"> <span></span> Scholarship <strong>(05)</strong></label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="courses-sidebar-banner mt-30">
+                        <a href="#">
+                            <img src="images/banner.jpg" alt="">
+                        </a>
+                    </div>
+
+                    <div class="courses-sidebar-type mt-30">
+                        <div class="sidebar-title">
+                            <h4 class="title">Course Type</h4>
+                        </div>
+                        <ul class="fee-items">
+                            <li>
+                                <div class="form-radio">
+                                    <input type="radio" name="typeRadio" id="typeRadio1">
+                                    <label for="typeRadio1"> <span></span> Bachelor <strong>(225)</strong></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-radio">
+                                    <input type="radio" name="typeRadio" id="typeRadio2">
+                                    <label for="typeRadio2"> <span></span> Diploma <strong>(120)</strong></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-radio">
+                                    <input type="radio" name="typeRadio" id="typeRadio3">
+                                    <label for="typeRadio3"> <span></span> Short Courses <strong>(10)</strong></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-radio">
+                                    <input type="radio" name="typeRadio" id="typeRadio4">
+                                    <label for="typeRadio4"> <span></span> Training <strong>(05)</strong></label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====== Top Course Ends ======-->
+
+<!--====== Newsletter Start ======-->
+
+<section class="newsletter-area-2">
+    <div class="container">
+        <div class="newsletter-wrapper bg_cover" style="background-image: url(images/newsletter-bg-1.jpg);">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <div class="section-title-2 mt-25">
+                        <h2 class="title">Subscribe our Newsletter</h2>
+                        <span class="line"></span>
+                        <p>Even slightly believable. If you are going use a passage of Lorem Ipsum need some</p>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="newsletter-form mt-30">
+                        <form action="#">
+                            <input type="text" placeholder="Enter your email here">
+                            <button class="main-btn main-btn-2">Subscribe now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--====== Newsletter Ends ======-->
+
+<!--====== Footer Start ======-->
+
+<section class="footer-area footer-02 bg_cover" style="background-image: url(images/counter-bg.jpg);">
+    <div class="footer-widget">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-link mt-45">
+                        <h4 class="footer-title">Information</h4>
+                        <ul class="link-list">
+                            <li><a href="#">Admission</a></li>
+                            <li><a href="#">Tuition fee</a></li>
+                            <li><a href="#">Scholorship</a></li>
+                            <li><a href="#">Coditions</a></li>
+                            <li><a href="#">Facilities</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-link mt-45">
+                        <h4 class="footer-title">Useful Link</h4>
+                        <ul class="link-list">
+                            <li><a href="our-courses-left-sidebar.html">All Courses</a></li>
+                            <li><a href="teachers.html">Our Teachers</a></li>
+                            <li><a href="event.html">Our Events</a></li>
+                            <li><a href="blog-left-sidebar.html">Blog post</a></li>
+                            <li><a href="faq.html">FAQs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-link mt-45">
+                        <h4 class="footer-title">Useful Link</h4>
+                        <ul class="link-list">
+                            <li><a href="#">All Courses</a></li>
+                            <li><a href="#">Our Teachers</a></li>
+                            <li><a href="#">Our Events</a></li>
+                            <li><a href="#">Blog post</a></li>
+                            <li><a href="login.html">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-link mt-45">
+                        <h4 class="footer-title">Contact Info</h4>
+                        <ul class="link-list">
+                            <li>
+                                <p>245, New Town, Marklen Street North City, New York, USA</p>
+                            </li>
+                            <li>
+                                <p><a href="tel:+01254659874">+01254 659 874 </a></p>
+                                <p><a href="tel:+32145857458">+32145 857 458</a></p>
+                            </li>
+                            <li>
+                                <p><a href="mailto://info@example.com">info@example.com</a></p>
+                                <p></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-widget-wrapper">
+                <div class="footer-social">
+                    <ul class="social">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-menu">
+                    <ul class="menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Courses</a></li>
+                        <li><a href="#">Notice Board</a></li>
+                        <li><a href="#">Offers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="copyright text-center">
+                <p>&copy; Copyright all right reserved by <a href="https://hasthemes.com/">Hasthemes</a></p>
+            </div>
+        </div>
+    </div>
+</section>
