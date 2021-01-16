@@ -7,15 +7,16 @@ const upload = multer({ dest: 'resources/uploads/' })
 const { v4: uuidv4 } = require('uuid');
 
 const courseModel = require('../models/course.model');
-const categoryModel = require('../models/category.model');
+const subCategoryModel = require('../models/subCategory.model');
 const userModel = require('../models/user.model');
+const discountModel = require('../models/discount.model');
 
 
 const router = express.Router();
 
 router.get('/', async function (req, res) {
   try {
-    const rows = await courseModel.all(`*, course.id as id`, `, category where category.id = course.categoryId`)
+    const rows = await courseModel.all(`*, course.id as id`, `, subcategory, user where subcategory.id = course.categoryId and user.id=course.userId`)
     req.session.retUrl = req.originalUrl
     res.render('vwCourse/index', {
       courses: rows,
@@ -30,24 +31,24 @@ router.get('/', async function (req, res) {
 
 router.get('/detail/:id', async function (req, res) {
   const row = await courseModel.single(req.params.id)
-  const user = await userModel.single(row.authorId)
-  const category = await categoryModel.single(row.categoryId)
+  const user = await userModel.single(row.userId)
+  const category = await subCategoryModel.single(row.categoryId)
   req.session.retUrl = req.originalUrl
   res.render('vwCourse/detail.hbs', {
     course: row,
     author: user,
-    category_name: category.category_name,
+    categoryName: category.subCategoryName,
     currentUser: req.session.authUser
   })
 })
 
 router.post('/detail/:id', async function (req, res) {
   entity = {
-    status: req.body.status
+    isCompleted: req.body.isCompleted
   }
   await courseModel.update(req.params.id, entity);
   const row = await courseModel.single(req.params.id)
-  const user = await userModel.single(row.authorId)
+  const user = await userModel.single(row.userId)
   res.render('vwCourse/detail.hbs', {
     course: row,
     author: user,
@@ -57,9 +58,11 @@ router.post('/detail/:id', async function (req, res) {
 
 router.get('/add', async function (req, res) {
   req.session.retUrl = req.originalUrl
-  const rows = await categoryModel.all();
+  const rows = await subCategoryModel.all();
+  const discounts = await discountModel.all();
   res.render('vwCourse/add', {
     categories: rows,
+    discounts: discounts,
     currentUser: req.session.authUser
   });
 })
@@ -67,32 +70,59 @@ router.get('/add', async function (req, res) {
 router.post('/add', upload.single('courseImage'), async function (req, res) {
   var now = moment().format('YYYY-MM-DD hh:mm:ss')
   image = fs.readFileSync("resources/uploads/" + req.file.filename)
+  const rows = await subCategoryModel.all();
+  const discounts = await discountModel.all();
   entity = {
     id: uuidv4(),
     courseName: req.body.courseName,
     categoryId: req.body.categoryId,
     shortDesc: req.body.shortDesc,
     tuition: req.body.tuition,
-    lastModify: now,
+    modifyAt: now,
+    createAt: now,
     detailDesc: req.body.detailDesc,
-    authorId: req.session.authUser.id,
+    userId: req.session.authUser.id,
+    discountId: req.body.discountId,
     courseImage: image,
   }
   fs.writeFileSync("resources/tmp/" + req.file.filename, image)
   await courseModel.add(entity);
   return res.render('vwCourse/add', {
-    message: 'Add user success',
+    message: 'Add course success',
+    categories: rows,
+    discounts: discounts,
     currentUser: req.session.authUser
   })
+})
+
+router.post('/status/:id', async function (req, res) {
+  id = req.params.id
+  const row = await courseModel.single(req.params.id)
+  entity = {
+    status: row.status == 'active' ? 'deactivate' : 'active'
+  }
+  const check = await courseModel.update(id, entity)
+  return res.redirect(req.session.retUrl)
+})
+
+router.post('/delete/:id', async function (req, res) {
+  id = req.params.id
+  const check = await courseModel.delete(id)
+  if (check) {
+    return res.redirect('/course')
+  }
+  return res.redirect(req.session.retUrl)
 })
 
 router.get('/edit/:id', async function (req, res) {
   req.session.retUrl = req.originalUrl
   const row = await courseModel.single(req.params.id)
-  const rows = await categoryModel.all();
+  const rows = await subCategoryModel.all();
+  const discounts = await discountModel.all();
   res.render('vwCourse/edit.hbs', {
     course: row,
     categories: rows,
+    discounts: discounts,
     currentUser: req.session.authUser
   })
 })
@@ -104,12 +134,12 @@ router.post('/edit/:id', upload.single('courseImage'), async function (req, res)
     image = fs.readFileSync("resources/uploads/" + req.file.filename)
     entity = {
       courseName: req.body.courseName,
-      category: req.body.category,
+      categoryId: req.body.categoryId,
       shortDesc: req.body.shortDesc,
       tuition: req.body.tuition,
-      lastModify: now,
+      modifyAt: now,
       detailDesc: req.body.detailDesc,
-      authorId: req.session.authUser.id,
+      userId: req.session.authUser.id,
       courseImage: image
     }
     fs.writeFileSync("resources/tmp/" + req.file.filename, image)
@@ -117,12 +147,12 @@ router.post('/edit/:id', upload.single('courseImage'), async function (req, res)
   else {
     entity = {
       courseName: req.body.courseName,
-      category: req.body.category,
+      categoryId: req.body.categoryId,
       shortDesc: req.body.shortDesc,
       tuition: req.body.tuition,
-      lastModify: now,
+      modifyAt: now,
       detailDesc: req.body.detailDesc,
-      authorId: req.session.authUser.id,
+      userId: req.session.authUser.id,
     }
   }
   await courseModel.update(id, entity);

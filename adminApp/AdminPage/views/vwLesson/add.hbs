@@ -1,31 +1,34 @@
 <div class="page has-sidebar-left">
     <header class="blue accent-3 relative">
-            <div class="container-fluid text-white">
-                <div class="row p-t-b-10 ">
-                    <div class="col">
-                        <h4>
-                            <i class="icon-package"></i>
-                            Lessons
-                        </h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <ul class="nav responsive-tab nav-material nav-material-white">
-                        <li>
-                            <a class="nav-link" href="/course/detail/{{this.course_id}}/lesson"><i class="icon icon-list"></i>All
-                                Lessons</a>
-                        </li>
-                        <li>
-                            <a class="nav-link active" href="/course/detail/{{this.course_id}}/lesson/add"><i class="icon icon-plus-circle"></i> Add New
-                                Lesson</a>
-                        </li>
-                    </ul>
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-package"></i>
+                        Lessons
+                    </h4>
                 </div>
             </div>
-        </header>
+            <div class="row">
+                <ul class="nav responsive-tab nav-material nav-material-white">
+                    <li>
+                        <a class="nav-link" href="/course/detail/{{this.courseId}}/lesson"><i
+                                class="icon icon-list"></i>All
+                            Lessons</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" href="/course/detail/{{this.courseId}}/lesson/add"><i
+                                class="icon icon-plus-circle"></i> Add New
+                            Lesson</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
     <div class="container-fluid animatedParent animateOnce my-3">
         <div class="animated fadeInUpShort">
-            <form id="needs-validation" novalidate enctype="multipart/form-data" method="POST" action="/course/detail/{{this.course_id}}/lesson/add">
+            <form id="needs-validation" novalidate enctype="multipart/form-data" method="POST"
+                action="/course/detail/{{this.courseId}}/lesson/add">
                 <div class="row">
                     <div class="col-md-8 ">
                         <div class="row">
@@ -36,20 +39,14 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12 mb-3">
-                                <label>Lesson Section</label>
-                                <input type="text" class="form-control" name="lessonSection"></input>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 mb-3">
                                 <label>Lesson Video</label>
-                                <input type="file" class="form-control" required name="lessonVideo">
+                                <input type="file" class="form-control" name="lessonVideo">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label>Lesson Content</label>
-                                <textarea id="mytextarea" name="content"></textarea>
+                                <textarea id="mytextarea" name="lessonContent"></textarea>
                             </div>
                         </div>
                         <script>
@@ -76,7 +73,8 @@
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input type="checkbox" class="custom-control-input" id="customControlValidation1"
                                         required>
-                                    <label class="custom-control-label" for="customControlValidation1">Are you sure?</label>
+                                    <label class="custom-control-label" for="customControlValidation1">Are you
+                                        sure?</label>
                                     <div class="invalid-feedback">Please confirm</div>
                                 </div>
                             </div>

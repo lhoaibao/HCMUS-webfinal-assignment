@@ -35,7 +35,7 @@ router.get('/add', auth, async function (req, res) {
     });
 })
 
-router.post('/add', auth, async function (req, res) {
+router.post('/add', upload.single('userImage'), auth, async function (req, res) {
     const user = await userModel.singleByUserName(req.body.username)
     if (user) {
         return res.render('vwUser/add', {
@@ -44,7 +44,7 @@ router.post('/add', auth, async function (req, res) {
         });
     }
     if (req.file) userImage = fs.readFileSync("resources/uploads/" + req.file.filename)
-    else userImage = ""
+    else userImage = null
     entity = {
         id: uuidv4(),
         firstName: req.body.firstName,
@@ -72,6 +72,11 @@ router.post('/login', async function (req, res) {
             layout: false,
             err_message: 'Invalid username or password.'
         });
+    } else if (user.status == 'deactivate' || user.permission == 'student') {
+        return res.render('vwUser/login', {
+            layout: false,
+            err_message: 'This user is blocked by admin or do not permission on this site. Please contact for more information'
+        });
     }
 
     const ret = bcrypt.compareSync(req.body.password, user.password);
@@ -98,9 +103,7 @@ router.post('/logout', async function (req, res) {
 router.get('/profile', auth, async function (req, res) {
     req.session.retUrl = req.originalUrl
     try {
-        const row = await userModel.single(req.session.authUser.id);
         res.render('vwUser/profile', {
-            users: row,
             currentUser: req.session.authUser,
         });
     } catch (err) {
@@ -110,7 +113,6 @@ router.get('/profile', auth, async function (req, res) {
 })
 
 router.get('/changePassword', auth, async function (req, res) {
-    req.session.retUrl = req.originalUrl
     try {
         res.render('vwUser/changePassword', {
             currentUser: req.session.authUser,
@@ -134,7 +136,8 @@ router.post('/changePassword', auth, async function (req, res) {
                 password: bcrypt.hashSync(req.body['new-password'], 10),
             }
             await userModel.update(req.session.authUser.id, entity);
-            return res.redirect('/user/profile/')
+            req.session.authUser = userModel.single(req.session.authUser.id)
+            return res.redirect(req.session.retUrl)
         }
     }
     return res.render('vwUser/changePassword', {
@@ -155,47 +158,51 @@ router.get('/login', async function (req, res) {
     });
 })
 
-
-router.get('/detail/:id', async function (req, res) {
+router.get('/detail/:id', auth, async function (req, res) {
     const row = await userModel.single(req.params.id)
-    req.session.retUrl = req.originalUrl
     res.render('vwUser/detail.hbs', {
         user: row,
         currentUser: req.session.authUser
     })
 })
 
-router.get('/edit/:id', async function (req, res) {
-    const row = await userModel.single(req.params.id)
-    req.session.retUrl = req.originalUrl
-    row.dob = moment(row.dob).format('YYYY-MM-DD');
+router.get('/edit/:id', auth, async function (req, res) {
     res.render('vwUser/edit.hbs', {
-        user: row,
         currentUser: req.session.authUser
     })
 })
 
-router.post('/edit/:id', isAdmin, async function (req, res) {
-    id = req.params.id
-    const row = await userModel.single(req.params.id)
-    if (row) {
+router.post('/edit/:id', upload.single('userImage'), auth, async function (req, res) {
+    let id = req.params.id
+    if (req.file) {
+        userImage = fs.readFileSync("resources/uploads/" + req.file.filename)
         entity = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             dob: req.body.dob,
             email: req.body.email,
+            userImage: userImage,
+            profile: req.body.profile,
+            phoneNumber: req.body.phoneNumber
         }
-        check = await userModel.update(id, entity);
-        return res.redirect('/user/detail/' + id)
     }
-    res.redirect(req.session.retUrl)
+    else {
+        entity = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            dob: req.body.dob,
+            email: req.body.email,
+            profile: req.body.profile,
+            phoneNumber: req.body.phoneNumber
+        }
+    }
+    await userModel.update(id, entity);
+    req.session.authUser = await userModel.single(id)
+    return res.redirect(req.session.retUrl)
 })
 
-router.post('/delete/:id', async function (req, res) {
+router.post('/delete/:id', auth, async function (req, res) {
     id = req.params.id
-    if (id == req.session.authUser.id) {
-        return res.redirect(req.session.retUrl)
-    }
     const check = await userModel.delete(id)
     if (check) {
         return res.redirect('/user')
@@ -203,7 +210,7 @@ router.post('/delete/:id', async function (req, res) {
     return res.redirect(req.session.retUrl)
 })
 
-router.post('/status/:id', async function (req, res) {
+router.post('/status/:id', auth, async function (req, res) {
     id = req.params.id
     const row = await userModel.single(req.params.id)
     entity = {

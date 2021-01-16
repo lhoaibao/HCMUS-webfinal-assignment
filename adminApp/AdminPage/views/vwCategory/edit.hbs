@@ -22,7 +22,7 @@
             </div>
             {{/if}}
             {{#with category}}
-            <form id="needs-validation" novalidate method="POST" action="/category/edit/{{id}}">
+            <form id="needs-validation" novalidate method="POST" action="/category/editCategory/{{id}}">
                 <div class="row">
                     <div class="col-md-8 ">
                         <div class="row">
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <button class="btn btn-primary" type="submit">Update</button>
-                        <a href="/category/detail/{{id}}" class="btn btn-primary" type="submit">Back Detail Category</a>
+                        <a href="/category" class="btn btn-primary" type="submit">Back Category</a>
                         <script>
                             (function () {
                                 "use strict";

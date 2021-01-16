@@ -1,0 +1,77 @@
+<div class="page has-sidebar-left">
+    <header class="blue accent-3 relative">
+        <div class="container-fluid text-white">
+            <div class="row p-t-b-10 ">
+                <div class="col">
+                    <h4>
+                        <i class="icon-package"></i>
+                        Edit Lesson
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid animatedParent animateOnce my-3">
+        <div class="animated fadeInUpShort">
+            <form id="needs-validation" novalidate enctype="multipart/form-data" method="POST"
+                action="/course/detail/{{lesson.courseId}}/lesson/edit/{{lesson.id}}">
+                <div class="row">
+                    <div class="col-md-8 ">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label>Lesson Name</label>
+                                <input type="text" class="form-control" required name="lessonName" value="{{lesson.lessonName}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label>Lesson Video</label>
+                                <input type="file" class="form-control" name="lessonVideo">
+                                <span style="color: red">Do not choose if keep current value</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label>Lesson Content</label>
+                                <textarea id="mytextarea" name="lessonContent"></textarea>
+                            </div>
+                        </div>
+                        <script>
+                            (function () {
+                                "use strict";
+                                window.addEventListener("load", function () {
+                                    var form = document.getElementById("needs-validation");
+                                    form.addEventListener("submit", function (event) {
+                                        if (form.checkValidity() == false) {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                        }
+                                        form.classList.add("was-validated");
+                                    }, false);
+                                }, false);
+                            }());
+                        </script>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mt-4">
+                            <h6 class="card-header white">Publish Box</h6>
+                            <div class="card-body text-success">
+
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="customControlValidation1"
+                                        required>
+                                    <label class="custom-control-label" for="customControlValidation1">Are you
+                                        sure?</label>
+                                    <div class="invalid-feedback">Please confirm</div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <button class="btn btn-primary" type="submit">Publish</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

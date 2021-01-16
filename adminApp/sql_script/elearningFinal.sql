@@ -80,12 +80,10 @@ CREATE TABLE IF NOT EXISTS `elearning`.`lesson` (
   `id` VARCHAR(100) NOT NULL,
   `courseId` VARCHAR(100) NOT NULL,
   `lessonName` VARCHAR(255) NOT NULL,
-  `lessonVideo` LONGBLOB NULL DEFAULT NULL,
-  `lessonContent` TEXT NULL DEFAULT NULL,
-  `lessonOrder` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `lessonOrder` (`lessonOrder` ASC));
-
+  `lessonVideo` LONGBLOB DEFAULT NULL,
+  `lessonContent` TEXT DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);
 
 -- -----------------------------------------------------
 -- Table `elearning`.`order`

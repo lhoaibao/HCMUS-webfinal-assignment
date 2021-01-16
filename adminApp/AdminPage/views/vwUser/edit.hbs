@@ -4,7 +4,7 @@
             <div class="row p-t-b-10 ">
                 <div class="col">
                     <h4>
-                        <i class="icon-package"></i>
+                        <i class="icon-account_box"></i>
                         Edit User
                     </h4>
                 </div>
@@ -13,44 +13,60 @@
     </header>
     <div class="container-fluid animatedParent animateOnce my-3">
         <div class="animated fadeInUpShort">
-            {{#if err_message}}
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                {{err_message}}
-            </div>
-            {{/if}}
-            {{#with this.user}}
-            <form id="needs-validation" novalidate method="POST" action="/user/edit/{{id}}">
+            <form id="needs-validation" novalidate enctype="multipart/form-data" method="POST"
+                action="/user/edit/{{currentUser.id}}">
                 <div class="card no-b  no-r">
                     <div class="card-body">
+                        <h5 class="card-title">About User</h5>
                         <div class="form-row">
                             <div class="col-md-8">
                                 <div class="form-row">
+                                    <div class="col-md-12 mb-3">
+                                        <img src="{{encodeMyString currentUser.userImage}}" class="img-fluid row mx-1"
+                                            style="width: 200px;">
+                                        <label>User Image</label>
+                                        <input type="file" class="form-control" name="userImage">
+                                        <span style="color: red;">Not choose if want to keep current image</span>
+                                    </div>
+                                </div>
+                                <div class="form-row">
                                     <div class="form-group col-6 m-0">
-                                        <label class="col-form-label s-12">First Name</label>
-                                        <input type="text" class="form-control" required name="firstName" value="{{firstName}}">
+                                        <label class="col-form-label s-12">First Name <span
+                                                style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" required name="firstName"
+                                            value="{{currentUser.firstName}}">
                                         <div class="invalid-feedback">
                                             Please provide a First Name.
                                         </div>
                                     </div>
                                     <div class="form-group col-6 m-0">
-                                        <label class="col-form-label s-12">Last Name</label>
-                                        <input type="text" class="form-control" required name="lastName" value="{{lastName}}">
+                                        <label class="col-form-label s-12">Last Name <span
+                                                style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" required name="lastName" value="{{currentUser.lastName}}">
                                         <div class="invalid-feedback">
                                             Please provide a Last Name.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group col-6 m-0">
+                                        <label class="col-form-label s-12">Username <span
+                                                style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" required name="username" disabled value="{{currentUser.username}}">
+                                        <div class="invalid-feedback">
+                                            Please provide a Username.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-12 m-0">
                                         <label for="dob" class="col-form-label s-12"><i
-                                                class="icon-calendar mr-2"></i>DATE OF BIRTH</label>
+                                                class="icon-calendar mr-2"></i>DATE OF BIRTH <span
+                                                style="color: red;">*</span></label>
                                         <input id="dob" class="form-control r-0 light s-12 datePicker"
                                             max=data-time-picker="false" data-format-date='yyyy-mm-dd' type="date"
-                                            required name="dob" value="{{dob}}">
-                                        <span class="text-danger">Attention!!! Date format: mm/dd/yyyy</span>
+                                            required name="dob" value="{{date currentUser.dob}}">
                                         <div class="invalid-feedback">
                                             Please provide a valid DATE OF BIRTH.
                                         </div>
@@ -60,14 +76,43 @@
                         </div>
 
                         <div class="form-row mt-1">
-                            <div class="form-group col-8 m-0">
-                                <label for="email" class="col-form-label s-12"><i
-                                        class="icon-envelope-o mr-2"></i>Email</label>
-                                <input id="email" placeholder="user@email.com" class="form-control r-0 light s-12 "
-                                    type="email" required name="email" value="{{email}}">
+                            <div class="form-group col-4 m-0">
+                                <label for="email" class="col-form-label s-12"><i class="icon-envelope-o mr-2"></i>Email
+                                    <span style="color: red;">*</span></label>
+                                <input placeholder="user@email.com" class="form-control r-0 light s-12 " type="email"
+                                    required name="email" value="{{currentUser.email}}">
                                 <div class="invalid-feedback">
                                     Please provide a valid Email.
                                 </div>
+                            </div>
+                            <div class="form-group col-4 m-0">
+                                <label for="email" class="col-form-label s-12"><i class="icon-envelope-o mr-2"></i>Phone
+                                    Number <span style="color: red;">*</span></label>
+                                <input class="form-control r-0 light s-12 " type="text" required name="phoneNumber" value="{{currentUser.phoneNumber}}">
+                                <div class="invalid-feedback">
+                                    Please provide a valid Phone Number.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row mt-1">
+                            <div class="form-group col-8 m-0">
+                                <label class="col-form-label s-12">Permission <span style="color: red;">*</span></label>
+                                <select class="form-select form-control r-0" name="permission" required>
+                                    {{#select currentUser.permission}}
+                                    <option value="teacher">teacher</option>
+                                    <option value="student">student</option>
+                                    {{/select}}
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please provide a Permission.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row mt-1">
+                            <div class="col-md-12 mb-3">
+                                <label>Profile User</label>
+                                <textarea id="mytextarea" name="profile">{{{currentUser.profile}}}</textarea>
                             </div>
                         </div>
                         <script>
@@ -93,7 +138,6 @@
                     </div>
                 </div>
             </form>
-            {{/with}}
         </div>
     </div>
 </div>

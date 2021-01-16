@@ -13,12 +13,12 @@
                 <div class="row">
                     <ul class="nav responsive-tab nav-material nav-material-white">
                         <li>
-                            <a class="nav-link active" href="/course/detail/{{this.course_id}}/lesson"><i
+                            <a class="nav-link active" href="/course/detail/{{this.courseId}}/lesson"><i
                                     class="icon icon-list"></i>All
                                 Lessons</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="/course/detail/{{this.course_id}}/lesson/add"><i
+                            <a class="nav-link" href="/course/detail/{{this.courseId}}/lesson/add"><i
                                     class="icon icon-plus-circle"></i> Add New
                                 Lesson</a>
                         </li>
@@ -33,24 +33,25 @@
                         <div class="card no-b shadow">
                             <div class="card-body p-0">
                                 <div class="table-responsive">
-                                    <table class="table table-hover ">
-                                        <tr>
-                                            <td>Lesson Name</td>
-                                            <td>Lesson Section</td>
-                                            <td>Action</td>
-                                        </tr>
+                                    <table class="table table-hover " id="table">
+                                        <thead>
+                                            <tr>
+                                                <td>Lesson Name</td>
+                                                <td>Action</td>
+                                            </tr>
+                                        </thead>
                                         <tbody>
                                             {{#each this.lessons}}
                                             <tr class="no-b clickable-row">
                                                 <td>
                                                     <h6>{{lessonName}}</h6>
                                                 </td>
-                                                <td>{{lessonSection}}</td>
                                                 <td>
-                                                    <a class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
+                                                    <a href="/course/detail/{{this.courseId}}/lesson/edit/{{id}}" class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
                                                             class="icon-pencil"></i></a>
-                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white"><i
-                                                            class="icon-trash"></i></a>
+                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white deleteRow"
+                                                        style="cursor: pointer;" data-lessonId="{{id}}"
+                                                        data-courseId="{{../courseId}}"><i class="icon-trash"></i></a>
                                                 </td>
                                             </tr>
                                             {{/each}}
@@ -66,3 +67,24 @@
     </div>
     <div class="control-sidebar-bg shadow white fixed"></div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        const table = $('#table').DataTable({
+            "pagingType": "full_numbers",
+            "pageLength": 5,
+            "lengthChange": false
+        });
+
+        $('#table tbody').on('click', '.deleteRow', function () {
+            const lessonId = $(this).attr('data-lessonId')
+            const courseId = $(this).attr('data- courseId')
+            $.post(`/course/detail/${courseId}/lesson/delete/${lessonId}`).then(() => {
+                table
+                    .row($(this).parents('tr'))
+                    .remove()
+                    .draw();
+            })
+        })
+    });
+</script>

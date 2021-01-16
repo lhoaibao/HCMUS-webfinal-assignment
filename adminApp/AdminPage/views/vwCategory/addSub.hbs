@@ -16,11 +16,11 @@
                             Categories</a>
                     </li>
                     <li>
-                        <a class="nav-link active" href="/category/add"><i class="icon icon-plus-circle"></i> Add New
+                        <a class="nav-link" href="/category/add"><i class="icon icon-plus-circle"></i> Add New
                             Category</a>
                     </li>
                     <li>
-                        <a class="nav-link" href="/category/addSub"><i class="icon icon-plus-circle"></i> Add New
+                        <a class="nav-link active" href="/category/addSub"><i class="icon icon-plus-circle"></i> Add New
                             Sub Category</a>
                     </li>
                 </ul>
@@ -45,20 +45,31 @@
                 {{err_message}}
             </div>
             {{/if}}
-            <form id="needs-validation" novalidate method="POST" action="/category/add">
+            <form id="needs-validation" novalidate method="POST" action="/category/addSub">
                 <div class="row">
                     <div class="col-md-8 ">
                         <div class="row">
                             <div class="col-md-12 mb-3">
-                                <label>Category Name</label>
-                                <input type="text" class="form-control" required name="categoryName">
+                                <label>Choose Category Name</label>
+                                <select class="form-select form-control r-0" name="categoryId" required>
+                                    {{#each categories}}
+                                    <option value="{{id}}">{{categoryName}}</option>
+                                    {{/each}}
+                                </select>
                                 <div class="invalid-feedback">
-                                    Please provide a Category Name.
+                                    Please provide a Category.
                                 </div>
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label>Category Description</label>
-                                <input type="text" class="form-control" name="categoryDesc">
+                                <label>Sub Category Name</label>
+                                <input type="text" class="form-control" required name="subCategoryName">
+                                <div class="invalid-feedback">
+                                    Please provide a Sub Category Name.
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label>Sub Category Description</label>
+                                <input type="text" class="form-control" name="subCategoryDesc">
                             </div>
                         </div>
                         <button class="btn btn-primary" type="submit">Add</button>

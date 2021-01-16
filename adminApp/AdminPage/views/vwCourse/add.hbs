@@ -25,6 +25,14 @@
     </header>
     <div class="container-fluid animatedParent animateOnce my-3">
         <div class="animated fadeInUpShort">
+            {{#if message}}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{message}}
+            </div>
+            {{/if}}
             <form id="needs-validation" novalidate enctype="multipart/form-data" method="POST" action="/course/add">
                 <div class="row">
                     <div class="col-md-8 ">
@@ -44,9 +52,8 @@
                             <div class="col-md-12 mb-3">
                                 <label>Catogory</label>
                                 <select id="category" class="custom-select form-control" required name="categoryId">
-                                    <option value="">Select Category</option>
                                     {{#each categories}}
-                                    <option value="{{id}}">{{categoryName}}</option>
+                                    <option value="{{id}}">{{subCategoryName}}</option>
                                     {{/each}}
                                 </select>
                             </div>
@@ -54,17 +61,23 @@
                         <div class="row">
                             <div class="col-md-12 mb-3">
                                 <label>Short Description</label>
-                                <input type="text" class="form-control" required name="shortDesc">
+                                <input type="text" class="form-control" name="shortDesc">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label>Tuition</label>
-                                <input type="number" class="form-control" required min="0" placeholder="$" name="tuition">
+                                <input type="number" class="form-control" required min="0" placeholder="$"
+                                    name="tuition">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label>Promotion info</label>
-                                <input type="text" class="form-control" name="promotionInfo">
+                                <label>Discount</label>
+                                <select id="category" class="custom-select form-control" name="discountId">
+                                    <option value=null></option>
+                                    {{#each discounts}}
+                                    <option value="{{id}}">{{discountCode}}</option>
+                                    {{/each}}
+                                </select>
                             </div>
                         </div>
                         <div class="row">
@@ -97,7 +110,8 @@
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input type="checkbox" class="custom-control-input" id="customControlValidation1"
                                         required>
-                                    <label class="custom-control-label" for="customControlValidation1">Are you sure?</label>
+                                    <label class="custom-control-label" for="customControlValidation1">Are you
+                                        sure?</label>
                                     <div class="invalid-feedback">Please confirm</div>
                                 </div>
                             </div>

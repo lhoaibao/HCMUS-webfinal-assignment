@@ -16,12 +16,10 @@
                             <a class="nav-link active" href="/course"><i class="icon icon-list"></i>All
                                 Courses</a>
                         </li>
-                        {{#ifEquals this.currentUser.permission 1}}
                         <li>
                             <a class="nav-link" href="/course/add"><i class="icon icon-plus-circle"></i> Add New
                                 Course</a>
                         </li>
-                        {{/ifEquals}}
                     </ul>
                 </div>
             </div>
@@ -33,45 +31,64 @@
                         <div class="card no-b shadow">
                             <div class="card-body p-0">
                                 <div class="table-responsive">
-                                    <table class="table table-hover ">
-                                        <tr>
-                                            <td>Course Image</td>
-                                            <td>Course Name</td>
-                                            <td>Category</td>
-                                            <td>Rating Score</td>
-                                            <td>Last Modify</td>
-                                            <td>Status</td>
-                                            <td>Action</td>
-                                        </tr>
+                                    <table class="table table-hover " id="table">
+                                        <thead>
+                                            <tr>
+                                                <td>Course Image</td>
+                                                <td>Course Name</td>
+                                                <td>Category</td>
+                                                <td>Teacher</td>
+                                                <td>Last Modify</td>
+                                                <td>Create At</td>
+                                                <td>Action</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td class="category"></td>
+                                                <td class="teacher"></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
                                         <tbody>
                                             {{#each this.courses}}
                                             <tr class="no-b clickable-row">
-                                                <td class="w-10"><img
-                                                        src="data:image/png;base64, {{encodeMyString courseImage}}" )
-                                                        alt=""></td>
+                                                <td class="w-10"><img src="{{encodeMyString courseImage}}" alt="">
+                                                </td>
                                                 <td>
                                                     <h6>{{courseName}}</h6>
                                                 </td>
-                                                <td>{{category_name}}</td>
-                                                <td>{{ratingScore}}</td>
+                                                <td>{{subCategoryName}}</td>
+                                                <td>{{firstName}} {{lastName}}</td>
                                                 <td>
-                                                    <span><i class="icon icon-timer"></i>{{lastModify}}</span>
+                                                    <span><i class="icon icon-timer"></i>{{date modifyAt}}</span>
                                                 </td>
-                                                <td>{{status}}</td>
+                                                <td><i class="icon icon-timer"></i>{{date createAt}}</td>
                                                 <td>
-                                                    {{#ifEquals ../currentUser.permission 1}}
-                                                    <a href="/course/detail/{{id}}"
-                                                        class="btn-fab btn-fab-sm btn-primary shadow text-white"><i
-                                                            class="icon-pencil"></i></a>
-                                                    {{/ifEquals}}
-                                                    {{#ifEquals ../currentUser.permission 0}}
-                                                    <form action="/course/delete/{{id}}" method="post"
-                                                        id="deleteCourseForm">
-                                                        <a class="btn-fab btn-fab-sm btn-danger shadow text-white"
-                                                            href="javascript: $('#deleteCourseForm').submit();"><i
+                                                    <div class="col">
+                                                        <a href="/course/detail/{{id}}"
+                                                            class="btn-fab btn-fab-sm btn-primary shadow text-white mr-1"><i
+                                                                class="icon-eye3"></i></a>
+                                                        <a href="/course/edit/{{id}}"
+                                                            class="btn-fab btn-fab-sm btn-success shadow text-white mr-1"><i
+                                                                class="icon-pencil"></i></a>
+                                                    </div>
+                                                    <div class="col mt-1">
+                                                        <a class="btn-fab btn-fab-sm btn-warning shadow text-white mr-1 updateStatus"
+                                                            data-id="{{id}}" style="cursor: pointer;">
+                                                            {{#ifEquals status 'deactivate'}}
+                                                            <i class="icon-lock"></i>
+                                                            {{/ifEquals}}
+                                                            {{#ifEquals status 'active'}}
+                                                            <i class="icon-lock-open2"></i>
+                                                            {{/ifEquals}}
+                                                        </a>
+                                                        <a class="btn-fab btn-fab-sm btn-danger shadow text-white deleteRow"
+                                                            style="cursor: pointer;" data-id="{{id}}"><i
                                                                 class="icon-trash"></i></a>
-                                                    </form>
-                                                    {{/ifEquals}}
+                                                    </div>
                                                 </td>
                                             </tr>
                                             {{/each}}
@@ -87,3 +104,51 @@
     </div>
     <div class="control-sidebar-bg shadow white fixed"></div>
 </div>
+<script>
+    $(document).ready(function () {
+        $('.category').append('<input type="text" placeholder="Search category" style="width: 150px"/>');
+        $('.category input').on('keyup change', function () {
+            if (table.column(2).search() !== this.value) {
+                table
+                    .column(2)
+                    .search(this.value)
+                    .draw();
+            }
+        });
+        $('.teacher').append('<input type="text" placeholder="Search teacher" style="width: 150px"/>');
+        $('.teacher input').on('keyup change', function () {
+            if (table.column(3).search() !== this.value) {
+                table
+                    .column(3)
+                    .search(this.value)
+                    .draw();
+            }
+        });
+
+        const table = $('#table').DataTable({
+            "pagingType": "full_numbers",
+            "pageLength": 5,
+            "lengthChange": false,
+            fixedHeader: true,
+            orderCellsTop: true,
+        });
+
+
+        $('#table tbody').on('click', '.updateStatus', function () {
+            const id = $(this).data('id')
+            $.post(`/course/status/${id}`).then(() => {
+                $(this).children('i').prop('class') == 'icon-lock' ? $(this).children('i').removeClass('icon-lock').addClass('icon-lock-open2') : $(this).children('i').removeClass('icon-lock-open2').addClass('icon-lock')
+            })
+        })
+
+        $('#table tbody').on('click', '.deleteRow', function () {
+            const id = $(this).data('id')
+            $.post(`/course/delete/${id}`).then(() => {
+                table
+                    .row($(this).parents('tr'))
+                    .remove()
+                    .draw();
+            })
+        })
+    });
+</script>

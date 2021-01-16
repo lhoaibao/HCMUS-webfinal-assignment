@@ -18,7 +18,11 @@
                         </li>
                         <li>
                             <a class="nav-link" href="/category/add"><i class="icon icon-plus-circle"></i> Add New
-                                category</a>
+                                Category</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="/category/addSub"><i class="icon icon-plus-circle"></i> Add New
+                                Sub Category</a>
                         </li>
                     </ul>
                 </div>
@@ -29,17 +33,21 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card no-b shadow">
+                            <div class="card-title">
+                                <h3>Category</h3>
+                            </div>
                             <div class="card-body p-0">
                                 <div class="table-responsive">
-                                    <table class="table table-hover ">
-                                        <tr>
-                                            <td>Category Id</td>
-                                            <td>Category Name</td>
-                                            <td>Category Description</td>
-                                            <td>Action</td>
-                                        </tr>
+                                    <table class="table table-hover " id="table1">
+                                        <thead>
+                                            <tr>
+                                                <td>Category Id</td>
+                                                <td>Category Name</td>
+                                                <td>Action</td>
+                                            </tr>
+                                        </thead>
                                         <tbody>
-                                            {{#each this.categorys}}
+                                            {{#each this.categories}}
                                             <tr class="no-b">
                                                 <td>
                                                     <h6>{{id}}</h6>
@@ -47,19 +55,59 @@
                                                 <td>
                                                     <h6>{{categoryName}}</h6>
                                                 </td>
-                                                <td>
-                                                    <h6>{{categoryDesc}}</h6>
-                                                </td>
                                                 <td class="d-flex">
-                                                    <a href="/category/detail/{{id}}"
+                                                    <a href="/category/editCategory/{{id}}"
                                                         class="btn-fab btn-fab-sm btn-primary shadow text-white mr-1"><i
                                                             class="icon-pencil"></i></a>
-                                                    <form action="/category/delete/{{id}}" method="POST"
-                                                        id="deleteCategoryForm">
-                                                        <a class="btn-fab btn-fab-sm btn-danger shadow text-white"
-                                                            href="javascript: $('#deleteCategoryForm').submit();"><i
-                                                                class="icon-trash"></i></a>
-                                                    </form>
+                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white deleteRow"
+                                                        style="cursor: pointer;" data-id="{{id}}"><i
+                                                            class="icon-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="card no-b shadow">
+                            <div class="card-title">
+                                <h3>Sub Category</h3>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table table-hover " id="table2">
+                                        <thead>
+                                            <tr>
+                                                <td>Id</td>
+                                                <td>Name</td>
+                                                <td>CategoryId</td>
+                                                <td>Action</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each this.subCategories}}
+                                            <tr class="no-b">
+                                                <td>
+                                                    <h6>{{id}}</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>{{subCategoryName}}</h6>
+                                                </td>
+                                                <td>
+                                                    <h6>{{categoryId}}</h6>
+                                                </td>
+                                                <td class="d-flex">
+                                                    <a href="/category/editSubCategory/{{id}}"
+                                                        class="btn-fab btn-fab-sm btn-primary shadow text-white mr-1"><i
+                                                            class="icon-pencil"></i></a>
+                                                    <a class="btn-fab btn-fab-sm btn-danger shadow text-white deleteRow"
+                                                        style="cursor: pointer;" data-id="{{id}}"><i
+                                                            class="icon-trash"></i></a>
                                                 </td>
                                             </tr>
                                             {{/each}}
@@ -75,3 +123,52 @@
     </div>
     <div class="control-sidebar-bg shadow white fixed"></div>
 </div>
+<script>
+    $(document).ready(function () {
+        const table1 = $('#table1').DataTable({
+            "pagingType": "full_numbers",
+            "pageLength": 5,
+            "lengthChange": false
+        });
+
+        const table2 = $('#table2').DataTable({
+            "pagingType": "full_numbers",
+            "pageLength": 5,
+            "lengthChange": false
+        });
+
+        $('#table1 tbody').on('click', '.deleteRow', function () {
+            const id = $(this).data('id')
+            $.post(`/category/deleteCategory/${id}`).then((result) => {
+                if (result) {
+                    table1
+                        .row($(this).parents('tr'))
+                        .remove()
+                        .draw();
+                    var filteredData = table2
+                        .rows()
+                        .indexes()
+                        .filter(function (value, index) {
+                            return $(table2.row(value).data()[2])[0].innerHTML == id;
+                        });
+                    table2
+                        .row(filteredData)
+                        .remove()
+                        .draw();
+                }
+            })
+        })
+
+        $('#table2 tbody').on('click', '.deleteRow', function () {
+            const id = $(this).data('id')
+            $.post(`/category/deleteSubCategory/${id}`).then((result) => {
+                if (result) {
+                    table2
+                        .row($(this).parents('tr'))
+                        .remove()
+                        .draw();
+                }
+            })
+        })
+    });
+</script>

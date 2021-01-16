@@ -4,67 +4,68 @@
             <div class="container-fluid text-white">
                 <div class="row p-t-b-10 ">
                     <div class="col">
-                        <h4>
-                            <i class="icon-package"></i>
-                            Profile User
-                        </h4>
+                        <div class="pb-3">
+                            <div class="avatar-lg rounded mr-3  float-left">
+                                <img class="img-fluid no-b no-p" src="{{encodeMyString currentUser.userImage}}"
+                                    alt="User Image">
+                            </div>
+                            <div>
+                                <h6 class="p-t-10">{{currentUser.firstName}} {{currentUser.lastName}}</h6>
+                                {{currentUser.email}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </header>
+
         <div class="container-fluid animatedParent animateOnce my-3">
             <div class="animated fadeInUpShort">
                 <div class="tab-content" id="v-pills-tabContent">
-                    {{#with this.currentUser}}
                     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                         aria-labelledby="v-pills-home-tab">
                         <div class="row">
-                            <div class="col-md-8">
-                                <div class="card mt-3 mb-3">
-                                    <ul class="no-b">
-                                        <li class="list-group-item">
-                                            <a>
-                                                <div>
-                                                    <h2 class="p-t-10"><b>User Name:</b> {{username}}</h2>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
+                            <div class="col-md-4">
+                                <div class="card ">
 
-                                    <div class="card-header bg-white">
-                                        <strong class="card-title">Detail</strong>
-                                    </div>
-                                    <div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
-                                                <div class="mr-3">
-                                                    First Name: {{firstName}}
-                                                </div>
-                                                <div class="mr-3">
-                                                    Last Name: {{lastName}}
-                                                </div>
-                                                <div class="mr-3">
-                                                    Email: {{email}}
-                                                </div>
-                                                <div class="mr-3">
-                                                    Date of Birth: {{dob}}
-                                                </div>
-                                                <div class="mr-3">
-                                                    Permission: {{permission}}
-                                                </div>
-                                            </li>
-                                        </ul>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><i
+                                                class="icon icon-account_box text-warning"></i><strong
+                                                class="s-12">Username</strong> <span
+                                                class="float-right s-12">{{currentUser.username}}</span></li>
+                                        <li class="list-group-item"><i
+                                                class="icon icon-calendar text-primary"></i><strong class="s-12">Date
+                                                of birth</strong> <span
+                                                class="float-right s-12">{{date currentUser.dob}}</span></li>
+                                        <li class="list-group-item"><i class="icon icon-mobile text-primary"></i><strong
+                                                class="s-12">Phone</strong> <span
+                                                class="float-right s-12">{{currentUser.phoneNumber}}</span></li>
+                                        <li class="list-group-item"><i class="icon icon-mail text-success"></i><strong
+                                                class="s-12">Email</strong> <span
+                                                class="float-right s-12">{{currentUser.email}}</span></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card r-3">
+                                    <div class="p-4">
+                                        <div class="float-right">
+                                            <span class="icon-award text-light-blue s-48"></span>
+                                        </div>
+                                        <div class="counter-title">User Role</div>
+                                        <h5 class="mt-3">{{currentUser.permission}}</h5>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="card mt-4">
+                            <div class="col-md-4">
+                                <div class="card">
                                     <h6 class="card-header white">Action</h6>
                                     <div class="card-body text-success">
                                         <div class="table-responsive">
                                             <table class="table table-hover ">
                                                 <tr>
-                                                    <td><a href="/user/edit/{{id}}">Edit User</a></td>
+                                                    <td><a href="/user/edit/{{currentUser.id}}">Edit User</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td><a href="/user/changePassword">Change Password</a></td>
@@ -78,8 +79,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <h6 class="card-header white">Profile</h6>
+                                    {{#if currentUser.profile}}
+                                    <div class="card-body">
+                                        {{{currentUser.profile}}}
+                                    </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    {{/with}}
                 </div>
             </div>
         </div>

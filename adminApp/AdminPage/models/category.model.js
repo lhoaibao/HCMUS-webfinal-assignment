@@ -1,6 +1,7 @@
 const db = require('../utils/db');
 
 const TBL_CATEGORY = 'category';
+const TBL_SUBCATEGORY = 'subcategory';
 const TBL_COURSE = 'course';
 
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
     },
 
     async single(id) {
-        const rows = await db.load(`select * from ${TBL_CATEGORY} where id = ${id}`);
+        const rows = await db.load(`select * from ${TBL_CATEGORY} where id = '${id}'`);
         if (rows.length === 0)
             return null;
 
@@ -33,7 +34,7 @@ module.exports = {
     },
 
     async delete(id) {
-        const rows = await db.load(`select * from ${TBL_COURSE} where categoryId=${id}`);
+        const rows = await db.load(`select * from ${TBL_COURSE}, ${TBL_SUBCATEGORY} where subcategory.id ='${id}' and course.categoryId=subcategory.id`);
         if (rows.length === 0) {
             return db.del({ id: id }, TBL_CATEGORY)
         }

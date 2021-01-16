@@ -5,38 +5,14 @@
                 <div class="col">
                     <h4>
                         <i class="icon-package"></i>
-                        Categories
+                        Edit category
                     </h4>
                 </div>
-            </div>
-            <div class="row">
-                <ul class="nav responsive-tab nav-material nav-material-white">
-                    <li>
-                        <a class="nav-link" href="/category"><i class="icon icon-list"></i>All
-                            Categories</a>
-                    </li>
-                    <li>
-                        <a class="nav-link active" href="/category/add"><i class="icon icon-plus-circle"></i> Add New
-                            Category</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="/category/addSub"><i class="icon icon-plus-circle"></i> Add New
-                            Sub Category</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </header>
     <div class="container-fluid animatedParent animateOnce my-3">
         <div class="animated fadeInUpShort">
-            {{#if message}}
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                {{message}}
-            </div>
-            {{/if}}
             {{#if err_message}}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -45,23 +21,39 @@
                 {{err_message}}
             </div>
             {{/if}}
-            <form id="needs-validation" novalidate method="POST" action="/category/add">
+            {{#with subCategory}}
+            <form id="needs-validation" novalidate method="POST" action="/category/editSubCategory/{{id}}">
                 <div class="row">
                     <div class="col-md-8 ">
                         <div class="row">
                             <div class="col-md-12 mb-3">
-                                <label>Category Name</label>
-                                <input type="text" class="form-control" required name="categoryName">
+                                <label>Choose Category Name</label>
+                                <select class="form-select form-control r-0" name="categoryId" required>
+                                    {{#select categoryId}}
+                                        {{#each ../categories}}
+                                        <option value="{{id}}">{{categoryName}}</option>
+                                        {{/each}}
+                                    {{/select}}
+                                </select>
                                 <div class="invalid-feedback">
-                                    Please provide a Category Name.
+                                    Please provide a Category.
                                 </div>
                             </div>
                             <div class="col-md-12 mb-3">
-                                <label>Category Description</label>
-                                <input type="text" class="form-control" name="categoryDesc">
+                                <label>Sub Category Name</label>
+                                <input type="text" class="form-control" required name="subCategoryName"
+                                    value="{{subCategoryName}}">
+                                <div class="invalid-feedback">
+                                    Please provide a Sub Category Name.
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <label>Sub Category Description</label>
+                                <input type="text" class="form-control" name="subCategoryDesc" value="{{subCategoryDesc}}">
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="submit">Add</button>
+                        <button class="btn btn-primary" type="submit">Update</button>
+                        <a href="/category" class="btn btn-primary" type="submit">Back Category</a>
                         <script>
                             (function () {
                                 "use strict";
@@ -80,6 +72,7 @@
                     </div>
                 </div>
             </form>
+            {{/with}}
         </div>
     </div>
 </div>

@@ -12,7 +12,7 @@ module.exports = {
     },
 
     async single(id) {
-        const rows = await db.load(`select * from ${TBL_LESSON} where id = ${id}`);
+        const rows = await db.load(`select * from ${TBL_LESSON} where id = '${id}'`);
         if (rows.length === 0)
             return null;
 
@@ -20,6 +20,10 @@ module.exports = {
     },
 
     async update(id, entity) {
-        return db.patch(entity, {id: id}, TBL_LESSON);
+        return db.patch(entity, { id: id }, TBL_LESSON);
     },
+
+    async delete(id) {
+        return db.del({ id: id }, TBL_LESSON)
+    }
 };

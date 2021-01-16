@@ -22,20 +22,21 @@
                             <div class="col-md-8">
                                 <div class="card mt-3 mb-3">
                                     <ul class="no-b">
-                                        <li class="list-group-item">
-                                            <a>
-                                                <div>
-                                                    <img class="img-fluid"
-                                                        src="data:image/png;base64, {{encodeMyString courseImage}}">
-                                                </div>
-                                                <div>
-                                                    <h2 class="p-t-10"><b>Course Name:</b> {{courseName}}</h2>
-                                                    <h4><b>Status:</b> <span
-                                                            style="background-color: green; padding:5px; color:white; border-radius:10px">{{status}}</span>
-                                                    </h4>
-                                                    <h4><b>Short Description:</b> {{shortDesc}}</h4>
-                                                </div>
-                                            </a>
+                                        <li class="list-group-item d-flex">
+                                            <div>
+                                                <img class="img-fluid" style="height: 200px;"
+                                                    src="{{encodeMyString courseImage}}">
+                                            </div>
+                                            <div class="col-6">
+                                                <h2 class="p-t-10"><b>Course Name:</b> {{courseName}}</h2>
+                                                <h4><b>Status:</b> <span
+                                                        style="background-color: green; padding:5px; color:white; border-radius:10px">{{status}}</span>
+                                                </h4>
+                                                <h4><b>IsCompleted:</b> <span
+                                                        style="background-color: green; padding:5px; color:white; border-radius:10px">{{isCompleted}}</span>
+                                                </h4>
+                                                <h4><b>Short Description:</b> {{shortDesc}}</h4>
+                                            </div>
                                         </li>
                                     </ul>
 
@@ -48,7 +49,7 @@
                                                 <div class="mr-3">
                                                     Category
                                                 </div>
-                                                <h6 class="p-t-10">{{../category_name}}</h6>
+                                                <h6 class="p-t-10">{{../categoryName}}</h6>
                                             </li>
                                             {{#with ../author}}
                                             <li class="list-group-item">
@@ -73,6 +74,12 @@
                                                                 {{email}}
                                                             </div>
                                                         </h6>
+                                                        <h6 class="p-t-10 row">
+                                                            <div class="col">
+                                                                Profile:
+                                                            </div>
+                                                        </h6>
+                                                        {{{profile}}}
                                                     </div>
                                                 </div>
                                             </li>
@@ -135,20 +142,14 @@
                                             <div class="mb-3">
                                                 <div class="custom-control mb-3" style="padding-left: 0;">
                                                     <label>Status</label>
-                                                    <select class="custom-select form-control" required name="status">
+                                                    <select class="custom-select form-control" required
+                                                        name="isCompleted">
                                                         <option value="">Select Status</option>
-                                                        <option value="completed">completed</option>
-                                                        <option value="incompleted">incompleted</option>
+                                                        <option value="Completed">Completed</option>
+                                                        <option value="Incompleted">Incompleted</option>
                                                     </select>
                                                     <div class="invalid-feedback">Please choose status</div>
                                                 </div>
-                                            </div>
-                                            <div class="custom-control custom-checkbox mb-3">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="customControlValidation1" style="" required>
-                                                <label class="custom-control-label" for="customControlValidation1">Are
-                                                    you sure?</label>
-                                                <div class="invalid-feedback">Please confirm</div>
                                             </div>
                                         </div>
                                         <div class="card-footer bg-transparent">

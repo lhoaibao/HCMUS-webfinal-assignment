@@ -1,17 +1,21 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const moment = require('moment');
+const { v4: uuidv4 } = require('uuid');
 
 const categoryModel = require('../models/category.model');
+const subCategoryModel = require('../models/subCategory.model');
 const { route } = require('./lesson.route');
 
 const router = express.Router();
 
 router.get('/', async function (req, res) {
     const rows = await categoryModel.all()
+    const rows1 = await subCategoryModel.all()
     req.session.retUrl = req.originalUrl
     res.render('vwCategory/index', {
-        categorys: rows,
+        categories: rows,
+        subCategories: rows1,
         currentUser: req.session.authUser
     });
 })
@@ -30,6 +34,7 @@ router.post('/add', async function (req, res) {
         });
     }
     entity = {
+        id: uuidv4(),
         categoryName: req.body.categoryName,
         categoryDesc: req.body.categoryDesc
     }
@@ -40,16 +45,29 @@ router.post('/add', async function (req, res) {
     })
 })
 
-router.get('/detail/:id', async function (req, res) {
-    const row = await categoryModel.single(req.params.id)
-    req.session.retUrl = req.originalUrl
-    res.render('vwCategory/detail.hbs', {
-        category: row,
+router.get('/addSub', async function (req, res) {
+    const categories = await categoryModel.all()
+    res.render('vwCategory/addSub', {
+        categories: categories,
+        currentUser: req.session.authUser
+    });
+})
+
+router.post('/addSub', async function (req, res) {
+    entity = {
+        id: uuidv4(),
+        subCategoryName: req.body.subCategoryName,
+        subCategoryDesc: req.body.subCategoryDesc,
+        categoryId: req.body.categoryId
+    }
+    await subCategoryModel.add(entity);
+    return res.render('vwCategory/addSub', {
+        message: 'Add category success',
         currentUser: req.session.authUser
     })
 })
 
-router.get('/edit/:id', async function (req, res) {
+router.get('/editCategory/:id', async function (req, res) {
     const row = await categoryModel.single(req.params.id)
     res.render('vwCategory/edit.hbs', {
         category: row,
@@ -57,7 +75,7 @@ router.get('/edit/:id', async function (req, res) {
     })
 })
 
-router.post('/edit/:id', async function (req, res) {
+router.post('/editCategory/:id', async function (req, res) {
     id = req.params.id
     const row = await categoryModel.single(req.params.id)
     entity = {
@@ -65,17 +83,53 @@ router.post('/edit/:id', async function (req, res) {
         categoryDesc: req.body.categoryDesc
     }
     await categoryModel.update(id, entity);
-    return res.redirect('/category/detail/' + id)
+    return res.redirect('/category')
 })
 
-router.post('/delete/:id', async function (req, res) {
+router.get('/editSubCategory/:id', async function (req, res) {
+    const row = await subCategoryModel.single(req.params.id)
+    const categories = await categoryModel.all()
+    res.render('vwCategory/editSub.hbs', {
+        subCategory: row,
+        categories: categories,
+        currentUser: req.session.authUser
+    })
+})
+
+router.post('/editSubCategory/:id', async function (req, res) {
     id = req.params.id
-    const check = await categoryModel.delete(id)
+    entity = {
+        subCategoryName: req.body.subCategoryName,
+        subCategoryDesc: req.body.subCategoryDesc
+    }
+    await subCategoryModel.update(id, entity);
+    return res.redirect('/category')
+})
+
+
+router.post('/deleteSubCategory/:id', async function (req, res) {
+    id = req.params.id
+    const check = await subCategoryModel.delete(id)
     if (check) {
-        res.redirect('/category')
+        res.status(200).send(true)
     }
     else {
-        res.redirect(req.session.retUrl)
+        res.status(400).send(false)
+    }
+})
+
+router.post('/deleteCategory/:id', async function (req, res) {
+    id = req.params.id
+    try {
+        const check = await categoryModel.delete(id)
+        if (check) {
+            res.status(200).send(true)
+        }
+        else {
+            res.status(400).send(false)
+        }
+    } catch (err) {
+        console.log(err)
     }
 })
 
