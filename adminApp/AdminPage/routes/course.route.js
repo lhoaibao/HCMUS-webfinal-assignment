@@ -16,7 +16,12 @@ const router = express.Router();
 
 router.get('/', async function (req, res) {
   try {
-    const rows = await courseModel.all(`*, course.id as id`, `, subcategory, user where subcategory.id = course.categoryId and user.id=course.userId`)
+    let rows
+    if (req.session.authUser.permission == 'teacher') {
+      rows = await courseModel.all(`*, course.id as id`, `, subcategory, user where subcategory.id = course.categoryId and user.id=course.userId and course.userId='${req.session.authUser.id}'`)
+    } else {
+      rows = await courseModel.all(`*, course.id as id`, `, subcategory, user where subcategory.id = course.categoryId and user.id=course.userId`)
+    }
     req.session.retUrl = req.originalUrl
     res.render('vwCourse/index', {
       courses: rows,
