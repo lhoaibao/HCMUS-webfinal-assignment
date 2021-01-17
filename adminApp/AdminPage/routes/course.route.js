@@ -90,7 +90,6 @@ router.post('/add', upload.single('courseImage'), async function (req, res) {
     discountId: req.body.discountId,
     courseImage: image,
   }
-  fs.writeFileSync("resources/tmp/" + req.file.filename, image)
   await courseModel.add(entity);
   return res.render('vwCourse/add', {
     message: 'Add course success',

@@ -34,7 +34,7 @@ module.exports = {
     },
 
     async delete(id) {
-        const rows = await db.load(`select * from ${TBL_COURSE}, ${TBL_SUBCATEGORY} where subcategory.id ='${id}' and course.categoryId=subcategory.id`);
+        const rows = await db.load(`select * from ${TBL_COURSE}, ${TBL_SUBCATEGORY}, ${TBL_CATEGORY} where category.id ='${id}' and course.categoryId=subcategory.id and category.id=subcategory.categoryId`);
         if (rows.length === 0) {
             return db.del({ id: id }, TBL_CATEGORY)
         }
