@@ -171,6 +171,7 @@
 
         $('#table1 tbody').on('click', '.updateStatus', function () {
             const id = $(this).data('id')
+            console.log(1)
             $.post(`/user/status/${id}`).then(() => {
                 $(this).children('i').prop('class') == 'icon-lock' ? $(this).children('i').removeClass('icon-lock').addClass('icon-lock-open2') : $(this).children('i').removeClass('icon-lock-open2').addClass('icon-lock')
             })
@@ -186,17 +187,17 @@
             })
         })
 
-        $('#table1 tbody').on('click', '.updateStatus', function () {
+        $('#table2 tbody').on('click', '.updateStatus', function () {
             const id = $(this).data('id')
             $.post(`/user/status/${id}`).then(() => {
                 $(this).children('i').prop('class') == 'icon-lock' ? $(this).children('i').removeClass('icon-lock').addClass('icon-lock-open2') : $(this).children('i').removeClass('icon-lock-open2').addClass('icon-lock')
             })
         })
 
-        $('#table1 tbody').on('click', '.deleteRow', function () {
+        $('#table2 tbody').on('click', '.deleteRow', function () {
             const id = $(this).data('id')
             $.post(`/user/delete/${id}`).then(() => {
-                table1
+                table2
                     .row($(this).parents('tr'))
                     .remove()
                     .draw();
