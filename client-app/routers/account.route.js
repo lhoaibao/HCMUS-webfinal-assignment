@@ -110,7 +110,6 @@ router.post("/sign-in", async function (req, res) {
   req.session.authUser = user;
   req.session.avatar = avatar;
   req.session.isTeacher = isTeacher;
-
   let url = req.session.retUrl || "/";
   res.redirect(url);
 });
@@ -121,6 +120,7 @@ router.post("/log-out", (req, res) => {
   req.session.authUser = null;
   req.session.avatar = null;
   req.session.isTeacher = null;
+  req.session.cart = [];
   res.redirect(req.headers.referer);
 });
 module.exports = router;

@@ -27,6 +27,14 @@
             $.post(`/user/wishlist/add/${courseId}`);
 
         })
+
+
+        //Handle add to cart
+        $(".addToCart").on('click', function () {
+            let courseId = $(this).data('id');
+            $.post(`/cart/add/${courseId}`);
+            
+        })
     })
 
 
@@ -107,8 +115,8 @@
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <span href="" class="category">#{{catName}}</span>
                                                 {{#if ../authUser}}
-                                                <a style="cursor: pointer;" class="addwishlist text-danger" data-id='{{id}}'
-                                                    class="text-white"><i class="fa fa-heart"></i></a>
+                                                <a style="cursor: pointer;" class="addwishlist text-danger"
+                                                    data-id='{{id}}' class="text-white"><i class="fa fa-heart"></i></a>
                                                 {{/if}}
 
 
@@ -136,7 +144,8 @@
 
                                             {{!-- Add to cart --}}
                                             <div class="courses-link">
-                                                <button class="btn-outline-white mr-5">Add to cart</button>
+                                                <button class="btn-outline-white mr-5 addToCart" data-id="{{id}}">Add to
+                                                    cart</button>
                                                 <a class="more" href="detail/{{id}}">
                                                     <i class="fal fa-chevron-right"></i></a>
                                             </div>

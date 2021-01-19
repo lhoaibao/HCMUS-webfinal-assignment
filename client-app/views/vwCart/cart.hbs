@@ -2,9 +2,39 @@
     <div class="cart">
         <div class="cart-wrapper">
             <div class="row">
-                <div class="col-3 cart-checkout">
+                <div class="col-12 col-lg-3 cart-checkout">
                     <p>Total</p>
                     <p class="cart-checkout-total">$50.00</p>
+                </div>
+                <div class=" col-12 col-lg-9 cart-table">
+                    <ul>
+                        <li class="row">
+                            <div class="col-2"> <img src="images/user-avt.png" alt="" width="auto" height="80"></div>
+                            <div class="col-7">
+                                <div class="cart-info">
+                                    <p class="cart-info__course-name">Course name</p>
+                                    <p class="cart-info__desc">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                        Recusandae delectus vitae corrupti ullam dicta ipsam eveniet repudiandae
+                                        nesciunt
+                                        soluta temporibus?</p>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="cart-crud">
+                                    <a href="/cart/delete/{{cartId}}">Remove</a>
+                                    <a href="/user/wishlist/add/{{id}}">Move to list</a>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <div class="text-danger">$50</div>
+                            </div>
+
+
+
+
+                        </li>
+
+                    </ul>
                 </div>
             </div>
         </div>
